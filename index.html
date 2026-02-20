@@ -3,95 +3,651 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Garrettc123 | Developer & Automation Engineer</title>
+  <title>Garrett C | AI Enterprise Systems</title>
+  <meta name="description" content="AI enterprise systems architect building autonomous agent platforms, deployment automation, and decentralized verification systems." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #0d1117;
-      color: #e6edf3;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 2rem;
+    :root{
+      --bg0:#050812; --bg1:#0b1220; --card:#0f1927;
+      --border:#1b2a3b; --border2:#2a3f55;
+      --t0:#eaf2ff; --t1:#95a8c1; --t2:#57708a;
+      --b:#38bdf8; --g:#34d399; --p:#a78bfa; --o:#fb923c; --pk:#f472b6;
+      --glowB:rgba(56,189,248,.14); --glowG:rgba(52,211,153,.14); --glowP:rgba(167,139,250,.14);
     }
-    .container { max-width: 800px; }
-    h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, #58a6ff, #3fb950);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 1rem;
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background: radial-gradient(1200px 600px at 20% 10%, rgba(56,189,248,.08), transparent 60%),
+                  radial-gradient(900px 500px at 85% 15%, rgba(167,139,250,.08), transparent 60%),
+                  radial-gradient(900px 500px at 50% 85%, rgba(52,211,153,.06), transparent 60%),
+                  var(--bg0);
+      color:var(--t0);
+      overflow-x:hidden;
+      min-height:100vh;
     }
-    .subtitle {
-      font-size: 1.3rem;
-      color: #8b949e;
-      margin-bottom: 2rem;
+
+    #bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
+
+    nav{
+      position:fixed;top:0;left:0;right:0;z-index:100;
+      height:64px;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:0 1.4rem;
+      background:rgba(5,8,18,.75);
+      backdrop-filter: blur(18px);
+      border-bottom:1px solid var(--border);
     }
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      justify-content: center;
-      margin-bottom: 2.5rem;
+    .logo{
+      font-weight:900;letter-spacing:-.02em;font-size:1rem;
+      background:linear-gradient(135deg,var(--b),var(--g));
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
     }
-    .tag {
-      background: #161b22;
-      border: 1px solid #30363d;
-      color: #58a6ff;
-      padding: 0.4rem 1rem;
-      border-radius: 20px;
-      font-size: 0.9rem;
+    .navlinks{list-style:none;display:flex;gap:1.4rem}
+    .navlinks a{
+      text-decoration:none;color:var(--t1);
+      font-size:.85rem;font-weight:600;letter-spacing:.02em;
+      transition:color .2s;
     }
-    .links {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
+    .navlinks a:hover{color:var(--b)}
+    .cta{
+      text-decoration:none;
+      padding:.45rem 1.1rem;border-radius:10px;
+      font-weight:800;font-size:.85rem;color:#081018;
+      background:linear-gradient(135deg,var(--b),var(--p));
+      box-shadow:0 0 26px rgba(56,189,248,.22);
+      transition:transform .2s, opacity .2s;
+      white-space:nowrap;
     }
-    .btn {
-      padding: 0.7rem 1.8rem;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: opacity 0.2s;
+    .cta:hover{transform:translateY(-1px);opacity:.92}
+
+    .scrollbar{
+      position:fixed;top:64px;left:0;right:0;height:2px;z-index:99;
+      transform-origin:left;transform:scaleX(0);
+      background:linear-gradient(90deg,var(--b),var(--g),var(--p));
     }
-    .btn:hover { opacity: 0.8; }
-    .btn-primary { background: #238636; color: #fff; }
-    .btn-secondary { background: #21262d; color: #e6edf3; border: 1px solid #30363d; }
-    footer {
-      margin-top: 4rem;
-      color: #484f58;
-      font-size: 0.85rem;
+
+    section{position:relative;z-index:1;padding:6rem 1.4rem}
+    .container{max-width:1150px;margin:0 auto}
+
+    /* HERO */
+    #hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding-top:7.25rem}
+    .badge{
+      display:inline-flex;align-items:center;gap:.55rem;
+      padding:.35rem .9rem;border-radius:999px;
+      border:1px solid rgba(56,189,248,.25);
+      background:rgba(56,189,248,.08);
+      color:var(--b);
+      font-size:.76rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;
+      margin-bottom:1.3rem;
+    }
+    .dot{width:7px;height:7px;border-radius:50%;background:var(--g);box-shadow:0 0 16px rgba(52,211,153,.5)}
+    h1{
+      font-size:clamp(2.6rem,6.5vw,5rem);
+      line-height:1.03;letter-spacing:-.035em;
+      margin-bottom:1rem;font-weight:950;
+    }
+    .h1a{
+      display:block;
+      background:linear-gradient(135deg,#fff 0%, var(--b) 45%, var(--g) 100%);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+    }
+    .h1b{
+      display:block;
+      background:linear-gradient(135deg,var(--p) 0%, var(--pk) 55%, var(--o) 100%);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+    }
+    .sub{
+      max-width:820px;margin:0 auto 2.2rem;
+      color:var(--t1);font-size:clamp(1rem,2.2vw,1.2rem);
+      line-height:1.75;font-weight:500;
+    }
+    .metrics{
+      display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;
+      margin:1.8rem 0 2.2rem;
+    }
+    .m{
+      background:rgba(15,25,39,.9);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:1.05rem 1.35rem;
+      min-width:180px;
+      transition:transform .25s, border-color .25s;
+    }
+    .m:hover{transform:translateY(-3px);border-color:rgba(56,189,248,.55)}
+    .mv{
+      font-weight:950;font-size:1.9rem;letter-spacing:-.02em;
+      background:linear-gradient(135deg,var(--b),var(--g));
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+    }
+    .ml{
+      margin-top:.25rem;color:var(--t2);
+      font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:.12em;
+    }
+    .heroBtns{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap}
+    .btnA,.btnB{
+      display:inline-flex;align-items:center;gap:.55rem;
+      text-decoration:none;border-radius:12px;
+      padding:.85rem 1.55rem;
+      font-weight:900;
+      transition:transform .2s, box-shadow .2s, background .2s, border-color .2s;
+    }
+    .btnA{
+      color:#06101a;
+      background:linear-gradient(135deg,var(--b),var(--p));
+      box-shadow:0 0 34px rgba(56,189,248,.26);
+    }
+    .btnA:hover{transform:translateY(-2px);box-shadow:0 0 44px rgba(56,189,248,.42)}
+    .btnB{
+      color:var(--t0);
+      border:1px solid var(--border2);
+      background:rgba(6,10,18,.25);
+    }
+    .btnB:hover{border-color:rgba(56,189,248,.65);background:var(--glowB)}
+
+    /* SECTION HEADER */
+    .head{text-align:center;margin-bottom:3rem}
+    .k{
+      display:inline-block;color:var(--b);
+      font-size:.72rem;font-weight:950;letter-spacing:.14em;text-transform:uppercase;
+      margin-bottom:.75rem;
+    }
+    .t{
+      font-size:clamp(1.8rem,3.8vw,2.7rem);
+      font-weight:950;letter-spacing:-.02em;line-height:1.18;
+    }
+    .grad{
+      background:linear-gradient(135deg,var(--b),var(--g));
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+    }
+    .d{
+      max-width:720px;margin:1rem auto 0;color:var(--t1);
+      line-height:1.7;font-weight:500;font-size:1rem;
+    }
+
+    /* CARDS */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:1.2rem;
+    }
+    .card{
+      background:rgba(15,25,39,.92);
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:1.8rem;
+      position:relative;overflow:hidden;
+      transition:transform .25s,border-color .25s, box-shadow .25s;
+    }
+    .card:before{
+      content:"";
+      position:absolute;top:0;left:0;right:0;height:3px;
+      background:var(--bar,linear-gradient(90deg,var(--b),var(--g)));
+    }
+    .card:hover{
+      transform:translateY(-4px);
+      border-color:rgba(42,63,85,.9);
+      box-shadow:0 18px 60px rgba(0,0,0,.45);
+    }
+    .ico{font-size:2rem;margin-bottom:.9rem}
+    .h{font-weight:950;font-size:1.06rem;margin-bottom:.45rem}
+    .p{color:var(--t1);line-height:1.7;font-weight:500;font-size:.9rem;margin-bottom:1.1rem}
+    .tags{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:1rem}
+    .tag{
+      font-size:.72rem;font-weight:900;letter-spacing:.04em;
+      padding:.25rem .65rem;border-radius:999px;
+      border:1px solid rgba(56,189,248,.22);
+      color:var(--b);background:rgba(56,189,248,.07);
+    }
+    .tag.g{border-color:rgba(52,211,153,.22);color:var(--g);background:rgba(52,211,153,.07)}
+    .tag.p{border-color:rgba(167,139,250,.22);color:var(--p);background:rgba(167,139,250,.07)}
+    .tag.o{border-color:rgba(251,146,60,.22);color:var(--o);background:rgba(251,146,60,.07)}
+    .linkrow{display:flex;justify-content:space-between;align-items:center}
+    .pill{
+      font-weight:950;font-size:.78rem;color:var(--g);
+      display:inline-flex;align-items:center;gap:.35rem
+    }
+    .link{
+      font-weight:900;font-size:.8rem;color:var(--t2);
+      text-decoration:none;
+    }
+    .link:hover{color:var(--b)}
+
+    /* FEATURED PROJECTS */
+    .projGrid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(290px,1fr));
+      gap:1rem;
+    }
+    .proj{
+      display:block;text-decoration:none;color:inherit;
+      background:rgba(15,25,39,.92);
+      border:1px solid var(--border);
+      border-radius:14px;padding:1.4rem;
+      transition:transform .25s,border-color .25s, box-shadow .25s;
+    }
+    .proj:hover{transform:translateY(-3px);border-color:rgba(42,63,85,.9);box-shadow:0 14px 48px rgba(0,0,0,.42)}
+    .ph{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.7rem}
+    .lang{
+      font-family:"JetBrains Mono",monospace;
+      font-size:.72rem;font-weight:900;
+      padding:.2rem .55rem;border-radius:8px;
+      background:rgba(11,18,32,.9);
+      border:1px solid var(--border);
+      color:var(--t1);
+    }
+    .pn{font-weight:950;font-size:.95rem;margin-bottom:.45rem}
+    .pd{color:var(--t1);font-size:.82rem;line-height:1.6;font-weight:500;margin-bottom:.95rem}
+    .pf{display:flex;justify-content:space-between;color:var(--t2);font-size:.74rem;font-weight:800}
+
+    /* CONTACT */
+    .contact{
+      text-align:center;
+      background:rgba(15,25,39,.92);
+      border:1px solid var(--border);
+      border-radius:22px;
+      padding:3.4rem 2.2rem;
+    }
+    .contact h3{font-size:2rem;font-weight:950;letter-spacing:-.02em;margin-bottom:.8rem}
+    .contact p{color:var(--t1);line-height:1.7;font-weight:500;margin:0 auto 1.9rem;max-width:720px}
+    .cBtns{display:flex;justify-content:center;gap:.8rem;flex-wrap:wrap}
+    .cBtn{
+      display:inline-flex;align-items:center;gap:.55rem;
+      text-decoration:none;font-weight:950;
+      padding:.85rem 1.35rem;border-radius:12px;
+      border:1px solid var(--border2);
+      color:var(--t0);background:rgba(6,10,18,.18);
+      transition:background .2s,border-color .2s, transform .2s;
+    }
+    .cBtn:hover{transform:translateY(-1px);border-color:rgba(56,189,248,.65);background:var(--glowB)}
+    .cBtn.primary{border:none;color:#06101a;background:linear-gradient(135deg,var(--g),var(--b))}
+    .cBtn.primary:hover{background:linear-gradient(135deg,var(--g),var(--p))}
+
+    footer{
+      position:relative;z-index:1;
+      border-top:1px solid var(--border);
+      padding:2rem 1.4rem;
+      color:var(--t2);text-align:center;font-weight:700;font-size:.85rem
+    }
+    footer a{color:var(--b);text-decoration:none;font-weight:950}
+    footer a:hover{text-decoration:underline}
+
+    @media (max-width:760px){
+      .navlinks{display:none}
+      .m{min-width:160px}
     }
   </style>
 </head>
+
 <body>
-  <div class="container">
-    <h1>Garrettc123</h1>
-    <p class="subtitle">Software Developer &bull; Automation Engineer &bull; AI Builder</p>
-    <div class="tags">
-      <span class="tag">Python</span>
-      <span class="tag">Node.js</span>
-      <span class="tag">AWS</span>
-      <span class="tag">AI Agents</span>
-      <span class="tag">CI/CD</span>
-      <span class="tag">Docker</span>
-      <span class="tag">Kubernetes</span>
-      <span class="tag">Full-Stack</span>
+  <canvas id="bg-canvas"></canvas>
+  <div class="scrollbar" id="scrollbar"></div>
+
+  <nav>
+    <div class="logo">⬡ GARRETT C</div>
+    <ul class="navlinks">
+      <li><a href="#systems">Systems</a></li>
+      <li><a href="#featured">Featured</a></li>
+      <li><a href="#plans">Plans</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="cta" target="_blank" rel="noreferrer" href="https://github.com/Garrettc123">GitHub →</a>
+  </nav>
+
+  <section id="hero">
+    <div class="container" style="text-align:center">
+      <div class="badge"><span class="dot"></span> Enterprise pilots · Partnerships</div>
+
+      <h1>
+        <span class="h1a">AI Enterprise</span>
+        <span class="h1b">Systems Architect</span>
+      </h1>
+
+      <p class="sub">
+        I design and ship autonomous AI systems: multi-agent orchestration, CI/CD + IaC automation, and decentralized verification protocols.
+        This portfolio pulls live GitHub stats and highlights the systems that matter most for partnerships and business execution.
+      </p>
+
+      <div class="metrics">
+        <div class="m">
+          <div class="mv" id="repoCount">—</div>
+          <div class="ml">Public repositories</div>
+        </div>
+        <div class="m">
+          <div class="mv" id="followerCount">—</div>
+          <div class="ml">Followers</div>
+        </div>
+        <div class="m">
+          <div class="mv" id="systemFocus">AI • SaaS • Web3</div>
+          <div class="ml">Focus</div>
+        </div>
+        <div class="m">
+          <div class="mv" id="lastUpdated">Live</div>
+          <div class="ml">Data</div>
+        </div>
+      </div>
+
+      <div class="heroBtns">
+        <a class="btnA" href="#systems">View systems ↓</a>
+        <a class="btnB" target="_blank" rel="noreferrer" href="https://github.com/Garrettc123">Explore repos</a>
+      </div>
     </div>
-    <div class="links">
-      <a href="https://github.com/Garrettc123" class="btn btn-primary">GitHub Profile</a>
-      <a href="mailto:garrettc123@github.com" class="btn btn-secondary">Contact</a>
+  </section>
+
+  <section id="systems">
+    <div class="container">
+      <div class="head">
+        <div class="k">Core systems</div>
+        <div class="t">High‑leverage <span class="grad">assets</span></div>
+        <div class="d">These are the hubs and protocols that anchor the rest of the ecosystem. Each card links to a real repository.</div>
+      </div>
+
+      <div class="grid">
+        <div class="card" style="--bar:linear-gradient(90deg,var(--p),var(--pk))">
+          <div class="ico">🔗</div>
+          <div class="h">NWU Protocol</div>
+          <div class="p">A decentralized verification protocol concept for AI-powered truth validation + immutable audit trails. Built to evolve into a monetizable data/verification network.</div>
+          <div class="tags">
+            <span class="tag p">Blockchain</span>
+            <span class="tag p">Python</span>
+            <span class="tag">Verification</span>
+            <span class="tag">Protocol</span>
+          </div>
+          <div class="linkrow">
+            <div class="pill">● Flagship protocol</div>
+            <a class="link" target="_blank" rel="noreferrer" href="https://github.com/Garrettc123/nwu-protocol">View repo →</a>
+          </div>
+        </div>
+
+        <div class="card" style="--bar:linear-gradient(90deg,var(--b),var(--g))">
+          <div class="ico">🧠</div>
+          <div class="h">NEXUS Master Orchestration Hub</div>
+          <div class="p">Central orchestration hub for coordinating many subsystems. Designed for “one control-plane” operations across deployment, monitoring, and autonomous agents.</div>
+          <div class="tags">
+            <span class="tag">Shell</span>
+            <span class="tag g">DevOps</span>
+            <span class="tag">Orchestration</span>
+            <span class="tag g">Automation</span>
+          </div>
+          <div class="linkrow">
+            <div class="pill">● Control plane</div>
+            <a class="link" target="_blank" rel="noreferrer" href="https://github.com/Garrettc123/NEXUS-Master-Orchestration-Hub">View repo →</a>
+          </div>
+        </div>
+
+        <div class="card" style="--bar:linear-gradient(90deg,var(--g),var(--b))">
+          <div class="ico">🌳</div>
+          <div class="h">Tree of Life Core</div>
+          <div class="p">A consolidation-style core that aims to merge multiple systems into one cohesive runtime and architecture—built for expansion and modular growth.</div>
+          <div class="tags">
+            <span class="tag g">Python</span>
+            <span class="tag">Agents</span>
+            <span class="tag g">Architecture</span>
+            <span class="tag">Integration</span>
+          </div>
+          <div class="linkrow">
+            <div class="pill">● Unified core</div>
+            <a class="link" target="_blank" rel="noreferrer" href="https://github.com/Garrettc123/tree-of-life-core">View repo →</a>
+          </div>
+        </div>
+
+        <div class="card" style="--bar:linear-gradient(90deg,var(--o),var(--pk))">
+          <div class="ico">⚡</div>
+          <div class="h">Enterprise Unified Platform</div>
+          <div class="p">A multi-system integration platform concept for enterprise workflows: dashboards, analytics, and modular services designed for fast iteration and deployment.</div>
+          <div class="tags">
+            <span class="tag o">Full‑stack</span>
+            <span class="tag o">FastAPI</span>
+            <span class="tag">Analytics</span>
+            <span class="tag">Enterprise</span>
+          </div>
+          <div class="linkrow">
+            <div class="pill">● Platform hub</div>
+            <a class="link" target="_blank" rel="noreferrer" href="https://github.com/Garrettc123/enterprise-unified-platform">View repo →</a>
+          </div>
+        </div>
+
+        <div class="card" style="--bar:linear-gradient(90deg,var(--o),var(--g))">
+          <div class="ico">🤖</div>
+          <div class="h">Autonomous Butler Core</div>
+          <div class="p">Multi-agent ops automation: a framework-style repo for “always-on” support across engineering operations and system maintenance.</div>
+          <div class="tags">
+            <span class="tag">Shell</span>
+            <span class="tag o">Zero‑human</span>
+            <span class="tag">Ops agents</span>
+            <span class="tag g">Automation</span>
+          </div>
+          <div class="linkrow">
+            <div class="pill">● Ops automation</div>
+            <a class="link" target="_blank" rel="noreferrer" href="https://github.com/Garrettc123/autonomous-butler-core">View repo →</a>
+          </div>
+        </div>
+
+        <div class="card" style="--bar:linear-gradient(90deg,var(--b),var(--p))">
+          <div class="ico">🗂️</div>
+          <div class="h">Systems Master Hub</div>
+          <div class="p">A master index repo to keep the ecosystem organized: links, documentation, and a single place for partners to understand what exists.</div>
+          <div class="tags">
+            <span class="tag">Docs</span>
+            <span class="tag p">Hub</span>
+            <span class="tag">Architecture</span>
+            <span class="tag">Index</span>
+          </div>
+          <div class="linkrow">
+            <div class="pill">● Portfolio index</div>
+            <a class="link" target="_blank" rel="noreferrer" href="https://github.com/Garrettc123/systems-master-hub">View repo →</a>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <section id="featured">
+    <div class="container">
+      <div class="head">
+        <div class="k">Featured builds</div>
+        <div class="t">Deployable <span class="grad">products</span></div>
+        <div class="d">These are “product-shaped” systems that can be packaged as SaaS offerings or internal enterprise modules.</div>
+      </div>
+
+      <div class="projGrid">
+        <a class="proj" target="_blank" rel="noreferrer" href="https://github.com/Garrettc123/revenue-agent-system">
+          <div class="ph"><div style="font-size:1.35rem">💹</div><div class="lang">JavaScript</div></div>
+          <div class="pn">revenue-agent-system</div>
+          <div class="pd">Revenue automation system that centralizes workflows and decisioning into an operational runtime that can be expanded into a real product.</div>
+          <div class="pf"><span>Active build</span><span>→</span></div>
+        </a>
+
+        <a class="proj" target="_blank" rel="noreferrer" href="https://github.com/Garrettc123/zero-human-governance-core">
+          <div class="ph"><div style="font-size:1.35rem">🔐</div><div class="lang">Python</div></div>
+          <div class="pn">zero-human-governance-core</div>
+          <div class="pd">Governance + guardrail foundation for autonomous agent execution, approvals, and policy enforcement in enterprise environments.</div>
+          <div class="pf"><span>Security / Governance</span><span>→</span></div>
+        </a>
+
+        <a class="proj" target="_blank" rel="noreferrer" href="https://github.com/Garrettc123/asynchronous-automation-framework">
+          <div class="ph"><div style="font-size:1.35rem">⚙️</div><div class="lang">Python</div></div>
+          <div class="pn">asynchronous-automation-framework</div>
+          <div class="pd">Framework-style repo for asynchronous jobs, recovery, DAG workflows, and event-driven automation patterns.</div>
+          <div class="pf"><span>Automation framework</span><span>→</span></div>
+        </a>
+
+        <a class="proj" target="_blank" rel="noreferrer" href="https://github.com/Garrettc123/api-key-automaton">
+          <div class="ph"><div style="font-size:1.35rem">🔑</div><div class="lang">Python</div></div>
+          <div class="pn">api-key-automaton</div>
+          <div class="pd">Credential management automation for multi-service systems: rotation, allocation, and ops ergonomics.</div>
+          <div class="pf"><span>Platform utility</span><span>→</span></div>
+        </a>
+
+        <a class="proj" target="_blank" rel="noreferrer" href="https://github.com/Garrettc123/master-deployment-auto-deploy-revenue">
+          <div class="ph"><div style="font-size:1.35rem">🚀</div><div class="lang">Shell</div></div>
+          <div class="pn">master-deployment-auto-deploy-revenue</div>
+          <div class="pd">A deploy-first repo for automating deployment workflows across multiple systems—designed to evolve into one-command releases.</div>
+          <div class="pf"><span>Deploy ops</span><span>→</span></div>
+        </a>
+
+        <a class="proj" target="_blank" rel="noreferrer" href="https://github.com/Garrettc123/tree-of-life-system">
+          <div class="ph"><div style="font-size:1.35rem">🧬</div><div class="lang">JavaScript</div></div>
+          <div class="pn">tree-of-life-system</div>
+          <div class="pd">Integration-oriented repo intended to connect the ecosystem across tools and platforms as a single “business operating system.”</div>
+          <div class="pf"><span>Integration hub</span><span>→</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="plans">
+    <div class="container">
+      <div class="head">
+        <div class="k">Business plans</div>
+        <div class="t">Execution <span class="grad">assets</span></div>
+        <div class="d">
+          Add your Perplexity docs into this GitHub Pages repo under <code style="font-family:JetBrains Mono;background:rgba(11,18,32,.8);padding:.15rem .35rem;border:1px solid var(--border);border-radius:8px">/docs</code>
+          and link them here (roadmaps, business plans, pitch decks, runbooks).
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card" style="--bar:linear-gradient(90deg,var(--g),var(--b))">
+          <div class="ico">🧭</div>
+          <div class="h">Go-to-market roadmap</div>
+          <div class="p">A weekly execution plan: ship, measure, validate pricing, and convert early pilots into reference customers.</div>
+          <div class="tags"><span class="tag g">Sales</span><span class="tag">ICP</span><span class="tag">Pricing</span></div>
+          <div class="linkrow">
+            <div class="pill">● Add: /docs/roadmap.md</div>
+            <a class="link" href="#" onclick="alert('Create /docs/roadmap.md and link it here.');return false;">Add link →</a>
+          </div>
+        </div>
+
+        <div class="card" style="--bar:linear-gradient(90deg,var(--b),var(--p))">
+          <div class="ico">🧱</div>
+          <div class="h">Deployment & IaC runbook</div>
+          <div class="p">A repeatable deployment process: environments, monitoring, drift detection, health checks, and automated recovery.</div>
+          <div class="tags"><span class="tag">CI/CD</span><span class="tag p">IaC</span><span class="tag">Ops</span></div>
+          <div class="linkrow">
+            <div class="pill">● Add: /docs/runbook.md</div>
+            <a class="link" href="#" onclick="alert('Create /docs/runbook.md and link it here.');return false;">Add link →</a>
+          </div>
+        </div>
+
+        <div class="card" style="--bar:linear-gradient(90deg,var(--p),var(--pk))">
+          <div class="ico">📈</div>
+          <div class="h">Revenue model</div>
+          <div class="p">A compact unit-economics model: tiers, costs, CAC assumptions, and proof checkpoints (what must be true at each stage).</div>
+          <div class="tags"><span class="tag p">Finance</span><span class="tag">MRR</span><span class="tag">Unit economics</span></div>
+          <div class="linkrow">
+            <div class="pill">● Add: /docs/revenue-model.md</div>
+            <a class="link" href="#" onclick="alert('Create /docs/revenue-model.md and link it here.');return false;">Add link →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="contact">
+        <h3>Let’s build <span class="grad">together</span></h3>
+        <p>
+          If you’re a founder, investor, or enterprise team looking for a high-output engineering partner for AI agents, platform automation, or verification protocols,
+          I’m open to pilots and partnerships.
+        </p>
+        <div class="cBtns">
+          <a class="cBtn primary" target="_blank" rel="noreferrer" href="https://github.com/Garrettc123">⬡ GitHub</a>
+          <a class="cBtn" href="mailto:REPLACE_WITH_YOUR_EMAIL">✉️ Email</a>
+          <a class="cBtn" target="_blank" rel="noreferrer" href="https://github.com/Garrettc123/systems-master-hub">📁 Systems Hub</a>
+        </div>
+        <div style="margin-top:1.2rem;color:var(--t2);font-weight:800;font-size:.8rem">
+          Tip: Edit the email link above before publishing.
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer>
-    <p>Built with GitHub Pages &mdash; &copy; 2026 Garrettc123</p>
+    © 2026 Garrett C · Built on GitHub Pages · <a target="_blank" rel="noreferrer" href="https://github.com/Garrettc123">github.com/Garrettc123</a>
   </footer>
+
+  <script>
+    // Scroll bar
+    const bar = document.getElementById('scrollbar');
+    window.addEventListener('scroll', () => {
+      const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+      bar.style.transform = 'scaleX(' + Math.max(0, Math.min(1, pct)) + ')';
+    });
+
+    // Canvas particles
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+    let W, H, pts = [];
+    const colors = ['#38bdf8','#34d399','#a78bfa','#f472b6'];
+    function resize(){ W = canvas.width = innerWidth; H = canvas.height = innerHeight; }
+    addEventListener('resize', resize); resize();
+
+    class P{
+      constructor(){ this.reset(); }
+      reset(){
+        this.x = Math.random()*W; this.y = Math.random()*H;
+        this.vx = (Math.random()-.5)*0.35; this.vy = (Math.random()-.5)*0.35;
+        this.r = Math.random()*1.6+.5;
+        this.a = Math.random()*0.35+.06;
+        this.c = colors[(Math.random()*colors.length)|0];
+      }
+      step(){
+        this.x += this.vx; this.y += this.vy;
+        if(this.x<0||this.x>W||this.y<0||this.y>H) this.reset();
+      }
+      draw(){
+        ctx.beginPath();
+        ctx.arc(this.x,this.y,this.r,0,Math.PI*2);
+        ctx.globalAlpha = this.a;
+        ctx.fillStyle = this.c;
+        ctx.fill();
+        ctx.globalAlpha = 1;
+      }
+    }
+    for(let i=0;i<85;i++) pts.push(new P());
+    function connect(){
+      for(let i=0;i<pts.length;i++){
+        for(let j=i+1;j<pts.length;j++){
+          const dx=pts[i].x-pts[j].x, dy=pts[i].y-pts[j].y;
+          const d=Math.sqrt(dx*dx+dy*dy);
+          if(d<130){
+            ctx.beginPath();
+            ctx.moveTo(pts[i].x,pts[i].y);
+            ctx.lineTo(pts[j].x,pts[j].y);
+            ctx.strokeStyle = 'rgba(56,189,248,' + (0.09*(1-d/130)) + ')';
+            ctx.lineWidth = 0.6;
+            ctx.stroke();
+          }
+        }
+      }
+    }
+    (function loop(){
+      ctx.clearRect(0,0,W,H);
+      connect();
+      for(const p of pts){ p.step(); p.draw(); }
+      requestAnimationFrame(loop);
+    })();
+
+    // Live GitHub stats
+    async function loadStats(){
+      try{
+        const res = await fetch('https://api.github.com/users/Garrettc123', { headers: { 'Accept':'application/vnd.github+json' }});
+        if(!res.ok) throw new Error('GitHub API error');
+        const data = await res.json();
+        document.getElementById('repoCount').textContent = String(data.public_repos ?? '—');
+        document.getElementById('followerCount').textContent = String(data.followers ?? '—');
+        document.getElementById('lastUpdated').textContent = 'Live';
+      }catch(e){
+        document.getElementById('repoCount').textContent = '—';
+        document.getElementById('followerCount').textContent = '—';
+        document.getElementById('lastUpdated').textContent = '—';
+      }
+    }
+    loadStats();
+  </script>
 </body>
 </html>
