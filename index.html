@@ -7,15 +7,8 @@
   <meta name="description" content="AI enterprise systems architect building autonomous agent platforms, deployment automation, and decentralized verification systems." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-
   <style>
-    :root{
-      --bg0:#050812; --bg1:#0b1220; --card:#0f1927;
-      --border:#1b2a3b; --border2:#2a3f55;
-      --t0:#eaf2ff; --t1:#95a8c1; --t2:#57708a;
-      --b:#38bdf8; --g:#34d399; --p:#a78bfa; --o:#fb923c; --pk:#f472b6;
-      --glowB:rgba(56,189,248,.14); --glowG:rgba(52,211,153,.14); --glowP:rgba(167,139,250,.14);
-    }
+    :root{ --bg0:#050812; --bg1:#0b1220; --card:#0f1927; --border:#1b2a3b; --border2:#2a3f55; --t0:#eaf2ff; --t1:#95a8c1; --t2:#57708a; --b:#38bdf8; --g:#34d399; --p:#a78bfa; --o:#fb923c; --pk:#f472b6; --glowB:rgba(56,189,248,.14); --glowG:rgba(52,211,153,.14); --glowP:rgba(167,139,250,.14); }
     *{margin:0;padding:0;box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
@@ -28,9 +21,7 @@
       overflow-x:hidden;
       min-height:100vh;
     }
-
     #bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
-
     nav{
       position:fixed;top:0;left:0;right:0;z-index:100;
       height:64px;
@@ -62,16 +53,13 @@
       white-space:nowrap;
     }
     .cta:hover{transform:translateY(-1px);opacity:.92}
-
     .scrollbar{
       position:fixed;top:64px;left:0;right:0;height:2px;z-index:99;
       transform-origin:left;transform:scaleX(0);
       background:linear-gradient(90deg,var(--b),var(--g),var(--p));
     }
-
     section{position:relative;z-index:1;padding:6rem 1.4rem}
     .container{max-width:1150px;margin:0 auto}
-
     /* HERO */
     #hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding-top:7.25rem}
     .badge{
@@ -146,7 +134,6 @@
       background:rgba(6,10,18,.25);
     }
     .btnB:hover{border-color:rgba(56,189,248,.65);background:var(--glowB)}
-
     /* SECTION HEADER */
     .head{text-align:center;margin-bottom:3rem}
     .k{
@@ -166,7 +153,6 @@
       max-width:720px;margin:1rem auto 0;color:var(--t1);
       line-height:1.7;font-weight:500;font-size:1rem;
     }
-
     /* CARDS */
     .grid{
       display:grid;
@@ -214,7 +200,6 @@
       text-decoration:none;
     }
     .link:hover{color:var(--b)}
-
     /* FEATURED PROJECTS */
     .projGrid{
       display:grid;
@@ -241,7 +226,6 @@
     .pn{font-weight:950;font-size:.95rem;margin-bottom:.45rem}
     .pd{color:var(--t1);font-size:.82rem;line-height:1.6;font-weight:500;margin-bottom:.95rem}
     .pf{display:flex;justify-content:space-between;color:var(--t2);font-size:.74rem;font-weight:800}
-
     /* CONTACT */
     .contact{
       text-align:center;
@@ -264,7 +248,6 @@
     .cBtn:hover{transform:translateY(-1px);border-color:rgba(56,189,248,.65);background:var(--glowB)}
     .cBtn.primary{border:none;color:#06101a;background:linear-gradient(135deg,var(--g),var(--b))}
     .cBtn.primary:hover{background:linear-gradient(135deg,var(--g),var(--p))}
-
     footer{
       position:relative;z-index:1;
       border-top:1px solid var(--border);
@@ -273,14 +256,12 @@
     }
     footer a{color:var(--b);text-decoration:none;font-weight:950}
     footer a:hover{text-decoration:underline}
-
     @media (max-width:760px){
       .navlinks{display:none}
       .m{min-width:160px}
     }
   </style>
 </head>
-
 <body>
   <canvas id="bg-canvas"></canvas>
   <div class="scrollbar" id="scrollbar"></div>
@@ -293,23 +274,20 @@
       <li><a href="#plans">Plans</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <a class="cta" target="_blank" rel="noreferrer" href="https://github.com/Garrettc123">GitHub →</a>
+    <a href="https://github.com/Garrettc123" class="cta">GitHub →</a>
   </nav>
 
   <section id="hero">
     <div class="container" style="text-align:center">
-      <div class="badge"><span class="dot"></span> Enterprise pilots · Partnerships</div>
-
+      <div class="badge"><div class="dot"></div> Enterprise pilots · Partnerships</div>
       <h1>
         <span class="h1a">AI Enterprise</span>
         <span class="h1b">Systems Architect</span>
       </h1>
-
       <p class="sub">
-        I design and ship autonomous AI systems: multi-agent orchestration, CI/CD + IaC automation, and decentralized verification protocols.
-        This portfolio pulls live GitHub stats and highlights the systems that matter most for partnerships and business execution.
+        I design and ship autonomous AI systems: multi-agent orchestration, CI/CD + IaC automation, and decentralized verification protocols. This portfolio pulls live GitHub stats and highlights the systems that matter most for partnerships and business execution.
       </p>
-
+      
       <div class="metrics">
         <div class="m">
           <div class="mv" id="repoCount">—</div>
@@ -320,7 +298,7 @@
           <div class="ml">Followers</div>
         </div>
         <div class="m">
-          <div class="mv" id="systemFocus">AI • SaaS • Web3</div>
+          <div class="mv">AI • SaaS • Web3</div>
           <div class="ml">Focus</div>
         </div>
         <div class="m">
@@ -330,8 +308,8 @@
       </div>
 
       <div class="heroBtns">
-        <a class="btnA" href="#systems">View systems ↓</a>
-        <a class="btnB" target="_blank" rel="noreferrer" href="https://github.com/Garrettc123">Explore repos</a>
+        <a href="#systems" class="btnA">View systems ↓</a>
+        <a href="https://github.com/Garrettc123" class="btnB">Explore repos</a>
       </div>
     </div>
   </section>
@@ -340,104 +318,104 @@
     <div class="container">
       <div class="head">
         <div class="k">Core systems</div>
-        <div class="t">High‑leverage <span class="grad">assets</span></div>
-        <div class="d">These are the hubs and protocols that anchor the rest of the ecosystem. Each card links to a real repository.</div>
+        <h2 class="t">High‑leverage <span class="grad">assets</span></h2>
+        <p class="d">These are the hubs and protocols that anchor the rest of the ecosystem. Each card links to a real repository.</p>
       </div>
 
       <div class="grid">
-        <div class="card" style="--bar:linear-gradient(90deg,var(--p),var(--pk))">
+        <div class="card" style="--bar:linear-gradient(90deg,var(--pk),var(--p))">
           <div class="ico">🔗</div>
-          <div class="h">NWU Protocol</div>
-          <div class="p">A decentralized verification protocol concept for AI-powered truth validation + immutable audit trails. Built to evolve into a monetizable data/verification network.</div>
+          <h3 class="h">NWU Protocol</h3>
+          <p class="p">A decentralized verification protocol concept for AI-powered truth validation + immutable audit trails. Built to evolve into a monetizable data/verification network.</p>
           <div class="tags">
-            <span class="tag p">Blockchain</span>
-            <span class="tag p">Python</span>
-            <span class="tag">Verification</span>
-            <span class="tag">Protocol</span>
+            <span class="tag">Blockchain</span>
+            <span class="tag g">Python</span>
+            <span class="tag p">Verification</span>
+            <span class="tag o">Protocol</span>
           </div>
           <div class="linkrow">
             <div class="pill">● Flagship protocol</div>
-            <a class="link" target="_blank" rel="noreferrer" href="https://github.com/Garrettc123/nwu-protocol">View repo →</a>
+            <a href="https://github.com/Garrettc123/nwu-protocol" class="link">View repo →</a>
           </div>
         </div>
 
         <div class="card" style="--bar:linear-gradient(90deg,var(--b),var(--g))">
           <div class="ico">🧠</div>
-          <div class="h">NEXUS Master Orchestration Hub</div>
-          <div class="p">Central orchestration hub for coordinating many subsystems. Designed for “one control-plane” operations across deployment, monitoring, and autonomous agents.</div>
+          <h3 class="h">NEXUS Master Orchestration Hub</h3>
+          <p class="p">Central orchestration hub for coordinating many subsystems. Designed for “one control-plane” operations across deployment, monitoring, and autonomous agents.</p>
           <div class="tags">
             <span class="tag">Shell</span>
             <span class="tag g">DevOps</span>
-            <span class="tag">Orchestration</span>
-            <span class="tag g">Automation</span>
+            <span class="tag p">Orchestration</span>
+            <span class="tag o">Automation</span>
           </div>
           <div class="linkrow">
             <div class="pill">● Control plane</div>
-            <a class="link" target="_blank" rel="noreferrer" href="https://github.com/Garrettc123/NEXUS-Master-Orchestration-Hub">View repo →</a>
+            <a href="https://github.com/Garrettc123/NEXUS-Master-Orchestration-Hub" class="link">View repo →</a>
           </div>
         </div>
 
         <div class="card" style="--bar:linear-gradient(90deg,var(--g),var(--b))">
           <div class="ico">🌳</div>
-          <div class="h">Tree of Life Core</div>
-          <div class="p">A consolidation-style core that aims to merge multiple systems into one cohesive runtime and architecture—built for expansion and modular growth.</div>
+          <h3 class="h">Tree of Life Core</h3>
+          <p class="p">A consolidation-style core that aims to merge multiple systems into one cohesive runtime and architecture—built for expansion and modular growth.</p>
           <div class="tags">
             <span class="tag g">Python</span>
-            <span class="tag">Agents</span>
-            <span class="tag g">Architecture</span>
-            <span class="tag">Integration</span>
+            <span class="tag p">Agents</span>
+            <span class="tag">Architecture</span>
+            <span class="tag o">Integration</span>
           </div>
           <div class="linkrow">
             <div class="pill">● Unified core</div>
-            <a class="link" target="_blank" rel="noreferrer" href="https://github.com/Garrettc123/tree-of-life-core">View repo →</a>
+            <a href="https://github.com/Garrettc123/tree-of-life-core" class="link">View repo →</a>
           </div>
         </div>
 
         <div class="card" style="--bar:linear-gradient(90deg,var(--o),var(--pk))">
           <div class="ico">⚡</div>
-          <div class="h">Enterprise Unified Platform</div>
-          <div class="p">A multi-system integration platform concept for enterprise workflows: dashboards, analytics, and modular services designed for fast iteration and deployment.</div>
+          <h3 class="h">Enterprise Unified Platform</h3>
+          <p class="p">A multi-system integration platform concept for enterprise workflows: dashboards, analytics, and modular services designed for fast iteration and deployment.</p>
           <div class="tags">
-            <span class="tag o">Full‑stack</span>
-            <span class="tag o">FastAPI</span>
-            <span class="tag">Analytics</span>
+            <span class="tag p">Full‑stack</span>
+            <span class="tag g">FastAPI</span>
+            <span class="tag o">Analytics</span>
             <span class="tag">Enterprise</span>
           </div>
           <div class="linkrow">
             <div class="pill">● Platform hub</div>
-            <a class="link" target="_blank" rel="noreferrer" href="https://github.com/Garrettc123/enterprise-unified-platform">View repo →</a>
+            <a href="https://github.com/Garrettc123/enterprise-unified-platform" class="link">View repo →</a>
           </div>
         </div>
 
-        <div class="card" style="--bar:linear-gradient(90deg,var(--o),var(--g))">
+        <div class="card" style="--bar:linear-gradient(90deg,var(--p),var(--b))">
           <div class="ico">🤖</div>
-          <div class="h">Autonomous Butler Core</div>
-          <div class="p">Multi-agent ops automation: a framework-style repo for “always-on” support across engineering operations and system maintenance.</div>
+          <h3 class="h">Autonomous Butler Core</h3>
+          <p class="p">Multi-agent ops automation: a framework-style repo for “always-on” support across engineering operations and system maintenance.</p>
           <div class="tags">
             <span class="tag">Shell</span>
             <span class="tag o">Zero‑human</span>
-            <span class="tag">Ops agents</span>
-            <span class="tag g">Automation</span>
+            <span class="tag g">Ops agents</span>
+            <span class="tag p">Automation</span>
           </div>
           <div class="linkrow">
             <div class="pill">● Ops automation</div>
-            <a class="link" target="_blank" rel="noreferrer" href="https://github.com/Garrettc123/autonomous-butler-core">View repo →</a>
+            <a href="https://github.com/Garrettc123/autonomous-butler-core" class="link">View repo →</a>
           </div>
         </div>
 
         <div class="card" style="--bar:linear-gradient(90deg,var(--b),var(--p))">
           <div class="ico">🗂️</div>
-          <div class="h">Systems Master Hub</div>
-          <div class="p">A master index repo to keep the ecosystem organized: links, documentation, and a single place for partners to understand what exists.</div>
+          <h3 class="h">Systems Master Hub</h3>
+          <p class="p">A master index repo to keep the ecosystem organized: links, documentation, and a single place for partners to understand what exists.</p>
           <div class="tags">
-            <span class="tag">Docs</span>
-            <span class="tag p">Hub</span>
-            <span class="tag">Architecture</span>
-            <span class="tag">Index</span>
+            <span class="tag p">Docs</span>
+            <span class="tag">Hub</span>
+            <span class="tag o">Architecture</span>
+            <span class="tag g">Index</span>
           </div>
           <div class="linkrow">
             <div class="pill">● Portfolio index</div>
-            <a class="link" target="_blank" rel="noreferrer" href="https://github.com/Garrettc123/systems-master-hub">View repo →</a>
+            <a href="https://github.com/Garrettc123/systems-master-hub" class="link">View repo →</a>
           </div>
         </div>
       </div>
@@ -448,51 +426,87 @@
     <div class="container">
       <div class="head">
         <div class="k">Featured builds</div>
-        <div class="t">Deployable <span class="grad">products</span></div>
-        <div class="d">These are “product-shaped” systems that can be packaged as SaaS offerings or internal enterprise modules.</div>
+        <h2 class="t">Deployable <span class="grad">products</span></h2>
+        <p class="d">These are “product-shaped” systems that can be packaged as SaaS offerings or internal enterprise modules.</p>
       </div>
 
       <div class="projGrid">
-        <a class="proj" target="_blank" rel="noreferrer" href="https://github.com/Garrettc123/revenue-agent-system">
-          <div class="ph"><div style="font-size:1.35rem">💹</div><div class="lang">JavaScript</div></div>
-          <div class="pn">revenue-agent-system</div>
-          <div class="pd">Revenue automation system that centralizes workflows and decisioning into an operational runtime that can be expanded into a real product.</div>
-          <div class="pf"><span>Active build</span><span>→</span></div>
+        <a href="https://github.com/Garrettc123/revenue-agent-system" class="proj">
+          <div class="ph">
+            <div class="ico" style="margin:0">💹</div>
+            <div class="lang">JavaScript</div>
+          </div>
+          <h4 class="pn">revenue-agent-system</h4>
+          <p class="pd">Revenue automation system that centralizes workflows and decisioning into an operational runtime that can be expanded into a real product.</p>
+          <div class="pf">
+            <span>Active build</span>
+            <span>→</span>
+          </div>
         </a>
 
-        <a class="proj" target="_blank" rel="noreferrer" href="https://github.com/Garrettc123/zero-human-governance-core">
-          <div class="ph"><div style="font-size:1.35rem">🔐</div><div class="lang">Python</div></div>
-          <div class="pn">zero-human-governance-core</div>
-          <div class="pd">Governance + guardrail foundation for autonomous agent execution, approvals, and policy enforcement in enterprise environments.</div>
-          <div class="pf"><span>Security / Governance</span><span>→</span></div>
+        <a href="https://github.com/Garrettc123/zero-human-governance-core" class="proj">
+          <div class="ph">
+            <div class="ico" style="margin:0">🔐</div>
+            <div class="lang">Python</div>
+          </div>
+          <h4 class="pn">zero-human-governance-core</h4>
+          <p class="pd">Governance + guardrail foundation for autonomous agent execution, approvals, and policy enforcement in enterprise environments.</p>
+          <div class="pf">
+            <span>Security / Governance</span>
+            <span>→</span>
+          </div>
         </a>
 
-        <a class="proj" target="_blank" rel="noreferrer" href="https://github.com/Garrettc123/asynchronous-automation-framework">
-          <div class="ph"><div style="font-size:1.35rem">⚙️</div><div class="lang">Python</div></div>
-          <div class="pn">asynchronous-automation-framework</div>
-          <div class="pd">Framework-style repo for asynchronous jobs, recovery, DAG workflows, and event-driven automation patterns.</div>
-          <div class="pf"><span>Automation framework</span><span>→</span></div>
+        <a href="https://github.com/Garrettc123/asynchronous-automation-framework" class="proj">
+          <div class="ph">
+            <div class="ico" style="margin:0">⚙️</div>
+            <div class="lang">Python</div>
+          </div>
+          <h4 class="pn">asynchronous-automation-framework</h4>
+          <p class="pd">Framework-style repo for asynchronous jobs, recovery, DAG workflows, and event-driven automation patterns.</p>
+          <div class="pf">
+            <span>Automation framework</span>
+            <span>→</span>
+          </div>
         </a>
 
-        <a class="proj" target="_blank" rel="noreferrer" href="https://github.com/Garrettc123/api-key-automaton">
-          <div class="ph"><div style="font-size:1.35rem">🔑</div><div class="lang">Python</div></div>
-          <div class="pn">api-key-automaton</div>
-          <div class="pd">Credential management automation for multi-service systems: rotation, allocation, and ops ergonomics.</div>
-          <div class="pf"><span>Platform utility</span><span>→</span></div>
+        <a href="https://github.com/Garrettc123/api-key-automaton" class="proj">
+          <div class="ph">
+            <div class="ico" style="margin:0">🔑</div>
+            <div class="lang">Python</div>
+          </div>
+          <h4 class="pn">api-key-automaton</h4>
+          <p class="pd">Credential management automation for multi-service systems: rotation, allocation, and ops ergonomics.</p>
+          <div class="pf">
+            <span>Platform utility</span>
+            <span>→</span>
+          </div>
         </a>
 
-        <a class="proj" target="_blank" rel="noreferrer" href="https://github.com/Garrettc123/master-deployment-auto-deploy-revenue">
-          <div class="ph"><div style="font-size:1.35rem">🚀</div><div class="lang">Shell</div></div>
-          <div class="pn">master-deployment-auto-deploy-revenue</div>
-          <div class="pd">A deploy-first repo for automating deployment workflows across multiple systems—designed to evolve into one-command releases.</div>
-          <div class="pf"><span>Deploy ops</span><span>→</span></div>
+        <a href="https://github.com/Garrettc123/master-deployment-auto-deploy-revenue" class="proj">
+          <div class="ph">
+            <div class="ico" style="margin:0">🚀</div>
+            <div class="lang">Shell</div>
+          </div>
+          <h4 class="pn">master-deployment-auto-deploy-revenue</h4>
+          <p class="pd">A deploy-first repo for automating deployment workflows across multiple systems—designed to evolve into one-command releases.</p>
+          <div class="pf">
+            <span>Deploy ops</span>
+            <span>→</span>
+          </div>
         </a>
 
-        <a class="proj" target="_blank" rel="noreferrer" href="https://github.com/Garrettc123/tree-of-life-system">
-          <div class="ph"><div style="font-size:1.35rem">🧬</div><div class="lang">JavaScript</div></div>
-          <div class="pn">tree-of-life-system</div>
-          <div class="pd">Integration-oriented repo intended to connect the ecosystem across tools and platforms as a single “business operating system.”</div>
-          <div class="pf"><span>Integration hub</span><span>→</span></div>
+        <a href="https://github.com/Garrettc123/tree-of-life-system" class="proj">
+          <div class="ph">
+            <div class="ico" style="margin:0">🧬</div>
+            <div class="lang">JavaScript</div>
+          </div>
+          <h4 class="pn">tree-of-life-system</h4>
+          <p class="pd">Integration-oriented repo intended to connect the ecosystem across tools and platforms as a single “business operating system.”</p>
+          <div class="pf">
+            <span>Integration hub</span>
+            <span>→</span>
+          </div>
         </a>
       </div>
     </div>
@@ -502,44 +516,53 @@
     <div class="container">
       <div class="head">
         <div class="k">Business plans</div>
-        <div class="t">Execution <span class="grad">assets</span></div>
-        <div class="d">
-          Add your Perplexity docs into this GitHub Pages repo under <code style="font-family:JetBrains Mono;background:rgba(11,18,32,.8);padding:.15rem .35rem;border:1px solid var(--border);border-radius:8px">/docs</code>
-          and link them here (roadmaps, business plans, pitch decks, runbooks).
-        </div>
+        <h2 class="t">Execution <span class="grad">assets</span></h2>
+        <p class="d">Roadmaps, technical documentation, and strategic assets for ecosystem expansion and enterprise partnership.</p>
       </div>
 
       <div class="grid">
-        <div class="card" style="--bar:linear-gradient(90deg,var(--g),var(--b))">
+        <div class="card" style="--bar:var(--g)">
           <div class="ico">🧭</div>
-          <div class="h">Go-to-market roadmap</div>
-          <div class="p">A weekly execution plan: ship, measure, validate pricing, and convert early pilots into reference customers.</div>
-          <div class="tags"><span class="tag g">Sales</span><span class="tag">ICP</span><span class="tag">Pricing</span></div>
+          <h3 class="h">Go-to-market roadmap</h3>
+          <p class="p">A weekly execution plan: ship, measure, validate pricing, and convert early pilots into reference customers.</p>
+          <div class="tags">
+            <span class="tag">Sales</span>
+            <span class="tag g">ICP</span>
+            <span class="tag o">Pricing</span>
+          </div>
           <div class="linkrow">
-            <div class="pill">● Add: /docs/roadmap.md</div>
-            <a class="link" href="#" onclick="alert('Create /docs/roadmap.md and link it here.');return false;">Add link →</a>
+            <div class="pill">Strategic Document</div>
+            <a href="https://github.com/Garrettc123/systems-master-hub/blob/main/docs/roadmap.md" class="link">View docs →</a>
           </div>
         </div>
 
-        <div class="card" style="--bar:linear-gradient(90deg,var(--b),var(--p))">
+        <div class="card" style="--bar:var(--b)">
           <div class="ico">🧱</div>
-          <div class="h">Deployment & IaC runbook</div>
-          <div class="p">A repeatable deployment process: environments, monitoring, drift detection, health checks, and automated recovery.</div>
-          <div class="tags"><span class="tag">CI/CD</span><span class="tag p">IaC</span><span class="tag">Ops</span></div>
+          <h3 class="h">Deployment & IaC runbook</h3>
+          <p class="p">A repeatable deployment process: environments, monitoring, drift detection, health checks, and automated recovery.</p>
+          <div class="tags">
+            <span class="tag">CI/CD</span>
+            <span class="tag p">IaC</span>
+            <span class="tag o">Ops</span>
+          </div>
           <div class="linkrow">
-            <div class="pill">● Add: /docs/runbook.md</div>
-            <a class="link" href="#" onclick="alert('Create /docs/runbook.md and link it here.');return false;">Add link →</a>
+            <div class="pill">Technical Runbook</div>
+            <a href="https://github.com/Garrettc123/systems-master-hub/blob/main/docs/runbook.md" class="link">View docs →</a>
           </div>
         </div>
 
-        <div class="card" style="--bar:linear-gradient(90deg,var(--p),var(--pk))">
+        <div class="card" style="--bar:var(--o)">
           <div class="ico">📈</div>
-          <div class="h">Revenue model</div>
-          <div class="p">A compact unit-economics model: tiers, costs, CAC assumptions, and proof checkpoints (what must be true at each stage).</div>
-          <div class="tags"><span class="tag p">Finance</span><span class="tag">MRR</span><span class="tag">Unit economics</span></div>
+          <h3 class="h">Revenue model</h3>
+          <p class="p">A compact unit-economics model: tiers, costs, CAC assumptions, and proof checkpoints (what must be true at each stage).</p>
+          <div class="tags">
+            <span class="tag">Finance</span>
+            <span class="tag g">MRR</span>
+            <span class="tag p">Unit economics</span>
+          </div>
           <div class="linkrow">
-            <div class="pill">● Add: /docs/revenue-model.md</div>
-            <a class="link" href="#" onclick="alert('Create /docs/revenue-model.md and link it here.');return false;">Add link →</a>
+            <div class="pill">Financial Model</div>
+            <a href="https://github.com/Garrettc123/systems-master-hub/blob/main/docs/revenue-model.md" class="link">View docs →</a>
           </div>
         </div>
       </div>
@@ -549,25 +572,20 @@
   <section id="contact">
     <div class="container">
       <div class="contact">
-        <h3>Let’s build <span class="grad">together</span></h3>
-        <p>
-          If you’re a founder, investor, or enterprise team looking for a high-output engineering partner for AI agents, platform automation, or verification protocols,
-          I’m open to pilots and partnerships.
-        </p>
+        <div class="k">Let's build</div>
+        <h3>Together</h3>
+        <p>If you’re a founder, investor, or enterprise team looking for a high-output engineering partner for AI agents, platform automation, or verification protocols, I’m open to pilots and partnerships.</p>
         <div class="cBtns">
-          <a class="cBtn primary" target="_blank" rel="noreferrer" href="https://github.com/Garrettc123">⬡ GitHub</a>
-          <a class="cBtn" href="mailto:REPLACE_WITH_YOUR_EMAIL">✉️ Email</a>
-          <a class="cBtn" target="_blank" rel="noreferrer" href="https://github.com/Garrettc123/systems-master-hub">📁 Systems Hub</a>
-        </div>
-        <div style="margin-top:1.2rem;color:var(--t2);font-weight:800;font-size:.8rem">
-          Tip: Edit the email link above before publishing.
+          <a href="https://github.com/Garrettc123" class="cBtn">⬡ GitHub</a>
+          <a href="mailto:garrettcarrol@gmail.com" class="cBtn primary">✉️ Email</a>
+          <a href="https://github.com/Garrettc123/systems-master-hub" class="cBtn">📁 Systems Hub</a>
         </div>
       </div>
     </div>
   </section>
 
   <footer>
-    © 2026 Garrett C · Built on GitHub Pages · <a target="_blank" rel="noreferrer" href="https://github.com/Garrettc123">github.com/Garrettc123</a>
+    <p>© 2026 Garrett C · Built on GitHub Pages · <a href="https://github.com/Garrettc123">github.com/Garrettc123</a></p>
   </footer>
 
   <script>
@@ -583,14 +601,20 @@
     const ctx = canvas.getContext('2d');
     let W, H, pts = [];
     const colors = ['#38bdf8','#34d399','#a78bfa','#f472b6'];
-    function resize(){ W = canvas.width = innerWidth; H = canvas.height = innerHeight; }
-    addEventListener('resize', resize); resize();
+    function resize(){
+      W = canvas.width = innerWidth;
+      H = canvas.height = innerHeight;
+    }
+    addEventListener('resize', resize);
+    resize();
 
     class P{
       constructor(){ this.reset(); }
       reset(){
-        this.x = Math.random()*W; this.y = Math.random()*H;
-        this.vx = (Math.random()-.5)*0.35; this.vy = (Math.random()-.5)*0.35;
+        this.x = Math.random()*W;
+        this.y = Math.random()*H;
+        this.vx = (Math.random()-.5)*0.35;
+        this.vy = (Math.random()-.5)*0.35;
         this.r = Math.random()*1.6+.5;
         this.a = Math.random()*0.35+.06;
         this.c = colors[(Math.random()*colors.length)|0];
@@ -600,31 +624,28 @@
         if(this.x<0||this.x>W||this.y<0||this.y>H) this.reset();
       }
       draw(){
-        ctx.beginPath();
-        ctx.arc(this.x,this.y,this.r,0,Math.PI*2);
-        ctx.globalAlpha = this.a;
-        ctx.fillStyle = this.c;
-        ctx.fill();
+        ctx.beginPath(); ctx.arc(this.x,this.y,this.r,0,Math.PI*2);
+        ctx.globalAlpha = this.a; ctx.fillStyle = this.c; ctx.fill();
         ctx.globalAlpha = 1;
       }
     }
     for(let i=0;i<85;i++) pts.push(new P());
+
     function connect(){
       for(let i=0;i<pts.length;i++){
         for(let j=i+1;j<pts.length;j++){
           const dx=pts[i].x-pts[j].x, dy=pts[i].y-pts[j].y;
           const d=Math.sqrt(dx*dx+dy*dy);
           if(d<130){
-            ctx.beginPath();
-            ctx.moveTo(pts[i].x,pts[i].y);
+            ctx.beginPath(); ctx.moveTo(pts[i].x,pts[i].y);
             ctx.lineTo(pts[j].x,pts[j].y);
             ctx.strokeStyle = 'rgba(56,189,248,' + (0.09*(1-d/130)) + ')';
-            ctx.lineWidth = 0.6;
-            ctx.stroke();
+            ctx.lineWidth = 0.6; ctx.stroke();
           }
         }
       }
     }
+
     (function loop(){
       ctx.clearRect(0,0,W,H);
       connect();
@@ -635,7 +656,9 @@
     // Live GitHub stats
     async function loadStats(){
       try{
-        const res = await fetch('https://api.github.com/users/Garrettc123', { headers: { 'Accept':'application/vnd.github+json' }});
+        const res = await fetch('https://api.github.com/users/Garrettc123', {
+          headers: { 'Accept':'application/vnd.github+json' }
+        });
         if(!res.ok) throw new Error('GitHub API error');
         const data = await res.json();
         document.getElementById('repoCount').textContent = String(data.public_repos ?? '—');
