@@ -1,0 +1,105 @@
+name: Update Repository Status
+
+on:
+  schedule:
+    - cron: '0 * * * *'   # every hour
+  workflow_dispatch:        # allow manual trigger
+
+permissions:
+  contents: write
+
+jobs:
+  update-status:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fetch GitHub repo statuses
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          OWNER="Garrettc123"
+          REPOS=(
+            "garcar-enterprise-production"
+            "nwu-protocol"
+            "revenue-agent-system"
+            "tree-of-life-system"
+            "mars-production"
+            "apex-revenue-system"
+            "APEX-Universal-AI-Operating-System"
+            "autonomous-orchestrator-core"
+            "enterprise-mlops-platform"
+            "Garrettc123.github.io"
+          )
+
+          DISPLAY_NAMES=(
+            "GarCar Enterprise Production"
+            "NWU Protocol"
+            "Revenue Agent System"
+            "Tree of Life System"
+            "MARS Production"
+            "APEX Revenue System"
+            "APEX Universal AI OS"
+            "Autonomous Orchestrator Core"
+            "Enterprise MLOps Platform"
+            "Portfolio Dashboard"
+          )
+
+          DESCRIPTIONS=(
+            "Enterprise-grade autonomous vehicle management platform"
+            "Neural workflow unification protocol for distributed AI agents"
+            "Autonomous revenue generation and optimization engine"
+            "Hierarchical AI decision orchestration framework"
+            "Multi-Agent Revenue System — production deployment"
+            "Apex-tier autonomous revenue maximization platform"
+            "Universal AI operating system with full autonomy stack"
+            "Core orchestration engine for autonomous AI pipelines"
+            "Full-lifecycle ML operations platform for enterprise AI"
+            "This enterprise dashboard — always online"
+          )
+
+          NOW=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          JSON="{\"updated\":\"$NOW\",\"repos\":["
+
+          for i in "${!REPOS[@]}"; do
+            REPO="${REPOS[$i]}"
+            DISPLAY="${DISPLAY_NAMES[$i]}"
+            DESC="${DESCRIPTIONS[$i]}"
+            URL="https://github.com/$OWNER/$REPO"
+
+            # Query GitHub API; treat any HTTP success as active, 404 as inactive
+            HTTP_CODE=$(curl -s -o /tmp/repo_response.json -w "%{http_code}" \
+              -H "Authorization: Bearer $GH_TOKEN" \
+              -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/$OWNER/$REPO")
+
+            if [ "$HTTP_CODE" = "200" ]; then
+              STARS=$(jq '.stargazers_count // 0' /tmp/repo_response.json 2>/dev/null || echo "0")
+              STATUS="active"
+            else
+              STARS="0"
+              STATUS="inactive"
+            fi
+
+            [ $i -gt 0 ] && JSON="$JSON,"
+            JSON="$JSON{\"name\":\"$REPO\",\"display\":\"$DISPLAY\",\"description\":\"$DESC\",\"status\":\"$STATUS\",\"stars\":$STARS,\"url\":\"$URL\"}"
+          done
+
+          JSON="$JSON]}"
+
+          echo "$JSON" | python3 -m json.tool > status.json
+          echo "status.json updated at $NOW"
+
+      - name: Commit updated status
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add status.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: update repository status [skip ci]"
+            git push
+          fi
