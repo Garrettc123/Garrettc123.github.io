@@ -1,0 +1,85 @@
+{
+  "updated": "2026-03-14T19:38:00Z",
+  "repos": [
+    {
+      "name": "garcar-enterprise-production",
+      "display": "GarCar Enterprise Production",
+      "description": "Enterprise-grade autonomous vehicle management platform",
+      "status": "active",
+      "stars": 0,
+      "url": "https://github.com/Garrettc123/garcar-enterprise-production"
+    },
+    {
+      "name": "nwu-protocol",
+      "display": "NWU Protocol",
+      "description": "Neural workflow unification protocol for distributed AI agents",
+      "status": "active",
+      "stars": 0,
+      "url": "https://github.com/Garrettc123/nwu-protocol"
+    },
+    {
+      "name": "revenue-agent-system",
+      "display": "Revenue Agent System",
+      "description": "Autonomous revenue generation and optimization engine",
+      "status": "active",
+      "stars": 0,
+      "url": "https://github.com/Garrettc123/revenue-agent-system"
+    },
+    {
+      "name": "tree-of-life-system",
+      "display": "Tree of Life System",
+      "description": "Hierarchical AI decision orchestration framework",
+      "status": "active",
+      "stars": 0,
+      "url": "https://github.com/Garrettc123/tree-of-life-system"
+    },
+    {
+      "name": "mars-production",
+      "display": "MARS Production",
+      "description": "Multi-Agent Revenue System — production deployment",
+      "status": "active",
+      "stars": 0,
+      "url": "https://github.com/Garrettc123/mars-production"
+    },
+    {
+      "name": "apex-revenue-system",
+      "display": "APEX Revenue System",
+      "description": "Apex-tier autonomous revenue maximization platform",
+      "status": "active",
+      "stars": 0,
+      "url": "https://github.com/Garrettc123/apex-revenue-system"
+    },
+    {
+      "name": "APEX-Universal-AI-Operating-System",
+      "display": "APEX Universal AI OS",
+      "description": "Universal AI operating system with full autonomy stack",
+      "status": "active",
+      "stars": 0,
+      "url": "https://github.com/Garrettc123/APEX-Universal-AI-Operating-System"
+    },
+    {
+      "name": "autonomous-orchestrator-core",
+      "display": "Autonomous Orchestrator Core",
+      "description": "Core orchestration engine for autonomous AI pipelines",
+      "status": "active",
+      "stars": 0,
+      "url": "https://github.com/Garrettc123/autonomous-orchestrator-core"
+    },
+    {
+      "name": "enterprise-mlops-platform",
+      "display": "Enterprise MLOps Platform",
+      "description": "Full-lifecycle ML operations platform for enterprise AI",
+      "status": "active",
+      "stars": 0,
+      "url": "https://github.com/Garrettc123/enterprise-mlops-platform"
+    },
+    {
+      "name": "Garrettc123.github.io",
+      "display": "Portfolio Dashboard",
+      "description": "This enterprise dashboard — always online",
+      "status": "active",
+      "stars": 0,
+      "url": "https://github.com/Garrettc123/Garrettc123.github.io"
+    }
+  ]
+}
