@@ -1,781 +1,2034 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Master Control MLOps — Garcar Enterprise</title>
-  <meta name="description" content="Enterprise MLOps lifecycle management. Experiment tracking, model versioning, A/B testing, GPU optimization. Deploy ML models 50x faster." />
+  <title>Garcar Enterprise — AI Revenue Empire</title>
+  <meta name="description" content="9 AI Products. 1 Empire. $155K/mo target. Garcar Enterprise — Making Money While You Sleep." />
+  <meta name="theme-color" content="#080b0f" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ═══════════════════════════════════════════════════════════
+       GARCAR ENTERPRISE — GITHUB PAGES WAR ROOM
+       Full cinematic dark command center · Single file
+    ═══════════════════════════════════════════════════════════ */
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --emerald: #00ff88;
+      --teal:    #00e5d0;
+      --cyan:    #00cfff;
+      --gold:    #f5c518;
+      --red:     #ff3b5c;
+      --purple:  #9b59b6;
+      --bg:      #080b0f;
+      --surface: #0d1117;
+      --card:    #131c24;
+      --border:  rgba(0,255,136,0.12);
+      --text:    #e2eff8;
+      --text2:   #8aaec8;
+      --text3:   #3d5a70;
+      --font:    'Inter', sans-serif;
+      --display: 'Syne', 'Inter', sans-serif;
+      --mono:    'DM Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--surface); }
+    ::-webkit-scrollbar-thumb { background: rgba(0,255,136,0.2); border-radius: 3px; }
+
+    /* ── KEYFRAMES ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes float1 {
+      0%,100% { transform: translate(0,0) scale(1); }
+      33%  { transform: translate(60px,-80px) scale(1.1); }
+      66%  { transform: translate(-40px,40px) scale(0.95); }
+    }
+    @keyframes float2 {
+      0%,100% { transform: translate(0,0) scale(1); }
+      40%  { transform: translate(-80px,60px) scale(1.08); }
+      70%  { transform: translate(50px,-30px) scale(0.97); }
+    }
+    @keyframes float3 {
+      0%,100% { transform: translate(0,0) scale(1); }
+      30%  { transform: translate(40px,80px) scale(1.05); }
+      60%  { transform: translate(-60px,-50px) scale(1.12); }
+    }
+    @keyframes statusPulse {
+      0%,100% { box-shadow: 0 0 0 0 rgba(0,255,136,0.6); }
+      50%  { box-shadow: 0 0 0 7px rgba(0,255,136,0); }
+    }
+    @keyframes shimmer {
+      0%   { transform: translateX(-100%) skewX(-12deg); }
+      100% { transform: translateX(300%) skewX(-12deg); }
+    }
+    @keyframes hexPulse {
+      0%,100% { filter: drop-shadow(0 0 8px rgba(0,255,136,0.5)); }
+      50%  { filter: drop-shadow(0 0 28px rgba(0,255,136,0.9)); }
+    }
+    @keyframes barFill {
+      from { width: 0; }
+    }
+    @keyframes scanline {
+      0%   { background-position: 0 0; }
+      100% { background-position: 0 100%; }
+    }
+    @keyframes blink {
+      0%,49% { opacity: 1; }
+      50%,100% { opacity: 0; }
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    @keyframes revealIn {
+      from { opacity:0; transform: translateY(20px); }
+      to   { opacity:1; transform: translateY(0); }
+    }
+    @keyframes dotPulse {
+      0%,100% { opacity:0.3; }
+      50%  { opacity:0.7; }
+    }
+    @keyframes glow {
+      0%,100% { box-shadow: 0 0 0 1px rgba(0,255,136,0.15), 0 4px 24px rgba(0,0,0,0.5); }
+      50%  { box-shadow: 0 0 0 1px rgba(0,255,136,0.3), 0 8px 40px rgba(0,255,136,0.08); }
+    }
+    @keyframes counterFlip {
+      from { transform: translateY(-6px); opacity: 0; }
+      to   { transform: translateY(0); opacity: 1; }
+    }
+
+    /* ── STATUS BAR ── */
+    .status-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      height: 44px;
+      background: rgba(8,11,15,0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0,255,136,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      gap: 16px;
+    }
+
+    .status-bar__left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .status-bar__logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--display);
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+
+    .status-bar__logo svg {
+      animation: hexPulse 3s ease-in-out infinite;
+    }
+
+    .status-bar__nav {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .status-bar__nav a {
+      color: var(--text3);
+      text-decoration: none;
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 6px;
+      transition: all 0.2s;
+      letter-spacing: 0.04em;
+    }
+
+    .status-bar__nav a:hover {
+      color: var(--text);
+      background: rgba(0,255,136,0.06);
+    }
+
+    .status-bar__right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .status-indicator {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      color: var(--emerald);
+      text-transform: uppercase;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--emerald);
+      animation: statusPulse 1.6s ease-in-out infinite;
+    }
+
+    .status-dot.warn { background: var(--gold); animation: none; }
+    .status-dot.off  { background: var(--red);  animation: none; }
+
+    .clock {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--emerald);
+      letter-spacing: 0.1em;
+      opacity: 0.8;
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--text2);
+      border-radius: 1px;
+      transition: all 0.2s;
+    }
+
+    /* Mobile nav */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 44px;
+      left: 0;
+      right: 0;
+      z-index: 199;
+      background: rgba(8,11,15,0.97);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      flex-direction: column;
+      padding: 12px;
+      gap: 2px;
+    }
+
+    .mobile-nav.open { display: flex; }
+
+    .mobile-nav a {
+      padding: 10px 14px;
+      color: var(--text2);
+      text-decoration: none;
+      font-size: 0.85rem;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+
+    .mobile-nav a:hover {
+      background: rgba(0,255,136,0.06);
+      color: var(--emerald);
+    }
+
+    /* ── WRAPPER ── */
+    .wrapper {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* ── SECTION HEADER ── */
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text3);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(0,255,136,0.1);
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: rgba(13,17,23,0.8);
+      backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid rgba(0,255,136,0.12);
+      border-radius: 14px;
+      box-shadow: 0 0 0 1px rgba(0,255,136,0.05), 0 4px 24px rgba(0,0,0,0.5);
+      overflow: hidden;
+      position: relative;
+      transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0,255,136,0.3), rgba(0,229,208,0.2), transparent);
+    }
+
+    .card:hover {
+      border-color: rgba(0,255,136,0.25);
+      transform: translateY(-4px);
+      box-shadow: 0 0 0 1px rgba(0,255,136,0.2), 0 12px 48px rgba(0,0,0,0.6), 0 0 60px rgba(0,255,136,0.06);
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    /* ── BADGE ── */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 10px;
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .badge.live    { color: var(--emerald); background: rgba(0,255,136,0.1); border: 1px solid rgba(0,255,136,0.25); }
+    .badge.building { color: var(--gold);   background: rgba(245,197,24,0.1); border: 1px solid rgba(245,197,24,0.25); }
+    .badge.info    { color: var(--cyan);    background: rgba(0,207,255,0.1);  border: 1px solid rgba(0,207,255,0.25); }
+    .badge.dot::before {
+      content: '';
+      display: inline-block;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: currentColor;
+      animation: statusPulse 1.6s ease-in-out infinite;
+    }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 22px;
+      font-family: var(--display);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      white-space: nowrap;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.25s ease;
+    }
+
+    .btn::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 60%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+      transform: translateX(-100%) skewX(-12deg);
+    }
+
+    .btn:hover::after { animation: shimmer 0.6s ease forwards; }
+
+    .btn-primary {
+      background: linear-gradient(135deg, rgba(0,255,136,0.9), rgba(0,229,208,0.8));
+      color: #040a06;
+      box-shadow: 0 0 0 1px rgba(0,255,136,0.4), 0 4px 16px rgba(0,255,136,0.2);
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #00ff88, #00e5d0);
+      transform: translateY(-2px);
+      box-shadow: 0 0 0 1px rgba(0,255,136,0.6), 0 8px 32px rgba(0,255,136,0.3);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text2);
+      border: 1px solid rgba(0,255,136,0.15);
+    }
+    .btn-ghost:hover {
+      color: var(--emerald);
+      background: rgba(0,255,136,0.06);
+      border-color: rgba(0,255,136,0.3);
+    }
+
+    /* ── REVEAL ANIMATION ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ════════════════════════════════════════════════════════════
+       HERO SECTION
+    ════════════════════════════════════════════════════════════ */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 32px 80px;
+      overflow: hidden;
+    }
+
+    /* Particle canvas */
+    #particle-canvas {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Scanline overlay */
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background-image: repeating-linear-gradient(
+        0deg, transparent, transparent 2px,
+        rgba(0,255,136,0.012) 2px, rgba(0,255,136,0.012) 4px
+      );
+      background-size: 100% 4px;
+      animation: scanline 20s linear infinite;
+    }
+
+    /* Ambient orbs */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+      filter: blur(100px);
+    }
+    .orb-1 {
+      width: 700px; height: 700px;
+      top: -200px; left: -200px;
+      background: radial-gradient(circle, rgba(0,255,136,0.2), transparent 70%);
+      animation: float1 35s ease-in-out infinite;
+    }
+    .orb-2 {
+      width: 600px; height: 600px;
+      bottom: -150px; right: -200px;
+      background: radial-gradient(circle, rgba(0,207,255,0.15), transparent 70%);
+      animation: float2 28s ease-in-out infinite;
+    }
+    .orb-3 {
+      width: 400px; height: 400px;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(0,229,208,0.1), transparent 70%);
+      animation: float3 42s ease-in-out infinite;
+    }
+
+    /* Grid overlay */
+    #hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image: radial-gradient(circle, rgba(0,255,136,0.2) 1px, transparent 1px);
+      background-size: 40px 40px;
+      animation: dotPulse 3s ease-in-out infinite;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 5;
+      max-width: 900px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 24px;
+      padding: 5px 14px;
+      background: rgba(0,255,136,0.08);
+      border: 1px solid rgba(0,255,136,0.2);
+      border-radius: 999px;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      color: var(--emerald);
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-family: var(--display);
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 0.95;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #ffffff 0%, var(--emerald) 40%, var(--teal) 70%, var(--cyan) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: var(--text);
+    }
+
+    .hero-sub {
+      font-family: var(--display);
+      font-size: clamp(1.1rem, 3vw, 1.8rem);
+      font-weight: 700;
+      color: var(--text2);
+      margin-bottom: 32px;
+      letter-spacing: 0.02em;
+    }
+
+    /* Typewriter */
+    .typewriter {
+      font-family: var(--mono);
+      font-size: 1.05rem;
+      color: var(--emerald);
+      min-height: 1.5em;
+      letter-spacing: 0.04em;
+    }
+
+    .typewriter-cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1em;
+      background: var(--emerald);
+      vertical-align: middle;
+      margin-left: 2px;
+      animation: blink 1s step-end infinite;
+    }
+
+    .hero-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stats {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 56px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stat {
+      text-align: center;
+    }
+
+    .hero-stat__num {
+      font-family: var(--display);
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--emerald);
+      display: block;
+    }
+
+    .hero-stat__label {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--text3);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    /* ════════════════════════════════════════════════════════════
+       PRODUCTS GRID — 3×3
+    ════════════════════════════════════════════════════════════ */
+    #products {
+      padding: 96px 0;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 32px;
+    }
+
+    .product-card {
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-card__accent {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--emerald), var(--teal));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .product-card:hover .product-card__accent { opacity: 1; }
+
+    .product-card__status {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .product-card__icon {
+      width: 38px; height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      background: rgba(0,255,136,0.08);
+      border: 1px solid rgba(0,255,136,0.15);
+    }
+
+    .product-card__name {
+      font-family: var(--display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+      line-height: 1.2;
+    }
+
+    .product-card__desc {
+      font-size: 0.78rem;
+      color: var(--text2);
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+
+    .product-card__pricing {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .price-pill {
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--emerald);
+      background: rgba(0,255,136,0.08);
+      border: 1px solid rgba(0,255,136,0.15);
+    }
+
+    .product-card__link {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--teal);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+
+    .product-card__link:hover { opacity: 1; }
+
+    /* ════════════════════════════════════════════════════════════
+       REVENUE PIPELINE
+    ════════════════════════════════════════════════════════════ */
+    #pipeline {
+      padding: 96px 0;
+    }
+
+    .pipeline-bar-wrap {
+      margin: 28px 0 16px;
+    }
+
+    .pipeline-bar {
+      display: flex;
+      height: 48px;
+      border-radius: 10px;
+      overflow: hidden;
+      gap: 2px;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .pipe-seg {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: rgba(0,0,0,0.7);
+      overflow: hidden;
+      white-space: nowrap;
+      width: 0%;
+      transition: width 1.6s cubic-bezier(0.4,0,0.2,1) 0.6s;
+      position: relative;
+    }
+
+    .pipe-seg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(0,0,0,0.08), rgba(255,255,255,0.08));
+    }
+
+    .pipe-seg.nwu     { background: linear-gradient(135deg,#00ff88,#00cc6a); }
+    .pipe-seg.suite   { background: linear-gradient(135deg,#00e5d0,#00cfff); }
+    .pipe-seg.churn   { background: linear-gradient(135deg,#9b59b6,#6c3483); color:rgba(255,255,255,0.8); }
+    .pipe-seg.deal    { background: linear-gradient(135deg,#f5c518,#c49b12); }
+    .pipe-seg.content { background: linear-gradient(135deg,#ff6b35,#e74c3c); color:rgba(255,255,255,0.8); }
+    .pipe-seg.other   { background: linear-gradient(135deg,#3d5a70,#253647); color:rgba(255,255,255,0.5); }
+
+    .pipeline-legend {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--text2);
+    }
+
+    .legend-dot {
+      width: 10px; height: 10px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+
+    .mrr-progress-wrap {
+      margin-top: 28px;
+    }
+
+    .mrr-progress-labels {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .mrr-progress-labels span {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--text3);
+    }
+
+    .progress-track {
+      height: 8px;
+      background: rgba(0,255,136,0.08);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--emerald), var(--teal));
+      width: 0%;
+      transition: width 1.8s cubic-bezier(0.4,0,0.2,1) 0.8s;
+      box-shadow: 0 0 12px rgba(0,255,136,0.4);
+    }
+
+    /* ════════════════════════════════════════════════════════════
+       VERCEL LIVE APPS
+    ════════════════════════════════════════════════════════════ */
+    #apps {
+      padding: 96px 0;
+    }
+
+    .apps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 32px;
+    }
+
+    .app-card {
+      padding: 22px;
+    }
+
+    .app-card__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .app-card__name {
+      font-family: var(--display);
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .app-card__url {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--text3);
+      word-break: break-all;
+      margin-bottom: 14px;
+    }
+
+    /* ════════════════════════════════════════════════════════════
+       ARCHITECTURE FLOWCHART
+    ════════════════════════════════════════════════════════════ */
+    #architecture {
+      padding: 96px 0;
+    }
+
+    .arch-flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      flex-wrap: wrap;
+      margin-top: 40px;
+      padding: 40px;
+      background: rgba(13,17,23,0.6);
+      border: 1px solid rgba(0,255,136,0.12);
+      border-radius: 18px;
+    }
+
+    .arch-node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 18px 20px;
+      background: rgba(0,255,136,0.05);
+      border: 1px solid rgba(0,255,136,0.15);
+      border-radius: 12px;
+      min-width: 120px;
+      text-align: center;
+      transition: all 0.25s;
+      cursor: default;
+    }
+
+    .arch-node:hover {
+      background: rgba(0,255,136,0.1);
+      border-color: rgba(0,255,136,0.35);
+      transform: translateY(-3px);
+      box-shadow: 0 0 24px rgba(0,255,136,0.12);
+    }
+
+    .arch-node__icon { font-size: 1.6rem; }
+
+    .arch-node__label {
+      font-family: var(--display);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .arch-node__sub {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: var(--text3);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .arch-arrow {
+      display: flex;
+      align-items: center;
+      padding: 0 8px;
+      color: var(--emerald);
+      font-size: 1.3rem;
+      opacity: 0.5;
+      flex-shrink: 0;
+    }
+
+    /* ════════════════════════════════════════════════════════════
+       GITHUB REPOS
+    ════════════════════════════════════════════════════════════ */
+    #repos {
+      padding: 96px 0;
+    }
+
+    .repos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .repo-card {
+      padding: 18px 20px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .repo-card:hover {
+      text-decoration: none;
+    }
+
+    .repo-card__name {
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      color: var(--emerald);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .repo-card__desc {
+      font-size: 0.75rem;
+      color: var(--text2);
+      line-height: 1.5;
+    }
+
+    .repo-card__meta {
+      display: flex;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .repo-meta-item {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--text3);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* ════════════════════════════════════════════════════════════
+       CTA SECTION
+    ════════════════════════════════════════════════════════════ */
+    #cta {
+      padding: 96px 0 120px;
+      text-align: center;
+    }
+
+    .cta-box {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 60px 48px;
+      background: rgba(13,17,23,0.8);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(0,255,136,0.15);
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--emerald), var(--teal), transparent);
+    }
+
+    .cta-box::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,255,136,0.06), transparent 60%);
+      pointer-events: none;
+    }
+
+    .cta-title {
+      font-family: var(--display);
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-sub {
+      font-size: 0.9rem;
+      color: var(--text2);
+      margin-bottom: 28px;
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-form {
+      display: flex;
+      gap: 10px;
+      position: relative;
+      z-index: 1;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .cta-input {
+      flex: 1;
+      min-width: 200px;
+      padding: 10px 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(0,255,136,0.2);
+      border-radius: 10px;
+      font-size: 0.85rem;
+      color: var(--text);
+      font-family: var(--font);
+      outline: none;
+      transition: all 0.2s;
+    }
+
+    .cta-input:focus {
+      border-color: rgba(0,255,136,0.4);
+      background: rgba(255,255,255,0.06);
+      box-shadow: 0 0 0 3px rgba(0,255,136,0.08);
+    }
+
+    .cta-input::placeholder { color: var(--text3); }
+
+    /* ════════════════════════════════════════════════════════════
+       FOOTER
+    ════════════════════════════════════════════════════════════ */
+    footer {
+      border-top: 1px solid rgba(0,255,136,0.08);
+      padding: 32px;
+      text-align: center;
+    }
+
+    footer p {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--text3);
+      letter-spacing: 0.06em;
+    }
+
+    footer a {
+      color: var(--emerald);
+      text-decoration: none;
+    }
+
+    /* ════════════════════════════════════════════════════════════
+       RESPONSIVE
+    ════════════════════════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+      .apps-grid     { grid-template-columns: repeat(2, 1fr); }
+      .repos-grid    { grid-template-columns: repeat(2, 1fr); }
+      .arch-flow     { padding: 24px 16px; gap: 4px; }
+      .arch-arrow    { font-size: 1rem; }
+    }
+
+    @media (max-width: 768px) {
+      .status-bar__nav { display: none; }
+      .hamburger { display: flex; }
+      .wrapper { padding: 0 16px; }
+      .products-grid, .apps-grid, .repos-grid { grid-template-columns: 1fr; }
+      .arch-flow { flex-direction: column; }
+      .arch-arrow { transform: rotate(90deg); }
+      #hero { padding: 100px 16px 60px; }
+      .hero-stats { gap: 24px; }
+      .cta-box { padding: 36px 24px; }
+    }
+
+    @media (max-width: 480px) {
+      .status-bar { padding: 0 16px; }
+      .hero-title { letter-spacing: -0.02em; }
+      .hero-cta { flex-direction: column; align-items: stretch; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header class="header" id="site-header">
-    <div class="container header__inner">
-      <a href="#" class="logo">
-        <span class="logo__icon">⬡</span>
-        <span class="logo__text">Master Control <span class="logo__sub">MLOps</span></span>
-      </a>
-      <nav class="nav" aria-label="Primary">
-        <a href="#platform" class="nav__link">Platform</a>
-        <a href="#architecture" class="nav__link">Architecture</a>
-        <a href="#features" class="nav__link">Features</a>
-        <a href="#metrics" class="nav__link">Metrics</a>
-        <a href="#stack" class="nav__link">Stack</a>
-        <a href="#products" class="nav__link">Pricing</a>
-        <a href="#saas" class="nav__link">SaaS</a>
-        <a href="#pipeline" class="nav__link">Revenue</a>
-        <a href="https://github.com/Garrettc123/enterprise-mlops-platform" target="_blank" rel="noopener" class="btn btn--ghost btn--sm">GitHub →</a>
-      </nav>
-      <button class="mobile-menu-btn" data-mobile-menu-btn aria-label="Open menu" aria-expanded="false">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
-    </div>
-  </header>
-
-  <nav class="mobile-nav" id="mobile-nav">
-    <a href="#platform" class="mobile-nav__link">Platform</a>
-    <a href="#architecture" class="mobile-nav__link">Architecture</a>
-    <a href="#features" class="mobile-nav__link">Features</a>
-    <a href="#metrics" class="mobile-nav__link">Metrics</a>
-    <a href="#stack" class="mobile-nav__link">Stack</a>
-    <a href="#products" class="mobile-nav__link">Pricing</a>
-    <a href="#saas" class="mobile-nav__link">SaaS</a>
-    <a href="#pipeline" class="mobile-nav__link">Revenue</a>
-    <a href="https://github.com/Garrettc123/enterprise-mlops-platform" target="_blank" rel="noopener" class="mobile-nav__link mobile-nav__link--cta">View on GitHub →</a>
-  </nav>
-
-  <!-- HERO -->
-  <section class="hero" id="platform">
-    <div class="hero__bg">
-      <div class="hero__grid"></div>
-      <div class="hero__glow hero__glow--1"></div>
-      <div class="hero__glow hero__glow--2"></div>
-    </div>
-    <div class="container hero__inner">
-      <div class="badge reveal">
-        <span class="badge__dot"></span>
-        <span>Garcar Enterprise · MLOps Control Layer</span>
-      </div>
-      <h1 class="hero__title reveal">
-        Master Control<br />
-        <span class="gradient-text">MLOps Platform</span>
-      </h1>
-      <p class="hero__sub reveal">
-        Complete ML lifecycle management — experiment tracking, model versioning,
-        A/B testing, and GPU cluster optimization. Deploy models
-        <strong>50× faster</strong> with 99.9% uptime SLA.
-      </p>
-      <div class="hero__actions reveal">
-        <a href="https://github.com/Garrettc123/enterprise-mlops-platform" target="_blank" rel="noopener" class="btn btn--primary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12Z"/></svg>
-          View Repository
-        </a>
-        <a href="#architecture" class="btn btn--outline">Explore Architecture</a>
-      </div>
-      <div class="hero__stats reveal-stagger">
-        <div class="stat">
-          <span class="stat__value counter" data-target="50">0</span><span class="stat__unit">×</span>
-          <span class="stat__label">Faster Deployment</span>
-        </div>
-        <div class="stat__divider"></div>
-        <div class="stat">
-          <span class="stat__value counter" data-target="99.9">0</span><span class="stat__unit">%</span>
-          <span class="stat__label">Uptime SLA</span>
-        </div>
-        <div class="stat__divider"></div>
-        <div class="stat">
-          <span class="stat__value counter" data-target="332">0</span><span class="stat__unit">+</span>
-          <span class="stat__label">Systems Unified</span>
-        </div>
-        <div class="stat__divider"></div>
-        <div class="stat">
-          <span class="stat__value">A/B</span>
-          <span class="stat__label">Live Testing</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- LIVE STATUS BAR -->
+  <!-- ═══════════════════════════════════════════════════════
+       EMPIRE STATUS BAR (Fixed Top)
+  ═══════════════════════════════════════════════════════ -->
   <div class="status-bar">
-    <div class="container status-bar__inner">
-      <div class="status-item">
-        <span class="status-dot status-dot--green"></span>
-        <span>CI/CD Pipeline</span>
-        <span class="status-tag">ACTIVE</span>
-      </div>
-      <div class="status-item">
-        <span class="status-dot status-dot--green"></span>
-        <span>Experiment Tracker</span>
-        <span class="status-tag">RUNNING</span>
-      </div>
-      <div class="status-item">
-        <span class="status-dot status-dot--yellow"></span>
-        <span>Foundation</span>
-        <span class="status-tag">35%</span>
-      </div>
-      <div class="status-item">
-        <span class="status-dot status-dot--green"></span>
-        <span>Model Registry</span>
-        <span class="status-tag">ONLINE</span>
-      </div>
-      <div class="status-item">
-        <span class="status-dot status-dot--green"></span>
-        <span>Auto-Retraining</span>
-        <span class="status-tag">SCHEDULED</span>
-      </div>
+    <div class="status-bar__left">
+      <a href="#hero" class="status-bar__logo">
+        <svg width="22" height="22" viewBox="0 0 52 52" fill="none" aria-label="Garcar Logo">
+          <polygon points="26,3 48,14.5 48,37.5 26,49 4,37.5 4,14.5" stroke="#00ff88" stroke-width="1.5" fill="rgba(0,255,136,0.06)"/>
+          <polygon points="26,10 40,18 40,34 26,42 12,34 12,18" stroke="#00e5d0" stroke-width="0.8" fill="none" opacity="0.7"/>
+          <text x="26" y="32" text-anchor="middle" font-family="'Syne', sans-serif" font-weight="800" font-size="17" fill="#00ff88">G</text>
+        </svg>
+        GARCAR
+      </a>
+      <nav class="status-bar__nav">
+        <a href="#products">Products</a>
+        <a href="#pipeline">Pipeline</a>
+        <a href="#apps">Live Apps</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#repos">GitHub</a>
+        <a href="#cta">Join</a>
+      </nav>
     </div>
+    <div class="status-bar__right">
+      <div class="status-indicator">
+        <span class="status-dot" id="sys-dot"></span>
+        <span id="sys-text">ALL SYSTEMS OPERATIONAL</span>
+      </div>
+      <span>|</span>
+      <span class="status-indicator">
+        9 PRODUCTS
+      </span>
+      <span class="clock" id="main-clock">00:00:00</span>
+    </div>
+    <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 
-  <!-- PIPELINE / ARCHITECTURE -->
-  <section class="section" id="architecture">
-    <div class="container">
-      <div class="section__header reveal">
-        <span class="eyebrow">Architecture</span>
-        <h2 class="section__title">End-to-End ML Pipeline</h2>
-        <p class="section__desc">Four-stage autonomous lifecycle from raw data to production-monitored model — zero manual handoff.</p>
-      </div>
-      <div class="pipeline reveal">
-        <div class="pipeline__stage">
-          <div class="pipeline__icon pipeline__icon--1">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3zM9 3v18M15 3v18M3 9h18M3 15h18"/></svg>
-          </div>
-          <div class="pipeline__content">
-            <span class="pipeline__label">Stage 01</span>
-            <h3 class="pipeline__name">Experiment Tracking</h3>
-            <p class="pipeline__desc">Automatic hyperparameter logging, metric comparison, Bayesian optimization, full reproducibility.</p>
-            <div class="pipeline__tech"><span>MongoDB</span><span>MLflow</span></div>
-          </div>
-          <div class="pipeline__arrow">→</div>
-        </div>
-        <div class="pipeline__stage">
-          <div class="pipeline__icon pipeline__icon--2">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.657 4.03 3 9 3s9-1.343 9-3V5"/><path d="M3 12c0 1.657 4.03 3 9 3s9-1.343 9-3"/></svg>
-          </div>
-          <div class="pipeline__content">
-            <span class="pipeline__label">Stage 02</span>
-            <h3 class="pipeline__name">Model Registry</h3>
-            <p class="pipeline__desc">Universal versioning, automatic lineage tracking, performance benchmarking, S3 artifact storage.</p>
-            <div class="pipeline__tech"><span>S3</span><span>PostgreSQL</span></div>
-          </div>
-          <div class="pipeline__arrow">→</div>
-        </div>
-        <div class="pipeline__stage">
-          <div class="pipeline__icon pipeline__icon--3">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-          </div>
-          <div class="pipeline__content">
-            <span class="pipeline__label">Stage 03</span>
-            <h3 class="pipeline__name">Deployment</h3>
-            <p class="pipeline__desc">One-click deploy, canary rollouts, A/B testing framework, Kubernetes orchestration at scale.</p>
-            <div class="pipeline__tech"><span>Kubernetes</span><span>Docker</span></div>
-          </div>
-          <div class="pipeline__arrow">→</div>
-        </div>
-        <div class="pipeline__stage">
-          <div class="pipeline__icon pipeline__icon--4">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          </div>
-          <div class="pipeline__content">
-            <span class="pipeline__label">Stage 04</span>
-            <h3 class="pipeline__name">Monitoring</h3>
-            <p class="pipeline__desc">Real-time drift detection, auto-retraining triggers, Prometheus metrics, Grafana dashboards.</p>
-            <div class="pipeline__tech"><span>Prometheus</span><span>Grafana</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FEATURES GRID -->
-  <section class="section section--alt" id="features">
-    <div class="container">
-      <div class="section__header reveal">
-        <span class="eyebrow">Features</span>
-        <h2 class="section__title">Everything You Need</h2>
-        <p class="section__desc">Production-grade capabilities across the entire ML lifecycle.</p>
-      </div>
-      <div class="features-grid reveal-stagger">
-
-        <div class="feature-card feature-card--lg">
-          <div class="feature-card__icon">🧪</div>
-          <h3 class="feature-card__title">Experiment Management</h3>
-          <ul class="feature-card__list">
-            <li>Automatic hyperparameter tracking</li>
-            <li>Metric comparison &amp; visualization</li>
-            <li>Bayesian optimization integration</li>
-            <li>Experiment versioning &amp; reproducibility</li>
-          </ul>
-          <div class="feature-card__code">
-            <span class="code-comment"># Create an experiment</span><br />
-            <span class="code-kw">tracker</span>.create_experiment(<br />
-            &nbsp;&nbsp;<span class="code-str">"xgboost-churn-v3"</span>,<br />
-            &nbsp;&nbsp;hyperparams=<span class="code-str">{lr: 0.01}</span><br />
-            )
-          </div>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card__icon">🗄️</div>
-          <h3 class="feature-card__title">Model Registry</h3>
-          <ul class="feature-card__list">
-            <li>Universal model registry</li>
-            <li>Automatic versioning</li>
-            <li>Model lineage tracking</li>
-            <li>Performance benchmarking</li>
-          </ul>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card__icon">🚀</div>
-          <h3 class="feature-card__title">Deployment</h3>
-          <ul class="feature-card__list">
-            <li>One-click model deployment</li>
-            <li>Canary deployments</li>
-            <li>A/B testing framework</li>
-            <li>Real-time monitoring</li>
-          </ul>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card__icon">⚡</div>
-          <h3 class="feature-card__title">GPU Optimization</h3>
-          <ul class="feature-card__list">
-            <li>Cluster utilization maximization</li>
-            <li>Auto-scaling on demand spikes</li>
-            <li>Mixed-precision training</li>
-            <li>Cost-aware scheduling</li>
-          </ul>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card__icon">🔄</div>
-          <h3 class="feature-card__title">Auto-Retraining</h3>
-          <ul class="feature-card__list">
-            <li>Data drift detection</li>
-            <li>Automated trigger rules</li>
-            <li>Champion/challenger swaps</li>
-            <li>Zero-downtime rollouts</li>
-          </ul>
-        </div>
-
-        <div class="feature-card feature-card--lg">
-          <div class="feature-card__icon">🛡️</div>
-          <h3 class="feature-card__title">CI/CD Pipeline</h3>
-          <ul class="feature-card__list">
-            <li>GitHub Actions–native workflows</li>
-            <li>Automated test gates</li>
-            <li>Self-healing on failure</li>
-            <li>Continuous delivery to Railway/Kubernetes</li>
-          </ul>
-          <div class="feature-card__code">
-            <span class="code-comment"># .github/workflows/ci-cd.yml</span><br />
-            <span class="code-kw">on:</span> [push, pull_request]<br />
-            <span class="code-kw">jobs:</span><br />
-            &nbsp;&nbsp;<span class="code-str">test → build → deploy</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- METRICS PANEL -->
-  <section class="section" id="metrics">
-    <div class="container">
-      <div class="section__header reveal">
-        <span class="eyebrow">Performance</span>
-        <h2 class="section__title">Built to Scale</h2>
-        <p class="section__desc">Numbers that matter in production.</p>
-      </div>
-      <div class="metrics-grid reveal-stagger">
-        <div class="metric-card">
-          <div class="metric-card__bar" style="--fill: 50%"></div>
-          <span class="metric-card__value">50×</span>
-          <span class="metric-card__label">Deployment Speed vs. Manual</span>
-        </div>
-        <div class="metric-card">
-          <div class="metric-card__bar" style="--fill: 99.9%"></div>
-          <span class="metric-card__value">99.9%</span>
-          <span class="metric-card__label">Uptime SLA</span>
-        </div>
-        <div class="metric-card">
-          <div class="metric-card__bar" style="--fill: 85%"></div>
-          <span class="metric-card__value">85%+</span>
-          <span class="metric-card__label">Churn Prediction Accuracy</span>
-        </div>
-        <div class="metric-card">
-          <div class="metric-card__bar" style="--fill: 100%"></div>
-          <span class="metric-card__value">0</span>
-          <span class="metric-card__label">Manual Deployment Steps</span>
-        </div>
-        <div class="metric-card">
-          <div class="metric-card__bar" style="--fill: 60%"></div>
-          <span class="metric-card__value">&lt;200ms</span>
-          <span class="metric-card__label">Model Inference Latency</span>
-        </div>
-        <div class="metric-card">
-          <div class="metric-card__bar" style="--fill: 90%"></div>
-          <span class="metric-card__value">∞</span>
-          <span class="metric-card__label">Auto-Scaling Ceiling</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TECH STACK -->
-  <section class="section section--alt" id="stack">
-    <div class="container">
-      <div class="section__header reveal">
-        <span class="eyebrow">Stack</span>
-        <h2 class="section__title">Technology</h2>
-        <p class="section__desc">Battle-tested components chosen for performance, reliability, and autonomous operation.</p>
-      </div>
-      <div class="stack-grid reveal-stagger">
-        <div class="stack-group">
-          <h4 class="stack-group__title">Core Runtime</h4>
-          <div class="stack-pills">
-            <span class="pill pill--python">Python 3.11+</span>
-            <span class="pill pill--fastapi">FastAPI</span>
-            <span class="pill pill--uvicorn">Uvicorn</span>
-          </div>
-        </div>
-        <div class="stack-group">
-          <h4 class="stack-group__title">ML Frameworks</h4>
-          <div class="stack-pills">
-            <span class="pill">PyTorch</span>
-            <span class="pill">TensorFlow</span>
-            <span class="pill">Scikit-learn</span>
-            <span class="pill">XGBoost</span>
-          </div>
-        </div>
-        <div class="stack-group">
-          <h4 class="stack-group__title">Data Layer</h4>
-          <div class="stack-pills">
-            <span class="pill pill--mongo">MongoDB</span>
-            <span class="pill pill--pg">PostgreSQL</span>
-            <span class="pill pill--redis">Redis</span>
-          </div>
-        </div>
-        <div class="stack-group">
-          <h4 class="stack-group__title">Artifact Storage</h4>
-          <div class="stack-pills">
-            <span class="pill pill--s3">S3-Compatible</span>
-            <span class="pill">MLflow</span>
-            <span class="pill">DVC</span>
-          </div>
-        </div>
-        <div class="stack-group">
-          <h4 class="stack-group__title">Infrastructure</h4>
-          <div class="stack-pills">
-            <span class="pill pill--k8s">Kubernetes</span>
-            <span class="pill">Docker</span>
-            <span class="pill">Railway</span>
-            <span class="pill">GitHub Actions</span>
-          </div>
-        </div>
-        <div class="stack-group">
-          <h4 class="stack-group__title">Observability</h4>
-          <div class="stack-pills">
-            <span class="pill pill--prom">Prometheus</span>
-            <span class="pill">Grafana</span>
-            <span class="pill">OpenTelemetry</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- QUICK START -->
-  <section class="section quickstart">
-    <div class="container">
-      <div class="quickstart__inner reveal">
-        <div class="quickstart__text">
-          <span class="eyebrow">Quick Start</span>
-          <h2 class="quickstart__title">Deploy in Under 5 Minutes</h2>
-          <p>Clone, compose up, and your MLOps control plane is live at <code>localhost:8080</code>.</p>
-          <a href="https://github.com/Garrettc123/enterprise-mlops-platform" target="_blank" rel="noopener" class="btn btn--primary">
-            Clone Repository →
-          </a>
-        </div>
-        <div class="quickstart__code">
-          <div class="code-block">
-            <div class="code-block__header">
-              <span class="code-block__dot code-block__dot--red"></span>
-              <span class="code-block__dot code-block__dot--yellow"></span>
-              <span class="code-block__dot code-block__dot--green"></span>
-              <span class="code-block__title">terminal</span>
-            </div>
-            <pre class="code-block__body"><span class="code-prompt">$</span> git clone https://github.com/Garrettc123/enterprise-mlops-platform
-<span class="code-prompt">$</span> cd enterprise-mlops-platform
-<span class="code-prompt">$</span> docker-compose up
-<span class="code-dim"># Dashboard → http://localhost:8080</span>
-<span class="code-prompt">$</span> python -m mlops_platform
-<span class="code-success">✔ ExperimentTracker initialized</span>
-<span class="code-success">✔ ModelRegistry online</span>
-<span class="code-success">✔ DeploymentManager ready</span>
-<span class="code-success">✔ MonitoringService active</span></pre>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
+  <!-- Mobile Nav -->
+  <nav class="mobile-nav" id="mobile-nav" role="navigation">
+    <a href="#products" onclick="closeMobileNav()">Products</a>
+    <a href="#pipeline" onclick="closeMobileNav()">Pipeline</a>
+    <a href="#apps" onclick="closeMobileNav()">Live Apps</a>
+    <a href="#architecture" onclick="closeMobileNav()">Architecture</a>
+    <a href="#repos" onclick="closeMobileNav()">GitHub</a>
+    <a href="#cta" onclick="closeMobileNav()">Join Empire</a>
+  </nav>
 
   <!-- ═══════════════════════════════════════════════════════
-       MONEY-MAKING COMMAND CENTER
+       HERO — Full screen particle canvas
   ═══════════════════════════════════════════════════════ -->
+  <section id="hero">
+    <canvas id="particle-canvas"></canvas>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
 
-  <!-- STRIPE PRODUCTS / LIVE PRICING -->
-  <section class="section section--alt" id="products">
-    <div class="container">
-      <div class="section__header reveal">
-        <span class="eyebrow">Live Products</span>
-        <h2 class="section__title">Garcar Revenue Stack</h2>
-        <p class="section__desc">Active Stripe-connected products generating real subscriptions and one-time payments. All products powered by the MLOps control layer.</p>
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="status-dot"></span>
+        Empire Online · 9 AI Products Active
       </div>
 
-      <!-- NWU Protocol Tiers -->
-      <div class="pricing-block reveal">
-        <div class="pricing-block__header">
-          <span class="pricing-label">NWU Protocol Platform</span>
-          <span class="live-badge">LIVE</span>
-        </div>
-        <div class="pricing-grid">
-          <div class="price-card">
-            <span class="price-card__tier">Basic</span>
-            <div class="price-card__amount">$49<span>/mo</span></div>
-            <p class="price-card__desc">Decentralized intelligence & verified truth protocol entry tier</p>
-            <a href="https://github.com/Garrettc123/nwu-protocol" target="_blank" class="btn btn--ghost btn--sm">View Repo</a>
-          </div>
-          <div class="price-card price-card--featured">
-            <span class="price-card__badge">POPULAR</span>
-            <span class="price-card__tier">Premium</span>
-            <div class="price-card__amount">$149<span>/mo</span></div>
-            <p class="price-card__desc">Full protocol access with advanced verification & blockchain immutability</p>
-            <a href="https://github.com/Garrettc123/nwu-protocol" target="_blank" class="btn btn--primary btn--sm">View Repo</a>
-          </div>
-          <div class="price-card">
-            <span class="price-card__tier">Enterprise</span>
-            <div class="price-card__amount">$499<span>/mo</span></div>
-            <p class="price-card__desc">Full enterprise suite with dedicated orchestration & SLA guarantees</p>
-            <a href="https://github.com/Garrettc123/nwu-protocol" target="_blank" class="btn btn--ghost btn--sm">View Repo</a>
-          </div>
-        </div>
+      <h1 class="hero-title">GARCAR<br>ENTERPRISE</h1>
+
+      <div class="hero-sub">AI Revenue Empire</div>
+
+      <div class="typewriter" id="typewriter-text">
+        <span id="typed"></span><span class="typewriter-cursor"></span>
       </div>
 
-      <!-- Sales Promoter Products -->
-      <div class="pricing-block reveal">
-        <div class="pricing-block__header">
-          <span class="pricing-label">Garcar Enterprise Sales Suite</span>
-          <span class="live-badge">LIVE</span>
+      <div class="hero-cta">
+        <a href="#products" class="btn btn-primary">Explore Products →</a>
+        <a href="https://github.com/Garrettc123" target="_blank" rel="noopener" class="btn btn-ghost">View GitHub →</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat__num" data-target="155000" data-prefix="$" data-suffix="K">$0</span>
+          <span class="hero-stat__label">Monthly Target</span>
         </div>
-        <div class="pricing-grid pricing-grid--wide">
-          <div class="price-card">
-            <span class="price-card__tier">Starter Audit</span>
-            <div class="price-card__amount">$47<span> one-time</span></div>
-            <p class="price-card__desc">Enterprise system audit report with actionable recommendations</p>
-          </div>
-          <div class="price-card">
-            <span class="price-card__tier">MAUT Decision Engine</span>
-            <div class="price-card__amount">$97<span>/mo</span></div>
-            <p class="price-card__desc">Multi-Attribute Utility Theory AI decision intelligence SaaS</p>
-            <a href="https://github.com/Garrettc123" target="_blank" class="btn btn--ghost btn--sm">Live App</a>
-          </div>
-          <div class="price-card">
-            <span class="price-card__tier">Revenue Recovery Sprint</span>
-            <div class="price-card__amount">$497<span>/wk</span></div>
-            <p class="price-card__desc">Intensive 1-week autonomous revenue recovery engagement</p>
-          </div>
-          <div class="price-card price-card--featured">
-            <span class="price-card__badge">TOP TIER</span>
-            <span class="price-card__tier">AI Growth Engine</span>
-            <div class="price-card__amount">$1,497<span>/mo</span></div>
-            <p class="price-card__desc">Full Garcar AI Growth Engine — autonomous lead-to-revenue loop</p>
-          </div>
+        <div class="hero-stat">
+          <span class="hero-stat__num" data-target="9">0</span>
+          <span class="hero-stat__label">AI Products</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat__num" data-target="3">0</span>
+          <span class="hero-stat__label">Live Right Now</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat__num" data-target="1860000" data-prefix="$" data-suffix="">$0</span>
+          <span class="hero-stat__label">ARR Target</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- AI SAAS EMPIRE -->
-  <section class="section" id="saas">
-    <div class="container">
-      <div class="section__header reveal">
-        <span class="eyebrow">AI SaaS Empire</span>
-        <h2 class="section__title">Deployed Revenue Systems</h2>
-        <p class="section__desc">Production SaaS products deployed on Vercel — each connected to Stripe and driven by the MLOps pipeline.</p>
-      </div>
-      <div class="saas-grid reveal-stagger">
+  <!-- ═══════════════════════════════════════════════════════
+       PRODUCTS GRID — 9 Products 3×3
+  ═══════════════════════════════════════════════════════ -->
+  <section id="products">
+    <div class="wrapper">
+      <div class="section-label">Empire Products</div>
+      <h2 style="font-family:var(--display);font-size:2rem;font-weight:800;letter-spacing:-0.03em;margin-bottom:8px;">
+        9 AI Products. <span style="color:var(--emerald)">1 Empire.</span>
+      </h2>
+      <p style="color:var(--text2);font-size:0.9rem;max-width:560px;line-height:1.7;margin-bottom:4px;">
+        Every product engineered to generate revenue on autopilot. From SaaS subscriptions to one-time purchases, the empire never sleeps.
+      </p>
 
-        <div class="saas-card saas-card--live">
-          <div class="saas-card__header">
-            <span class="saas-card__status saas-card__status--live">LIVE</span>
-            <span class="saas-card__target">$25K/mo target</span>
+      <div class="products-grid" id="products-grid">
+
+        <!-- 1 NWU Protocol -->
+        <div class="card product-card reveal">
+          <div class="product-card__accent"></div>
+          <div class="product-card__status">
+            <div class="product-card__icon">⚡</div>
+            <span class="badge live dot">LIVE</span>
           </div>
-          <h3 class="saas-card__title">Churn Predictor AI</h3>
-          <p class="saas-card__desc">ML-powered B2B SaaS churn prediction with 85%+ accuracy. FastAPI + scikit-learn retention playbook system.</p>
-          <div class="saas-card__pills">
-            <span>FastAPI</span><span>scikit-learn</span><span>Stripe</span><span>Vercel</span>
+          <div class="product-card__name">NWU Protocol</div>
+          <div class="product-card__desc">
+            Subscription-based growth protocol. Three tiers powering systematic revenue growth for serious entrepreneurs.
           </div>
-          <div class="saas-card__links">
-            <a href="https://churn-predictor-backend.vercel.app" target="_blank" rel="noopener" class="btn btn--ghost btn--sm">Live App</a>
-            <a href="https://github.com/Garrettc123/churn-predictor-ai-backend" target="_blank" rel="noopener" class="btn btn--outline btn--sm">GitHub</a>
+          <div class="product-card__pricing">
+            <span class="price-pill">$49/mo</span>
+            <span class="price-pill">$149/mo</span>
+            <span class="price-pill">$499/mo</span>
+          </div>
+          <a href="https://garrettc123.github.io" class="product-card__link" target="_blank">→ garrettc123.github.io</a>
+        </div>
+
+        <!-- 2 Garcar Sales Suite -->
+        <div class="card product-card reveal">
+          <div class="product-card__accent"></div>
+          <div class="product-card__status">
+            <div class="product-card__icon" style="background:rgba(0,229,208,0.08);border-color:rgba(0,229,208,0.15);">💼</div>
+            <span class="badge live dot">LIVE</span>
+          </div>
+          <div class="product-card__name">Garcar Sales Suite</div>
+          <div class="product-card__desc">
+            Complete AI sales automation stack. From lead scoring to proposal generation — close more deals with less effort.
+          </div>
+          <div class="product-card__pricing">
+            <span class="price-pill">$47</span>
+            <span class="price-pill">$97</span>
+            <span class="price-pill">$497</span>
+            <span class="price-pill">$1,497</span>
           </div>
         </div>
 
-        <div class="saas-card saas-card--live">
-          <div class="saas-card__header">
-            <span class="saas-card__status saas-card__status--live">LIVE</span>
-            <span class="saas-card__target">$18K/mo target</span>
+        <!-- 3 Garcar Shopify App -->
+        <div class="card product-card reveal">
+          <div class="product-card__accent" style="background:linear-gradient(90deg,var(--gold),var(--orange,#ff6b35))"></div>
+          <div class="product-card__status">
+            <div class="product-card__icon" style="background:rgba(245,197,24,0.08);border-color:rgba(245,197,24,0.15);">🛍️</div>
+            <span class="badge building dot">BUILDING</span>
           </div>
-          <h3 class="saas-card__title">Deal Desk AI</h3>
-          <p class="saas-card__desc">Auto-generates enterprise sales proposals with AI pricing optimization. Closes $5K-$25K deals autonomously.</p>
-          <div class="saas-card__pills">
-            <span>React</span><span>LangGraph</span><span>FastAPI</span><span>Stripe</span>
+          <div class="product-card__name">Garcar Shopify App</div>
+          <div class="product-card__desc">
+            Shopify-embedded revenue command center. Stripe MRR tracking, subscription management, and live analytics.
           </div>
-          <div class="saas-card__links">
-            <a href="https://deal-desk-frontend-build.vercel.app" target="_blank" rel="noopener" class="btn btn--ghost btn--sm">Live App</a>
-            <a href="https://github.com/Garrettc123/deal-desk-ai-frontend" target="_blank" rel="noopener" class="btn btn--outline btn--sm">GitHub</a>
+          <div class="product-card__pricing">
+            <span class="price-pill" style="color:var(--gold);background:rgba(245,197,24,0.08);border-color:rgba(245,197,24,0.2);">MRR Model</span>
           </div>
+          <a href="https://github.com/Garrettc123/garcar-shopify-app" class="product-card__link" target="_blank">→ GitHub Repo</a>
         </div>
 
-        <div class="saas-card saas-card--live">
-          <div class="saas-card__header">
-            <span class="saas-card__status saas-card__status--live">LIVE</span>
-            <span class="saas-card__target">$22K/mo target</span>
+        <!-- 4 Deal Desk AI -->
+        <div class="card product-card reveal">
+          <div class="product-card__accent" style="background:linear-gradient(90deg,var(--teal),var(--cyan))"></div>
+          <div class="product-card__status">
+            <div class="product-card__icon" style="background:rgba(0,207,255,0.08);border-color:rgba(0,207,255,0.15);">📊</div>
+            <span class="badge live dot">LIVE</span>
           </div>
-          <h3 class="saas-card__title">Content Engine AI</h3>
-          <p class="saas-card__desc">SEO blog factory — 50+ posts/day. FastAPI + LangGraph + Celery multi-agent content pipeline.</p>
-          <div class="saas-card__pills">
-            <span>LangGraph</span><span>Celery</span><span>SEO</span><span>Vercel</span>
+          <div class="product-card__name">Deal Desk AI</div>
+          <div class="product-card__desc">
+            AI-powered deal analysis and proposal generation. Per-proposal pricing model with enterprise tier.
           </div>
-          <div class="saas-card__links">
-            <a href="https://content-engine-backend.vercel.app" target="_blank" rel="noopener" class="btn btn--ghost btn--sm">Live App</a>
-            <a href="https://github.com/Garrettc123/content-engine-ai-backend" target="_blank" rel="noopener" class="btn btn--outline btn--sm">GitHub</a>
+          <div class="product-card__pricing">
+            <span class="price-pill" style="color:var(--cyan);background:rgba(0,207,255,0.08);border-color:rgba(0,207,255,0.2);">Per-proposal</span>
           </div>
+          <a href="https://deal-desk-frontend-build.vercel.app" class="product-card__link" target="_blank" id="deal-desk-link">→ deal-desk-frontend-build.vercel.app</a>
         </div>
 
-        <div class="saas-card">
-          <div class="saas-card__header">
-            <span class="saas-card__status saas-card__status--building">BUILDING</span>
-            <span class="saas-card__target">$25K/mo target</span>
+        <!-- 5 Content Engine AI -->
+        <div class="card product-card reveal">
+          <div class="product-card__accent" style="background:linear-gradient(90deg,#ff6b35,#e74c3c)"></div>
+          <div class="product-card__status">
+            <div class="product-card__icon" style="background:rgba(255,107,53,0.08);border-color:rgba(255,107,53,0.15);">✍️</div>
+            <span class="badge live dot">LIVE</span>
           </div>
-          <h3 class="saas-card__title">Smart Contract Auditor</h3>
-          <p class="saas-card__desc">AI-powered smart contract vulnerability detection. Sub-second analysis across Solidity, Rust, and Vyper.</p>
-          <div class="saas-card__pills">
-            <span>AI Audit</span><span>Blockchain</span><span>Security</span>
+          <div class="product-card__name">Content Engine AI</div>
+          <div class="product-card__desc">
+            Autonomous content generation at scale. Blog posts, social, email campaigns — all on autopilot.
           </div>
-          <div class="saas-card__links">
-            <a href="https://github.com/Garrettc123/smart-contract-auditor-ai" target="_blank" rel="noopener" class="btn btn--outline btn--sm">GitHub</a>
+          <div class="product-card__pricing">
+            <span class="price-pill" style="color:#ff6b35;background:rgba(255,107,53,0.08);border-color:rgba(255,107,53,0.2);">SaaS</span>
           </div>
+          <a href="https://content-engine-backend.vercel.app" class="product-card__link" target="_blank">→ content-engine-backend.vercel.app</a>
         </div>
 
-        <div class="saas-card">
-          <div class="saas-card__header">
-            <span class="saas-card__status saas-card__status--building">BUILDING</span>
-            <span class="saas-card__target">$30K/mo target</span>
+        <!-- 6 Churn Predictor AI -->
+        <div class="card product-card reveal">
+          <div class="product-card__accent" style="background:linear-gradient(90deg,#9b59b6,#6c3483)"></div>
+          <div class="product-card__status">
+            <div class="product-card__icon" style="background:rgba(155,89,182,0.08);border-color:rgba(155,89,182,0.15);">🔮</div>
+            <span class="badge live dot">LIVE</span>
           </div>
-          <h3 class="saas-card__title">DeFi Yield Aggregator</h3>
-          <p class="saas-card__desc">Cross-chain yield farming optimizer. Auto-routes capital to highest-yield positions across protocols.</p>
-          <div class="saas-card__pills">
-            <span>DeFi</span><span>Cross-chain</span><span>Crypto</span>
+          <div class="product-card__name">Churn Predictor AI</div>
+          <div class="product-card__desc">
+            ML-powered churn detection for B2B SaaS. Predict and prevent cancellations before they happen.
           </div>
-          <div class="saas-card__links">
-            <a href="https://github.com/Garrettc123/defi-yield-aggregator" target="_blank" rel="noopener" class="btn btn--outline btn--sm">GitHub</a>
+          <div class="product-card__pricing">
+            <span class="price-pill" style="color:#9b59b6;background:rgba(155,89,182,0.08);border-color:rgba(155,89,182,0.2);">B2B SaaS</span>
           </div>
+          <a href="https://churn-predictor-backend.vercel.app" class="product-card__link" target="_blank">→ churn-predictor-backend.vercel.app</a>
         </div>
 
-        <div class="saas-card">
-          <div class="saas-card__header">
-            <span class="saas-card__status saas-card__status--building">BUILDING</span>
-            <span class="saas-card__target">$20K/mo target</span>
+        <!-- 7 Autonomous Orchestrator -->
+        <div class="card product-card reveal">
+          <div class="product-card__accent" style="background:linear-gradient(90deg,var(--gold),#ff9500)"></div>
+          <div class="product-card__status">
+            <div class="product-card__icon" style="background:rgba(245,197,24,0.08);border-color:rgba(245,197,24,0.15);">🤖</div>
+            <span class="badge building dot">BUILDING</span>
           </div>
-          <h3 class="saas-card__title">Lead Enrichment Engine</h3>
-          <p class="saas-card__desc">50+ source lead enrichment API. Scores and qualifies inbound leads across LinkedIn, Apollo, and web data.</p>
-          <div class="saas-card__pills">
-            <span>Apollo</span><span>LinkedIn</span><span>API</span>
+          <div class="product-card__name">Autonomous Orchestrator</div>
+          <div class="product-card__desc">
+            AI agent orchestration platform. Multi-agent workflows that execute complex business processes autonomously.
           </div>
-          <div class="saas-card__links">
-            <a href="https://github.com/Garrettc123/lead-enrichment-engine" target="_blank" rel="noopener" class="btn btn--outline btn--sm">GitHub</a>
+          <div class="product-card__pricing">
+            <span class="price-pill" style="color:var(--gold);background:rgba(245,197,24,0.08);border-color:rgba(245,197,24,0.2);">In Dev</span>
           </div>
+          <a href="https://github.com/Garrettc123/autonomous-orchestrator-core" class="product-card__link" target="_blank">→ GitHub Repo</a>
         </div>
 
-        <div class="saas-card">
-          <div class="saas-card__header">
-            <span class="saas-card__status saas-card__status--building">BUILDING</span>
-            <span class="saas-card__target">$15K/mo target</span>
+        <!-- 8 Apex Revenue System -->
+        <div class="card product-card reveal">
+          <div class="product-card__accent" style="background:linear-gradient(90deg,var(--gold),var(--emerald))"></div>
+          <div class="product-card__status">
+            <div class="product-card__icon" style="background:rgba(245,197,24,0.08);border-color:rgba(245,197,24,0.15);">👑</div>
+            <span class="badge building dot">BUILDING</span>
           </div>
-          <h3 class="saas-card__title">Automated Sales Outreach</h3>
-          <p class="saas-card__desc">AI SDR sending 1,000+ personalized emails/day. Multi-touch sequences with reply detection and auto-follow-up.</p>
-          <div class="saas-card__pills">
-            <span>AI SDR</span><span>Email</span><span>Sequences</span>
+          <div class="product-card__name">Apex Revenue System</div>
+          <div class="product-card__desc">
+            The crown jewel. Full-stack AI revenue automation system targeting $50K/mo+ from a single deployment.
           </div>
-          <div class="saas-card__links">
-            <a href="https://github.com/Garrettc123/automated-sales-outreach" target="_blank" rel="noopener" class="btn btn--outline btn--sm">GitHub</a>
+          <div class="product-card__pricing">
+            <span class="price-pill" style="color:var(--gold);background:rgba(245,197,24,0.08);border-color:rgba(245,197,24,0.2);">Enterprise</span>
           </div>
+          <a href="https://github.com/Garrettc123/apex-revenue-system" class="product-card__link" target="_blank">→ GitHub Repo</a>
         </div>
 
-        <div class="saas-card">
-          <div class="saas-card__header">
-            <span class="saas-card__status saas-card__status--building">BUILDING</span>
-            <span class="saas-card__target">Enterprise</span>
+        <!-- 9 Garcar Payments -->
+        <div class="card product-card reveal">
+          <div class="product-card__accent" style="background:linear-gradient(90deg,var(--cyan),var(--teal))"></div>
+          <div class="product-card__status">
+            <div class="product-card__icon" style="background:rgba(0,207,255,0.08);border-color:rgba(0,207,255,0.15);">💳</div>
+            <span class="badge building dot">BUILDING</span>
           </div>
-          <h3 class="saas-card__title">Cognitive API Marketplace</h3>
-          <p class="saas-card__desc">Production marketplace for monetizing AI capabilities. Instant API deployment with usage-based billing &amp; developer portal.</p>
-          <div class="saas-card__pills">
-            <span>API</span><span>Marketplace</span><span>Usage billing</span>
+          <div class="product-card__name">Garcar Payments</div>
+          <div class="product-card__desc">
+            Unified payments infrastructure across all empire products. One API to rule all revenue flows.
           </div>
-          <div class="saas-card__links">
-            <a href="https://github.com/Garrettc123/cognitive-api-marketplace" target="_blank" rel="noopener" class="btn btn--outline btn--sm">GitHub</a>
+          <div class="product-card__pricing">
+            <span class="price-pill" style="color:var(--cyan);background:rgba(0,207,255,0.08);border-color:rgba(0,207,255,0.2);">% Revenue</span>
           </div>
-        </div>
-
-        <div class="saas-card">
-          <div class="saas-card__header">
-            <span class="saas-card__status saas-card__status--building">BUILDING</span>
-            <span class="saas-card__target">Enterprise</span>
-          </div>
-          <h3 class="saas-card__title">Process Copilot</h3>
-          <p class="saas-card__desc">Multi-agent workflow automation for small businesses and agencies. Full SaaS platform with multi-tier subscriptions.</p>
-          <div class="saas-card__pills">
-            <span>Automation</span><span>SaaS</span><span>Multi-agent</span>
-          </div>
-          <div class="saas-card__links">
-            <a href="https://github.com/Garrettc123/process-copilot" target="_blank" rel="noopener" class="btn btn--outline btn--sm">GitHub</a>
-          </div>
+          <a href="https://github.com/Garrettc123/garcar-payments" class="product-card__link" target="_blank">→ GitHub Repo</a>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- REVENUE PIPELINE TOTALS -->
-  <section class="section section--dark" id="pipeline">
-    <div class="container">
-      <div class="section__header reveal">
-        <span class="eyebrow">Revenue Pipeline</span>
-        <h2 class="section__title">Total ARR Potential</h2>
-        <p class="section__desc">Combined monthly recurring and one-time revenue targets across all active and in-build systems.</p>
+  <!-- ═══════════════════════════════════════════════════════
+       REVENUE PIPELINE
+  ═══════════════════════════════════════════════════════ -->
+  <section id="pipeline">
+    <div class="wrapper">
+      <div class="section-label">Revenue Pipeline</div>
+      <h2 style="font-family:var(--display);font-size:2rem;font-weight:800;letter-spacing:-0.03em;margin-bottom:8px;">
+        Path to <span style="color:var(--emerald)">$155K/mo</span>
+      </h2>
+      <p style="color:var(--text2);font-size:0.9rem;max-width:540px;line-height:1.7;">
+        Each empire product contributes to a diversified revenue stack. Multiple income streams. Maximum resilience.
+      </p>
+
+      <div class="pipeline-bar-wrap reveal" id="pipeline-section">
+        <div class="pipeline-bar">
+          <div class="pipe-seg nwu"     data-w="31.6">NWU $49K</div>
+          <div class="pipe-seg suite"   data-w="38.9">Suite $60K</div>
+          <div class="pipe-seg churn"   data-w="16.1">Churn $25K</div>
+          <div class="pipe-seg deal"    data-w="11.6">Deal $18K</div>
+          <div class="pipe-seg content" data-w="14.2">Content $22K</div>
+          <div class="pipe-seg other"   data-w="5.8">Other</div>
+        </div>
+
+        <div class="pipeline-legend" style="margin-top:14px;">
+          <div class="legend-item">
+            <div class="legend-dot" style="background:#00ff88"></div>
+            <span>NWU Protocol — $49K/mo</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:#00e5d0"></div>
+            <span>Garcar Suite — $60K/mo</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:#9b59b6"></div>
+            <span>Churn AI — $25K/mo</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:#f5c518"></div>
+            <span>Deal Desk — $18K/mo</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:#ff6b35"></div>
+            <span>Content Engine — $22K/mo</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:#3d5a70"></div>
+            <span>Other — $9K/mo</span>
+          </div>
+        </div>
       </div>
-      <div class="revenue-table-wrap reveal">
-        <table class="revenue-table">
-          <thead>
-            <tr>
-              <th>System</th>
-              <th>Model</th>
-              <th>Status</th>
-              <th>Mo. Target</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="tr--live">
-              <td>Churn Predictor AI</td>
-              <td>B2B SaaS Subscription</td>
-              <td><span class="tbl-badge tbl-badge--live">Live</span></td>
-              <td>$25,000</td>
-            </tr>
-            <tr class="tr--live">
-              <td>Deal Desk AI</td>
-              <td>Per-proposal + SaaS</td>
-              <td><span class="tbl-badge tbl-badge--live">Live</span></td>
-              <td>$18,000</td>
-            </tr>
-            <tr class="tr--live">
-              <td>Content Engine AI</td>
-              <td>SaaS Subscription</td>
-              <td><span class="tbl-badge tbl-badge--live">Live</span></td>
-              <td>$22,000</td>
-            </tr>
-            <tr class="tr--live">
-              <td>NWU Protocol Platform</td>
-              <td>Tiered Subscription</td>
-              <td><span class="tbl-badge tbl-badge--live">Live</span></td>
-              <td>$49-$499/seat</td>
-            </tr>
-            <tr class="tr--live">
-              <td>MAUT Decision Engine</td>
-              <td>SaaS Subscription</td>
-              <td><span class="tbl-badge tbl-badge--live">Live</span></td>
-              <td>$97/seat</td>
-            </tr>
-            <tr class="tr--live">
-              <td>Garcar AI Growth Engine</td>
-              <td>Managed Service</td>
-              <td><span class="tbl-badge tbl-badge--live">Live</span></td>
-              <td>$1,497/seat</td>
-            </tr>
-            <tr>
-              <td>Smart Contract Auditor</td>
-              <td>API + SaaS</td>
-              <td><span class="tbl-badge tbl-badge--build">Building</span></td>
-              <td>$25,000</td>
-            </tr>
-            <tr>
-              <td>DeFi Yield Aggregator</td>
-              <td>% of yield + SaaS</td>
-              <td><span class="tbl-badge tbl-badge--build">Building</span></td>
-              <td>$30,000</td>
-            </tr>
-            <tr>
-              <td>Lead Enrichment Engine</td>
-              <td>Usage-based API</td>
-              <td><span class="tbl-badge tbl-badge--build">Building</span></td>
-              <td>$20,000</td>
-            </tr>
-            <tr>
-              <td>Automated Sales Outreach</td>
-              <td>Seats + Volume</td>
-              <td><span class="tbl-badge tbl-badge--build">Building</span></td>
-              <td>$15,000</td>
-            </tr>
-            <tr>
-              <td>Cognitive API Marketplace</td>
-              <td>Revenue share + API</td>
-              <td><span class="tbl-badge tbl-badge--build">Building</span></td>
-              <td>TBD</td>
-            </tr>
-            <tr>
-              <td>Process Copilot</td>
-              <td>Multi-tier SaaS</td>
-              <td><span class="tbl-badge tbl-badge--build">Building</span></td>
-              <td>TBD</td>
-            </tr>
-          </tbody>
-          <tfoot>
-            <tr class="tr--total">
-              <td colspan="3"><strong>Combined Monthly Target (Active Systems)</strong></td>
-              <td><strong>$155,000+</strong></td>
-            </tr>
-          </tfoot>
-        </table>
+
+      <div class="mrr-progress-wrap reveal">
+        <div class="mrr-progress-labels">
+          <span>Current MRR (live from Stripe)</span>
+          <span id="mrr-pct-label" style="color:var(--emerald)">Building →</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="mrr-progress" style="width:0%"></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;margin-top:6px;">
+          <span style="font-family:var(--mono);font-size:0.65rem;color:var(--text3)">$0</span>
+          <span style="font-family:var(--mono);font-size:0.65rem;color:var(--text3)">$155,000/mo Target</span>
+        </div>
+      </div>
+
+      <!-- Revenue breakdown cards -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:32px;">
+        <div class="card reveal" style="padding:20px;">
+          <div style="font-family:var(--mono);font-size:0.62rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:8px;">ARR Target</div>
+          <div style="font-family:var(--display);font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,var(--emerald),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-0.04em;">$1.86M</div>
+        </div>
+        <div class="card reveal" style="padding:20px;">
+          <div style="font-family:var(--mono);font-size:0.62rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:8px;">Monthly Target</div>
+          <div style="font-family:var(--display);font-size:1.8rem;font-weight:800;color:var(--gold);letter-spacing:-0.04em;">$155K</div>
+        </div>
+        <div class="card reveal" style="padding:20px;">
+          <div style="font-family:var(--mono);font-size:0.62rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:8px;">Products Live</div>
+          <div style="font-family:var(--display);font-size:1.8rem;font-weight:800;color:var(--cyan);letter-spacing:-0.04em;">3 / 9</div>
+        </div>
+        <div class="card reveal" style="padding:20px;">
+          <div style="font-family:var(--mono);font-size:0.62rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:8px;">Revenue Stack</div>
+          <div style="font-family:var(--display);font-size:1.8rem;font-weight:800;color:var(--purple,#9b59b6);letter-spacing:-0.04em;">12 Sys</div>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- ═══════════════════════════════════════════════════════
+       VERCEL LIVE APPS
+  ═══════════════════════════════════════════════════════ -->
+  <section id="apps">
+    <div class="wrapper">
+      <div class="section-label">Live on Vercel</div>
+      <h2 style="font-family:var(--display);font-size:2rem;font-weight:800;letter-spacing:-0.03em;margin-bottom:8px;">
+        Production <span style="color:var(--teal)">Apps Running Now</span>
+      </h2>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container footer__inner">
-      <div class="footer__brand">
-        <span class="logo__icon">⬡</span>
-        <span class="footer__name">Master Control MLOps</span>
-        <span class="footer__sub">Part of the Garcar Enterprise Ecosystem · 332+ Autonomous Systems</span>
+      <div class="apps-grid">
+
+        <div class="card app-card reveal">
+          <div class="app-card__header">
+            <div class="app-card__name">Deal Desk AI</div>
+            <span class="badge live dot" id="deal-desk-status">Checking…</span>
+          </div>
+          <div class="app-card__url">deal-desk-frontend-build.vercel.app</div>
+          <p style="font-size:0.78rem;color:var(--text2);line-height:1.6;margin-bottom:14px;">
+            AI-powered deal analysis. Generate winning proposals in seconds with intelligent pricing and positioning.
+          </p>
+          <a href="https://deal-desk-frontend-build.vercel.app" target="_blank" rel="noopener" class="btn btn-ghost" style="font-size:0.72rem;padding:7px 14px;">
+            Open App →
+          </a>
+        </div>
+
+        <div class="card app-card reveal">
+          <div class="app-card__header">
+            <div class="app-card__name">Content Engine AI</div>
+            <span class="badge live dot" id="content-engine-status">Checking…</span>
+          </div>
+          <div class="app-card__url">content-engine-backend.vercel.app</div>
+          <p style="font-size:0.78rem;color:var(--text2);line-height:1.6;margin-bottom:14px;">
+            Autonomous content generation at scale. Blogs, social posts, email sequences — fully automated.
+          </p>
+          <a href="https://content-engine-backend.vercel.app" target="_blank" rel="noopener" class="btn btn-ghost" style="font-size:0.72rem;padding:7px 14px;">
+            Open App →
+          </a>
+        </div>
+
+        <div class="card app-card reveal">
+          <div class="app-card__header">
+            <div class="app-card__name">Churn Predictor AI</div>
+            <span class="badge live dot" id="churn-predictor-status">Checking…</span>
+          </div>
+          <div class="app-card__url">churn-predictor-backend.vercel.app</div>
+          <p style="font-size:0.78rem;color:var(--text2);line-height:1.6;margin-bottom:14px;">
+            ML churn prediction for B2B SaaS. Identify at-risk customers before they cancel and automate retention.
+          </p>
+          <a href="https://churn-predictor-backend.vercel.app" target="_blank" rel="noopener" class="btn btn-ghost" style="font-size:0.72rem;padding:7px 14px;">
+            Open App →
+          </a>
+        </div>
+
       </div>
-      <div class="footer__links">
-        <a href="https://github.com/Garrettc123/enterprise-mlops-platform" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://github.com/Garrettc123/systems-master-hub" target="_blank" rel="noopener">Systems Hub</a>
-        <a href="https://github.com/Garrettc123" target="_blank" rel="noopener">@Garrettc123</a>
-        <a href="mailto:carrolgarrett55@gmail.com">Contact</a>
-      </div>
-      <p class="footer__copy">© 2026 Garcar Enterprise. MIT License.</p>
     </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       ARCHITECTURE FLOWCHART
+  ═══════════════════════════════════════════════════════ -->
+  <section id="architecture">
+    <div class="wrapper">
+      <div class="section-label">System Architecture</div>
+      <h2 style="font-family:var(--display);font-size:2rem;font-weight:800;letter-spacing:-0.03em;margin-bottom:8px;">
+        How the <span style="color:var(--emerald)">Empire Flows</span>
+      </h2>
+      <p style="color:var(--text2);font-size:0.9rem;max-width:540px;line-height:1.7;margin-bottom:32px;">
+        Every payment, subscription, and revenue event flows through a single intelligent command center.
+      </p>
+
+      <div class="arch-flow reveal">
+        <div class="arch-node">
+          <div class="arch-node__icon">💳</div>
+          <div class="arch-node__label">Stripe</div>
+          <div class="arch-node__sub">Payment Gateway</div>
+        </div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-node">
+          <div class="arch-node__icon">🛍️</div>
+          <div class="arch-node__label">Shopify App</div>
+          <div class="arch-node__sub">Webhook Receiver</div>
+        </div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-node" style="border-color:rgba(0,255,136,0.35);background:rgba(0,255,136,0.08);">
+          <div class="arch-node__icon">⚡</div>
+          <div class="arch-node__label">Command Center</div>
+          <div class="arch-node__sub">Railway + Prisma</div>
+        </div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-node">
+          <div class="arch-node__icon">🔮</div>
+          <div class="arch-node__label">Revenue Engine</div>
+          <div class="arch-node__sub">MRR Calculator</div>
+        </div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-node">
+          <div class="arch-node__icon">📊</div>
+          <div class="arch-node__label">MRR Dashboard</div>
+          <div class="arch-node__sub">Real-time View</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       GITHUB REPOS
+  ═══════════════════════════════════════════════════════ -->
+  <section id="repos">
+    <div class="wrapper">
+      <div class="section-label">Open Source Empire</div>
+      <h2 style="font-family:var(--display);font-size:2rem;font-weight:800;letter-spacing:-0.03em;margin-bottom:8px;">
+        GitHub <span style="color:var(--cyan)">Repositories</span>
+      </h2>
+      <p style="color:var(--text2);font-size:0.9rem;max-width:540px;line-height:1.7;">
+        The empire is built in public. Every repo, every commit, every deployment.
+      </p>
+
+      <div class="repos-grid" style="margin-top:32px;">
+
+        <a href="https://github.com/Garrettc123/garcar-shopify-app" target="_blank" rel="noopener" class="card repo-card reveal">
+          <div class="repo-card__name">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            garcar-shopify-app
+          </div>
+          <div class="repo-card__desc">Shopify-embedded revenue command center with Stripe MRR tracking and real-time analytics.</div>
+          <div class="repo-card__meta">
+            <span class="repo-meta-item">⚡ TypeScript</span>
+            <span class="repo-meta-item">🔄 Remix</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/Garrettc123/enterprise-mlops-platform" target="_blank" rel="noopener" class="card repo-card reveal">
+          <div class="repo-card__name">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            enterprise-mlops-platform
+          </div>
+          <div class="repo-card__desc">Enterprise MLOps lifecycle management. Experiment tracking, model versioning, A/B testing, GPU optimization.</div>
+          <div class="repo-card__meta">
+            <span class="repo-meta-item">🐍 Python</span>
+            <span class="repo-meta-item">🤖 ML</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/Garrettc123/autonomous-orchestrator-core" target="_blank" rel="noopener" class="card repo-card reveal">
+          <div class="repo-card__name">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            autonomous-orchestrator-core
+          </div>
+          <div class="repo-card__desc">Multi-agent AI orchestration. Complex business process automation with autonomous execution.</div>
+          <div class="repo-card__meta">
+            <span class="repo-meta-item">🤖 AI Agents</span>
+            <span class="repo-meta-item">🔮 In Dev</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/Garrettc123/apex-revenue-system" target="_blank" rel="noopener" class="card repo-card reveal">
+          <div class="repo-card__name">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            apex-revenue-system
+          </div>
+          <div class="repo-card__desc">The crown jewel of the empire. Full-stack AI revenue automation targeting $50K+/mo per deployment.</div>
+          <div class="repo-card__meta">
+            <span class="repo-meta-item">👑 Flagship</span>
+            <span class="repo-meta-item">🔮 In Dev</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/Garrettc123/garcar-payments" target="_blank" rel="noopener" class="card repo-card reveal">
+          <div class="repo-card__name">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            garcar-payments
+          </div>
+          <div class="repo-card__desc">Unified payments infrastructure across all empire products. One API to rule all revenue flows.</div>
+          <div class="repo-card__meta">
+            <span class="repo-meta-item">💳 Stripe</span>
+            <span class="repo-meta-item">🔮 In Dev</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/Garrettc123" target="_blank" rel="noopener" class="card repo-card reveal" style="border-style:dashed;border-color:rgba(0,255,136,0.15);">
+          <div class="repo-card__name" style="color:var(--text3);">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            View All Repositories →
+          </div>
+          <div class="repo-card__desc" style="color:var(--text3);">See the full Garcar Enterprise GitHub org with all active and in-development projects.</div>
+          <div class="repo-card__meta">
+            <span class="repo-meta-item">🌐 github.com/Garrettc123</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       CTA — JOIN THE EMPIRE
+  ═══════════════════════════════════════════════════════ -->
+  <section id="cta">
+    <div class="wrapper">
+      <div class="cta-box reveal">
+        <div class="cta-title">Join the Empire</div>
+        <div class="cta-sub">
+          Get notified when new AI products launch. Be first in the door.<br>
+          No spam. Just signals from the command center.
+        </div>
+        <form class="cta-form" onsubmit="handleCTASubmit(event)">
+          <input
+            type="email"
+            class="cta-input"
+            placeholder="your@email.com"
+            id="cta-email"
+            required
+          />
+          <button type="submit" class="btn btn-primary">
+            Enter the Empire →
+          </button>
+        </form>
+        <div id="cta-success" style="display:none;margin-top:16px;font-family:var(--mono);font-size:0.8rem;color:var(--emerald);">
+          ✓ You're in. Welcome to the empire.
+        </div>
+        <div style="margin-top:28px;display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;">
+          <a href="https://github.com/Garrettc123" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:0.72rem;color:var(--text3);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--emerald)'" onmouseout="this.style.color='var(--text3)'">
+            GitHub →
+          </a>
+          <span style="color:var(--text3);font-size:0.7rem;">|</span>
+          <a href="https://dashboard.stripe.com" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:0.72rem;color:var(--text3);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--teal)'" onmouseout="this.style.color='var(--text3)'">
+            Stripe Dashboard →
+          </a>
+          <span style="color:var(--text3);font-size:0.7rem;">|</span>
+          <a href="https://railway.app" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:0.72rem;color:var(--text3);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--text3)'">
+            Railway →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════════ -->
+  <footer>
+    <p>
+      GARCAR ENTERPRISE · Built by <a href="https://github.com/Garrettc123">Garrett Carroll</a> ·
+      <span id="footer-year">2025</span> ·
+      <a href="https://garrettc123.github.io">garrettc123.github.io</a>
+    </p>
   </footer>
 
-  <script src="app.js"></script>
+  <!-- ═══════════════════════════════════════════════════════
+       JAVASCRIPT — All embedded
+  ═══════════════════════════════════════════════════════ -->
+  <script>
+    'use strict';
+
+    /* ─── LIVE CLOCK ─────────────────────────────────────────── */
+    function updateClock() {
+      const el = document.getElementById('main-clock');
+      if (el) el.textContent = new Date().toLocaleTimeString('en-US', { hour12: false });
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    /* ─── HAMBURGER NAV ──────────────────────────────────────── */
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+
+    hamburgerBtn.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('open');
+      hamburgerBtn.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    function closeMobileNav() {
+      mobileNav.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    /* ─── PARTICLE CANVAS ANIMATION ─────────────────────────── */
+    (function initParticles() {
+      const canvas = document.getElementById('particle-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+
+      let W, H, particles = [], mouse = { x: -999, y: -999 };
+      const MAX_PARTICLES = 80;
+      const MAX_DIST = 120;
+      const PARTICLE_COLOR = '0, 255, 136';
+
+      function resize() {
+        W = canvas.width  = canvas.offsetWidth;
+        H = canvas.height = canvas.offsetHeight;
+      }
+
+      resize();
+      window.addEventListener('resize', resize);
+
+      canvas.addEventListener('mousemove', e => {
+        const rect = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+      });
+
+      canvas.addEventListener('mouseleave', () => {
+        mouse.x = -999;
+        mouse.y = -999;
+      });
+
+      class Particle {
+        constructor() { this.reset(); }
+        reset() {
+          this.x  = Math.random() * W;
+          this.y  = Math.random() * H;
+          this.vx = (Math.random() - 0.5) * 0.5;
+          this.vy = (Math.random() - 0.5) * 0.5;
+          this.r  = Math.random() * 1.5 + 0.5;
+          this.alpha = Math.random() * 0.5 + 0.2;
+        }
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+          // Mouse repulsion
+          const dx = this.x - mouse.x;
+          const dy = this.y - mouse.y;
+          const dist = Math.sqrt(dx*dx + dy*dy);
+          if (dist < 80) {
+            this.x += (dx / dist) * 1.5;
+            this.y += (dy / dist) * 1.5;
+          }
+          // Wrap
+          if (this.x < 0)  this.x = W;
+          if (this.x > W)  this.x = 0;
+          if (this.y < 0)  this.y = H;
+          if (this.y > H)  this.y = 0;
+        }
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${PARTICLE_COLOR}, ${this.alpha})`;
+          ctx.fill();
+        }
+      }
+
+      for (let i = 0; i < MAX_PARTICLES; i++) particles.push(new Particle());
+
+      function drawLines() {
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx*dx + dy*dy);
+            if (dist < MAX_DIST) {
+              const alpha = (1 - dist / MAX_DIST) * 0.18;
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = `rgba(${PARTICLE_COLOR}, ${alpha})`;
+              ctx.lineWidth = 0.8;
+              ctx.stroke();
+            }
+          }
+        }
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, W, H);
+        particles.forEach(p => { p.update(); p.draw(); });
+        drawLines();
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+    })();
+
+    /* ─── TYPEWRITER EFFECT ──────────────────────────────────── */
+    (function initTypewriter() {
+      const phrases = [
+        'Making Money While You Sleep',
+        '9 AI Products. 1 Empire.',
+        '$155K/mo Target',
+        'Unprecedented.',
+        'Revenue on Autopilot.',
+      ];
+      const el = document.getElementById('typed');
+      if (!el) return;
+
+      let phraseIdx = 0, charIdx = 0, deleting = false;
+      const SPEED_TYPE = 65, SPEED_DEL = 35, PAUSE = 2200;
+
+      function type() {
+        const phrase = phrases[phraseIdx];
+        if (!deleting) {
+          el.textContent = phrase.slice(0, ++charIdx);
+          if (charIdx === phrase.length) {
+            deleting = true;
+            setTimeout(type, PAUSE);
+            return;
+          }
+        } else {
+          el.textContent = phrase.slice(0, --charIdx);
+          if (charIdx === 0) {
+            deleting = false;
+            phraseIdx = (phraseIdx + 1) % phrases.length;
+          }
+        }
+        setTimeout(type, deleting ? SPEED_DEL : SPEED_TYPE);
+      }
+
+      setTimeout(type, 800);
+    })();
+
+    /* ─── SCROLL REVEAL via IntersectionObserver ─────────────── */
+    (function initReveal() {
+      const els = document.querySelectorAll('.reveal');
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            // Trigger pipeline bars when section is visible
+            if (entry.target.id === 'pipeline-section' || entry.target.closest('#pipeline')) {
+              triggerPipelineBars();
+            }
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+      els.forEach(el => obs.observe(el));
+    })();
+
+    /* ─── ANIMATED COUNTERS on scroll ────────────────────────── */
+    (function initCounters() {
+      const counterEls = document.querySelectorAll('[data-target]');
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+          const target = parseInt(el.dataset.target, 10);
+          const prefix = el.dataset.prefix || '';
+          const suffix = el.dataset.suffix !== undefined ? el.dataset.suffix : '';
+          const duration = 2200;
+          const start = performance.now();
+
+          function step(now) {
+            const p = Math.min((now - start) / duration, 1);
+            const ease = 1 - Math.pow(1 - p, 4);
+            const val = Math.floor(target * ease);
+            let display;
+            if (target >= 100000) {
+              display = prefix + (val / 1000).toFixed(0) + 'K' + suffix;
+            } else {
+              display = prefix + val.toLocaleString() + suffix;
+            }
+            el.textContent = display;
+            if (p < 1) requestAnimationFrame(step);
+          }
+
+          requestAnimationFrame(step);
+          obs.unobserve(el);
+        });
+      }, { threshold: 0.5 });
+
+      counterEls.forEach(el => obs.observe(el));
+    })();
+
+    /* ─── PIPELINE BARS ANIMATION ────────────────────────────── */
+    let pipeTriggered = false;
+    function triggerPipelineBars() {
+      if (pipeTriggered) return;
+      pipeTriggered = true;
+      document.querySelectorAll('.pipe-seg[data-w]').forEach(seg => {
+        seg.style.width = seg.dataset.w + '%';
+      });
+      const progFill = document.getElementById('mrr-progress');
+      if (progFill) progFill.style.width = '1%';
+    }
+
+    // Also trigger pipeline on pipeline section entering viewport
+    const pipeSection = document.getElementById('pipeline');
+    if (pipeSection) {
+      const pipeObs = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting) triggerPipelineBars();
+      }, { threshold: 0.1 });
+      pipeObs.observe(pipeSection);
+    }
+
+    /* ─── VERCEL STATUS PING ─────────────────────────────────── */
+    const vercelApps = [
+      { id: 'deal-desk-status',       url: 'https://deal-desk-frontend-build.vercel.app' },
+      { id: 'content-engine-status',  url: 'https://content-engine-backend.vercel.app'   },
+      { id: 'churn-predictor-status', url: 'https://churn-predictor-backend.vercel.app'  },
+    ];
+
+    vercelApps.forEach(app => {
+      const el = document.getElementById(app.id);
+      if (!el) return;
+
+      // Use a timeout to consider "slow" as degraded
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 8000);
+
+      fetch(app.url, { method: 'HEAD', signal: controller.signal, mode: 'no-cors' })
+        .then(() => {
+          clearTimeout(timeout);
+          el.className = 'badge live dot';
+          el.textContent = '';
+          el.insertAdjacentHTML('afterbegin', '<span class="status-dot"></span>');
+          el.appendChild(document.createTextNode(' LIVE'));
+        })
+        .catch(() => {
+          clearTimeout(timeout);
+          el.className = 'badge building dot';
+          el.textContent = ' CHECKING';
+        });
+    });
+
+    /* ─── CTA FORM ───────────────────────────────────────────── */
+    function handleCTASubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById('cta-email').value;
+      const successEl = document.getElementById('cta-success');
+      if (email && successEl) {
+        successEl.style.display = 'block';
+        document.getElementById('cta-email').value = '';
+        // Could POST to a form endpoint here
+        console.log('Empire join request:', email);
+      }
+    }
+
+    /* ─── COPY TO CLIPBOARD UTILITY ──────────────────────────── */
+    function copyToClipboard(text, btnEl) {
+      navigator.clipboard?.writeText(text).then(() => {
+        const orig = btnEl.textContent;
+        btnEl.textContent = '✓ Copied';
+        setTimeout(() => { btnEl.textContent = orig; }, 2000);
+      });
+    }
+
+    /* ─── SMOOTH SCROLL ─────────────────────────────────────── */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    /* ─── STAGGER PRODUCT CARDS ON LOAD ─────────────────────── */
+    (function staggerCards() {
+      const cards = document.querySelectorAll('.product-card');
+      cards.forEach((card, i) => {
+        card.style.transitionDelay = `${i * 0.06}s`;
+      });
+    })();
+
+    /* ─── PAGE LOAD ANIMATION TRIGGER ───────────────────────── */
+    window.addEventListener('load', () => {
+      document.body.style.opacity = '0';
+      document.body.style.transition = 'opacity 0.4s ease';
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          document.body.style.opacity = '1';
+        });
+      });
+    });
+
+    /* ─── STATUS BAR SYSTEM CHECK ────────────────────────────── */
+    // After 3s, try to verify status
+    setTimeout(() => {
+      const dot = document.getElementById('sys-dot');
+      const text = document.getElementById('sys-text');
+      // Simple optimistic: assume operational
+      if (dot)  dot.className = 'status-dot';
+      if (text) text.textContent = 'ALL SYSTEMS OPERATIONAL';
+    }, 3000);
+  </script>
+
 </body>
 </html>
