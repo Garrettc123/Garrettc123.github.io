@@ -1,2034 +1,1349 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Garcar Enterprise — AI Revenue Empire</title>
-  <meta name="description" content="9 AI Products. 1 Empire. $155K/mo target. Garcar Enterprise — Making Money While You Sleep." />
-  <meta name="theme-color" content="#080b0f" />
+  <title>GARCAR ENTERPRISE — Command Intelligence</title>
+  <meta name="description" content="RHNS Architectonics v2.0 — Master Command Intelligence Layer for Garcar Enterprise ecosystem." />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
-    /* ═══════════════════════════════════════════════════════════
-       GARCAR ENTERPRISE — GITHUB PAGES WAR ROOM
-       Full cinematic dark command center · Single file
-    ═══════════════════════════════════════════════════════════ */
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+    /* ============================================================
+       DESIGN TOKENS
+    ============================================================ */
     :root {
-      --emerald: #00ff88;
-      --teal:    #00e5d0;
-      --cyan:    #00cfff;
-      --gold:    #f5c518;
-      --red:     #ff3b5c;
-      --purple:  #9b59b6;
-      --bg:      #080b0f;
-      --surface: #0d1117;
-      --card:    #131c24;
-      --border:  rgba(0,255,136,0.12);
-      --text:    #e2eff8;
-      --text2:   #8aaec8;
-      --text3:   #3d5a70;
-      --font:    'Inter', sans-serif;
-      --display: 'Syne', 'Inter', sans-serif;
-      --mono:    'DM Mono', monospace;
+      /* Brand colors */
+      --clr-bg:          #0a0a0f;
+      --clr-surface:     #0f0f17;
+      --clr-surface-2:   #13131e;
+      --clr-surface-3:   #181826;
+      --clr-border:      rgba(255,255,255,0.06);
+      --clr-border-glow: rgba(0,255,136,0.15);
+
+      /* Accents */
+      --clr-green:       #00ff88;
+      --clr-green-dim:   rgba(0,255,136,0.12);
+      --clr-green-muted: rgba(0,255,136,0.55);
+      --clr-purple:      #7c3aed;
+      --clr-purple-dim:  rgba(124,58,237,0.12);
+      --clr-amber:       #f59e0b;
+      --clr-amber-dim:   rgba(245,158,11,0.12);
+      --clr-red:         #ef4444;
+      --clr-red-dim:     rgba(239,68,68,0.12);
+      --clr-blue:        #3b82f6;
+      --clr-blue-dim:    rgba(59,130,246,0.10);
+
+      /* Text */
+      --clr-text:        #e2e8f0;
+      --clr-text-muted:  #94a3b8;
+      --clr-text-faint:  #475569;
+
+      /* Fonts */
+      --font-mono:  'JetBrains Mono', 'Courier New', monospace;
+      --font-label: 'Inter', system-ui, sans-serif;
+
+      /* Spacing */
+      --sp-1: 0.25rem;
+      --sp-2: 0.5rem;
+      --sp-3: 0.75rem;
+      --sp-4: 1rem;
+      --sp-5: 1.25rem;
+      --sp-6: 1.5rem;
+      --sp-8: 2rem;
+      --sp-10: 2.5rem;
+      --sp-12: 3rem;
+
+      /* Radius */
+      --radius-sm: 0.375rem;
+      --radius-md: 0.5rem;
+      --radius-lg: 0.75rem;
+      --radius-xl: 1rem;
+
+      /* Transitions */
+      --ease-fast: 140ms cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: var(--font);
-      background: var(--bg);
-      color: var(--text);
-      overflow-x: hidden;
+    /* ============================================================
+       BASE RESET
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html {
+      scroll-behavior: smooth;
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
+    body {
+      background: var(--clr-bg);
+      color: var(--clr-text);
+      font-family: var(--font-label);
+      font-size: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      line-height: 1.5;
+      min-height: 100dvh;
+      overflow-x: hidden;
+    }
+    button { cursor: pointer; background: none; border: none; font: inherit; color: inherit; }
+    table { border-collapse: collapse; width: 100%; }
+    img, svg { display: block; max-width: 100%; }
 
-    /* ── SCROLLBAR ── */
-    ::-webkit-scrollbar { width: 5px; }
-    ::-webkit-scrollbar-track { background: var(--surface); }
-    ::-webkit-scrollbar-thumb { background: rgba(0,255,136,0.2); border-radius: 3px; }
-
-    /* ── KEYFRAMES ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(28px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes float1 {
-      0%,100% { transform: translate(0,0) scale(1); }
-      33%  { transform: translate(60px,-80px) scale(1.1); }
-      66%  { transform: translate(-40px,40px) scale(0.95); }
-    }
-    @keyframes float2 {
-      0%,100% { transform: translate(0,0) scale(1); }
-      40%  { transform: translate(-80px,60px) scale(1.08); }
-      70%  { transform: translate(50px,-30px) scale(0.97); }
-    }
-    @keyframes float3 {
-      0%,100% { transform: translate(0,0) scale(1); }
-      30%  { transform: translate(40px,80px) scale(1.05); }
-      60%  { transform: translate(-60px,-50px) scale(1.12); }
-    }
-    @keyframes statusPulse {
-      0%,100% { box-shadow: 0 0 0 0 rgba(0,255,136,0.6); }
-      50%  { box-shadow: 0 0 0 7px rgba(0,255,136,0); }
-    }
-    @keyframes shimmer {
-      0%   { transform: translateX(-100%) skewX(-12deg); }
-      100% { transform: translateX(300%) skewX(-12deg); }
-    }
-    @keyframes hexPulse {
-      0%,100% { filter: drop-shadow(0 0 8px rgba(0,255,136,0.5)); }
-      50%  { filter: drop-shadow(0 0 28px rgba(0,255,136,0.9)); }
-    }
-    @keyframes barFill {
-      from { width: 0; }
-    }
-    @keyframes scanline {
-      0%   { background-position: 0 0; }
-      100% { background-position: 0 100%; }
-    }
-    @keyframes blink {
-      0%,49% { opacity: 1; }
-      50%,100% { opacity: 0; }
-    }
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-    @keyframes revealIn {
-      from { opacity:0; transform: translateY(20px); }
-      to   { opacity:1; transform: translateY(0); }
-    }
-    @keyframes dotPulse {
-      0%,100% { opacity:0.3; }
-      50%  { opacity:0.7; }
-    }
-    @keyframes glow {
-      0%,100% { box-shadow: 0 0 0 1px rgba(0,255,136,0.15), 0 4px 24px rgba(0,0,0,0.5); }
-      50%  { box-shadow: 0 0 0 1px rgba(0,255,136,0.3), 0 8px 40px rgba(0,255,136,0.08); }
-    }
-    @keyframes counterFlip {
-      from { transform: translateY(-6px); opacity: 0; }
-      to   { transform: translateY(0); opacity: 1; }
-    }
-
-    /* ── STATUS BAR ── */
-    .status-bar {
+    /* ============================================================
+       SCANLINE OVERLAY
+    ============================================================ */
+    body::before {
+      content: '';
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 200;
-      height: 44px;
-      background: rgba(8,11,15,0.92);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(0,255,136,0.1);
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,0.03) 2px,
+        rgba(0,0,0,0.03) 4px
+      );
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ============================================================
+       GRID BACKGROUND
+    ============================================================ */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,255,136,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,136,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ============================================================
+       LAYOUT WRAPPER
+    ============================================================ */
+    .app {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 100dvh;
+      padding: var(--sp-4);
+      gap: var(--sp-4);
+      max-width: 1920px;
+      margin: 0 auto;
+    }
+
+    /* ============================================================
+       GLASS CARD MIXIN
+    ============================================================ */
+    .card {
+      background: linear-gradient(135deg, var(--clr-surface) 0%, var(--clr-surface-2) 100%);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-lg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(0,255,136,0.12), rgba(124,58,237,0.08), transparent);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    /* ============================================================
+       HEADER
+    ============================================================ */
+    .header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 32px;
-      gap: 16px;
+      gap: var(--sp-4);
+      padding: var(--sp-4) var(--sp-6);
+      flex-wrap: wrap;
     }
-
-    .status-bar__left {
+    .header-left {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: var(--sp-5);
     }
-
-    .status-bar__logo {
+    .logo-mark {
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+    }
+    .header-titles {
       display: flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--display);
-      font-size: 0.85rem;
-      font-weight: 800;
-      color: var(--text);
-      text-decoration: none;
-      letter-spacing: 0.05em;
-    }
-
-    .status-bar__logo svg {
-      animation: hexPulse 3s ease-in-out infinite;
-    }
-
-    .status-bar__nav {
-      display: flex;
-      align-items: center;
+      flex-direction: column;
       gap: 2px;
     }
-
-    .status-bar__nav a {
-      color: var(--text3);
-      text-decoration: none;
-      font-size: 0.75rem;
-      padding: 4px 10px;
-      border-radius: 6px;
-      transition: all 0.2s;
-      letter-spacing: 0.04em;
+    .header-main {
+      font-family: var(--font-mono);
+      font-size: clamp(0.875rem, 0.8rem + 0.5vw, 1.25rem);
+      font-weight: 700;
+      color: var(--clr-green);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      line-height: 1.1;
+      text-shadow: 0 0 20px rgba(0,255,136,0.4);
     }
-
-    .status-bar__nav a:hover {
-      color: var(--text);
-      background: rgba(0,255,136,0.06);
-    }
-
-    .status-bar__right {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .status-indicator {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-family: var(--mono);
-      font-size: 0.68rem;
+    .header-sub {
+      font-family: var(--font-mono);
+      font-size: clamp(0.65rem, 0.6rem + 0.2vw, 0.75rem);
+      color: var(--clr-text-muted);
       letter-spacing: 0.08em;
-      color: var(--emerald);
-      text-transform: uppercase;
-    }
-
-    .status-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--emerald);
-      animation: statusPulse 1.6s ease-in-out infinite;
-    }
-
-    .status-dot.warn { background: var(--gold); animation: none; }
-    .status-dot.off  { background: var(--red);  animation: none; }
-
-    .clock {
-      font-family: var(--mono);
-      font-size: 0.8rem;
-      color: var(--emerald);
-      letter-spacing: 0.1em;
-      opacity: 0.8;
-    }
-
-    /* Hamburger */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 4px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 4px;
-    }
-    .hamburger span {
-      display: block;
-      width: 20px;
-      height: 2px;
-      background: var(--text2);
-      border-radius: 1px;
-      transition: all 0.2s;
-    }
-
-    /* Mobile nav */
-    .mobile-nav {
-      display: none;
-      position: fixed;
-      top: 44px;
-      left: 0;
-      right: 0;
-      z-index: 199;
-      background: rgba(8,11,15,0.97);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-      flex-direction: column;
-      padding: 12px;
-      gap: 2px;
-    }
-
-    .mobile-nav.open { display: flex; }
-
-    .mobile-nav a {
-      padding: 10px 14px;
-      color: var(--text2);
-      text-decoration: none;
-      font-size: 0.85rem;
-      border-radius: 8px;
-      transition: all 0.2s;
-    }
-
-    .mobile-nav a:hover {
-      background: rgba(0,255,136,0.06);
-      color: var(--emerald);
-    }
-
-    /* ── WRAPPER ── */
-    .wrapper {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 32px;
-    }
-
-    /* ── SECTION HEADER ── */
-    .section-label {
-      font-family: var(--mono);
-      font-size: 0.62rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--text3);
-      margin-bottom: 12px;
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: var(--sp-2);
+    }
+    .rhns-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--sp-2);
+      padding: 3px var(--sp-3);
+      background: var(--clr-purple-dim);
+      border: 1px solid rgba(124,58,237,0.3);
+      border-radius: var(--radius-full, 9999px);
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: #a78bfa;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .rhns-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #7c3aed;
+      box-shadow: 0 0 6px #7c3aed;
+      animation: pulse-purple 2s ease-in-out infinite;
+    }
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-4);
+      flex-wrap: wrap;
+    }
+    .live-clock {
+      font-family: var(--font-mono);
+      font-size: clamp(0.75rem, 0.7rem + 0.3vw, 0.875rem);
+      color: var(--clr-green);
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+    }
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--clr-green);
+      box-shadow: 0 0 8px var(--clr-green);
+      animation: pulse-green 1.5s ease-in-out infinite;
+    }
+    .header-tag {
+      font-size: 0.65rem;
+      font-family: var(--font-mono);
+      color: var(--clr-text-faint);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ============================================================
+       SECTION LABEL
+    ============================================================ */
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--clr-text-faint);
+      margin-bottom: var(--sp-3);
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+    }
+    .section-label::before {
+      content: '';
+      width: 16px;
+      height: 1px;
+      background: currentColor;
     }
     .section-label::after {
       content: '';
       flex: 1;
       height: 1px;
-      background: rgba(0,255,136,0.1);
+      background: var(--clr-border);
     }
 
-    /* ── CARD ── */
-    .card {
-      background: rgba(13,17,23,0.8);
-      backdrop-filter: blur(20px) saturate(180%);
-      border: 1px solid rgba(0,255,136,0.12);
-      border-radius: 14px;
-      box-shadow: 0 0 0 1px rgba(0,255,136,0.05), 0 4px 24px rgba(0,0,0,0.5);
+    /* ============================================================
+       STATUS GRID (6 cards)
+    ============================================================ */
+    .status-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: var(--sp-3);
+    }
+    @media (max-width: 1200px) { .status-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 700px)  { .status-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    .status-card {
+      padding: var(--sp-4) var(--sp-4);
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-2);
+    }
+    .status-card-name {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--clr-text-muted);
+      letter-spacing: 0.04em;
+      line-height: 1.3;
+      white-space: nowrap;
       overflow: hidden;
-      position: relative;
-      transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+      text-overflow: ellipsis;
     }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(0,255,136,0.3), rgba(0,229,208,0.2), transparent);
-    }
-
-    .card:hover {
-      border-color: rgba(0,255,136,0.25);
-      transform: translateY(-4px);
-      box-shadow: 0 0 0 1px rgba(0,255,136,0.2), 0 12px 48px rgba(0,0,0,0.6), 0 0 60px rgba(0,255,136,0.06);
-      animation: glow 2s ease-in-out infinite;
-    }
-
-    /* ── BADGE ── */
-    .badge {
+    .status-badge {
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      padding: 3px 10px;
-      font-family: var(--mono);
-      font-size: 0.62rem;
+      gap: var(--sp-2);
+      padding: 3px var(--sp-2);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      width: fit-content;
+    }
+    .status-badge--green {
+      background: var(--clr-green-dim);
+      border: 1px solid rgba(0,255,136,0.25);
+      color: var(--clr-green);
+    }
+    .status-badge--amber {
+      background: var(--clr-amber-dim);
+      border: 1px solid rgba(245,158,11,0.25);
+      color: var(--clr-amber);
+    }
+    .status-badge--red {
+      background: var(--clr-red-dim);
+      border: 1px solid rgba(239,68,68,0.25);
+      color: var(--clr-red);
+    }
+    .status-indicator {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .ind-green  { background: var(--clr-green);  box-shadow: 0 0 6px var(--clr-green);  animation: pulse-green 1.8s ease-in-out infinite; }
+    .ind-amber  { background: var(--clr-amber);  box-shadow: 0 0 6px var(--clr-amber);  animation: pulse-amber 2s ease-in-out infinite; }
+    .ind-red    { background: var(--clr-red);    box-shadow: 0 0 6px var(--clr-red);    animation: pulse-red 1.4s ease-in-out infinite; }
+    .status-card-deploy {
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      color: var(--clr-text-faint);
+      letter-spacing: 0.04em;
+    }
+
+    /* ============================================================
+       METRICS ROW
+    ============================================================ */
+    .metrics-row {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: var(--sp-3);
+    }
+    @media (max-width: 1200px) { .metrics-row { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 700px)  { .metrics-row { grid-template-columns: repeat(2, 1fr); } }
+
+    .metric-card {
+      padding: var(--sp-4);
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-1);
+      align-items: flex-start;
+    }
+    .metric-label {
+      font-family: var(--font-label);
+      font-size: 0.65rem;
+      color: var(--clr-text-faint);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 500;
+    }
+    .metric-value {
+      font-family: var(--font-mono);
+      font-size: clamp(1.25rem, 1rem + 1vw, 2rem);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .metric-value--green  { color: var(--clr-green);  text-shadow: 0 0 20px rgba(0,255,136,0.35); }
+    .metric-value--purple { color: #a78bfa; text-shadow: 0 0 20px rgba(124,58,237,0.35); }
+    .metric-value--amber  { color: var(--clr-amber);  text-shadow: 0 0 20px rgba(245,158,11,0.35); }
+    .metric-value--blue   { color: #60a5fa; text-shadow: 0 0 20px rgba(59,130,246,0.35); }
+    .metric-sub {
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      color: var(--clr-text-faint);
+      letter-spacing: 0.05em;
+    }
+
+    /* ============================================================
+       MAIN CONTENT AREA (3 columns)
+    ============================================================ */
+    .main-content {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: var(--sp-4);
+      flex: 1;
+    }
+    @media (max-width: 1100px) {
+      .main-content { grid-template-columns: 1fr; }
+    }
+
+    /* ============================================================
+       CAPABILITY REGISTRY TABLE
+    ============================================================ */
+    .registry-card {
+      padding: var(--sp-5);
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-4);
+    }
+    .registry-controls {
+      display: flex;
+      gap: var(--sp-3);
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .search-input {
+      background: var(--clr-surface-3);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-md);
+      padding: var(--sp-2) var(--sp-3);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--clr-text);
+      outline: none;
+      width: 220px;
+      transition: border-color var(--ease-fast);
+    }
+    .search-input::placeholder { color: var(--clr-text-faint); }
+    .search-input:focus { border-color: rgba(0,255,136,0.35); }
+    .filter-btn {
+      padding: var(--sp-2) var(--sp-3);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-md);
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
       font-weight: 500;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      border-radius: 999px;
+      color: var(--clr-text-muted);
+      transition: all var(--ease-fast);
+    }
+    .filter-btn:hover, .filter-btn.active {
+      border-color: rgba(0,255,136,0.35);
+      color: var(--clr-green);
+      background: var(--clr-green-dim);
+    }
+    .registry-table-wrap {
+      overflow-x: auto;
+      overflow-y: auto;
+      max-height: 520px;
+    }
+    .registry-table-wrap::-webkit-scrollbar { width: 4px; height: 4px; }
+    .registry-table-wrap::-webkit-scrollbar-track { background: transparent; }
+    .registry-table-wrap::-webkit-scrollbar-thumb { background: var(--clr-border); border-radius: 2px; }
+    .reg-table th {
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--clr-text-faint);
+      text-align: left;
+      padding: var(--sp-2) var(--sp-3);
+      border-bottom: 1px solid var(--clr-border);
       white-space: nowrap;
+      position: sticky;
+      top: 0;
+      background: var(--clr-surface);
+      z-index: 2;
     }
-
-    .badge.live    { color: var(--emerald); background: rgba(0,255,136,0.1); border: 1px solid rgba(0,255,136,0.25); }
-    .badge.building { color: var(--gold);   background: rgba(245,197,24,0.1); border: 1px solid rgba(245,197,24,0.25); }
-    .badge.info    { color: var(--cyan);    background: rgba(0,207,255,0.1);  border: 1px solid rgba(0,207,255,0.25); }
-    .badge.dot::before {
-      content: '';
-      display: inline-block;
-      width: 5px; height: 5px;
-      border-radius: 50%;
-      background: currentColor;
-      animation: statusPulse 1.6s ease-in-out infinite;
+    .reg-table td {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      padding: var(--sp-2) var(--sp-3);
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+      white-space: nowrap;
+      vertical-align: middle;
     }
+    .reg-table tr { transition: background var(--ease-fast); }
+    .reg-table tbody tr:hover { background: rgba(0,255,136,0.03); }
+    .reg-table tbody tr.hidden { display: none; }
 
-    /* ── BUTTONS ── */
-    .btn {
+    .td-system { color: var(--clr-text); font-weight: 500; }
+    .td-category { color: var(--clr-text-muted); }
+    .td-revenue { color: #60a5fa; }
+    .td-deploy { color: var(--clr-text-faint); }
+    .pill {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 10px 22px;
-      font-family: var(--display);
-      font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
+      gap: 5px;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      text-decoration: none;
-      white-space: nowrap;
-      position: relative;
-      overflow: hidden;
-      transition: all 0.25s ease;
+    }
+    .pill-green  { background: var(--clr-green-dim);  border: 1px solid rgba(0,255,136,0.2);  color: var(--clr-green); }
+    .pill-amber  { background: var(--clr-amber-dim);  border: 1px solid rgba(245,158,11,0.2);  color: var(--clr-amber); }
+    .pill-red    { background: var(--clr-red-dim);    border: 1px solid rgba(239,68,68,0.2);    color: var(--clr-red); }
+    .pill-purple { background: var(--clr-purple-dim); border: 1px solid rgba(124,58,237,0.2); color: #a78bfa; }
+    .pill-blue   { background: var(--clr-blue-dim);   border: 1px solid rgba(59,130,246,0.2);   color: #60a5fa; }
+    .pill-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: currentColor;
     }
 
-    .btn::after {
+    /* ============================================================
+       INTELLIGENCE FEED (right panel)
+    ============================================================ */
+    .feed-card {
+      padding: var(--sp-5);
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-4);
+      min-height: 400px;
+    }
+    .feed-scroll-wrap {
+      flex: 1;
+      overflow: hidden;
+      position: relative;
+    }
+    .feed-scroll-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: linear-gradient(transparent, var(--clr-surface));
+      pointer-events: none;
+      z-index: 2;
+    }
+    .feed-inner {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-2);
+      animation: feed-scroll 30s linear infinite;
+    }
+    .feed-inner:hover { animation-play-state: paused; }
+    .feed-entry {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      line-height: 1.5;
+      color: var(--clr-text-muted);
+      border-left: 2px solid var(--clr-border);
+      padding-left: var(--sp-3);
+      display: flex;
+      align-items: flex-start;
+      gap: var(--sp-2);
+    }
+    .feed-time {
+      color: var(--clr-text-faint);
+      flex-shrink: 0;
+      min-width: 45px;
+    }
+    .feed-entry--success { border-left-color: var(--clr-green); }
+    .feed-entry--fail    { border-left-color: var(--clr-red); }
+    .feed-entry--warn    { border-left-color: var(--clr-amber); }
+    .feed-entry--info    { border-left-color: var(--clr-blue); }
+    .feed-status {
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+    .feed-status--ok   { color: var(--clr-green); }
+    .feed-status--fail { color: var(--clr-red); }
+    .feed-status--warn { color: var(--clr-amber); }
+    .feed-status--info { color: #60a5fa; }
+    .feed-msg { color: var(--clr-text-muted); flex: 1; }
+
+    /* ============================================================
+       BOTTOM ROW
+    ============================================================ */
+    .bottom-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-4);
+    }
+    @media (max-width: 900px) { .bottom-row { grid-template-columns: 1fr; } }
+
+    /* ============================================================
+       REVENUE PANEL
+    ============================================================ */
+    .revenue-card {
+      padding: var(--sp-5);
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-4);
+    }
+    .revenue-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--sp-3);
+    }
+    @media (max-width: 600px) { .revenue-grid { grid-template-columns: 1fr; } }
+    .rev-item {
+      background: var(--clr-surface-3);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-md);
+      padding: var(--sp-3) var(--sp-4);
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-1);
+      position: relative;
+      overflow: hidden;
+    }
+    .rev-item::before {
       content: '';
       position: absolute;
       top: 0; left: 0;
-      width: 60%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
-      transform: translateX(-100%) skewX(-12deg);
-    }
-
-    .btn:hover::after { animation: shimmer 0.6s ease forwards; }
-
-    .btn-primary {
-      background: linear-gradient(135deg, rgba(0,255,136,0.9), rgba(0,229,208,0.8));
-      color: #040a06;
-      box-shadow: 0 0 0 1px rgba(0,255,136,0.4), 0 4px 16px rgba(0,255,136,0.2);
-    }
-    .btn-primary:hover {
-      background: linear-gradient(135deg, #00ff88, #00e5d0);
-      transform: translateY(-2px);
-      box-shadow: 0 0 0 1px rgba(0,255,136,0.6), 0 8px 32px rgba(0,255,136,0.3);
-    }
-
-    .btn-ghost {
-      background: transparent;
-      color: var(--text2);
-      border: 1px solid rgba(0,255,136,0.15);
-    }
-    .btn-ghost:hover {
-      color: var(--emerald);
-      background: rgba(0,255,136,0.06);
-      border-color: rgba(0,255,136,0.3);
-    }
-
-    /* ── REVEAL ANIMATION ── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(22px);
-      transition: opacity 0.65s ease, transform 0.65s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ════════════════════════════════════════════════════════════
-       HERO SECTION
-    ════════════════════════════════════════════════════════════ */
-    #hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 120px 32px 80px;
-      overflow: hidden;
-    }
-
-    /* Particle canvas */
-    #particle-canvas {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    /* Scanline overlay */
-    #hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      pointer-events: none;
-      background-image: repeating-linear-gradient(
-        0deg, transparent, transparent 2px,
-        rgba(0,255,136,0.012) 2px, rgba(0,255,136,0.012) 4px
-      );
-      background-size: 100% 4px;
-      animation: scanline 20s linear infinite;
-    }
-
-    /* Ambient orbs */
-    .orb {
-      position: absolute;
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 0;
-      filter: blur(100px);
-    }
-    .orb-1 {
-      width: 700px; height: 700px;
-      top: -200px; left: -200px;
-      background: radial-gradient(circle, rgba(0,255,136,0.2), transparent 70%);
-      animation: float1 35s ease-in-out infinite;
-    }
-    .orb-2 {
-      width: 600px; height: 600px;
-      bottom: -150px; right: -200px;
-      background: radial-gradient(circle, rgba(0,207,255,0.15), transparent 70%);
-      animation: float2 28s ease-in-out infinite;
-    }
-    .orb-3 {
-      width: 400px; height: 400px;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      background: radial-gradient(circle, rgba(0,229,208,0.1), transparent 70%);
-      animation: float3 42s ease-in-out infinite;
-    }
-
-    /* Grid overlay */
-    #hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      background-image: radial-gradient(circle, rgba(0,255,136,0.2) 1px, transparent 1px);
-      background-size: 40px 40px;
-      animation: dotPulse 3s ease-in-out infinite;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 5;
-      max-width: 900px;
-    }
-
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 24px;
-      padding: 5px 14px;
-      background: rgba(0,255,136,0.08);
-      border: 1px solid rgba(0,255,136,0.2);
-      border-radius: 999px;
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      letter-spacing: 0.12em;
-      color: var(--emerald);
-      text-transform: uppercase;
-    }
-
-    .hero-title {
-      font-family: var(--display);
-      font-size: clamp(3rem, 8vw, 7rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 0.95;
-      margin-bottom: 16px;
-      background: linear-gradient(135deg, #ffffff 0%, var(--emerald) 40%, var(--teal) 70%, var(--cyan) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      color: var(--text);
-    }
-
-    .hero-sub {
-      font-family: var(--display);
-      font-size: clamp(1.1rem, 3vw, 1.8rem);
-      font-weight: 700;
-      color: var(--text2);
-      margin-bottom: 32px;
-      letter-spacing: 0.02em;
-    }
-
-    /* Typewriter */
-    .typewriter {
-      font-family: var(--mono);
-      font-size: 1.05rem;
-      color: var(--emerald);
-      min-height: 1.5em;
-      letter-spacing: 0.04em;
-    }
-
-    .typewriter-cursor {
-      display: inline-block;
-      width: 2px;
-      height: 1em;
-      background: var(--emerald);
-      vertical-align: middle;
-      margin-left: 2px;
-      animation: blink 1s step-end infinite;
-    }
-
-    .hero-cta {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      margin-top: 40px;
-      flex-wrap: wrap;
-    }
-
-    .hero-stats {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 40px;
-      margin-top: 56px;
-      flex-wrap: wrap;
-    }
-
-    .hero-stat {
-      text-align: center;
-    }
-
-    .hero-stat__num {
-      font-family: var(--display);
-      font-size: 2.2rem;
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      color: var(--emerald);
-      display: block;
-    }
-
-    .hero-stat__label {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      color: var(--text3);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-
-    /* ════════════════════════════════════════════════════════════
-       PRODUCTS GRID — 3×3
-    ════════════════════════════════════════════════════════════ */
-    #products {
-      padding: 96px 0;
-    }
-
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-top: 32px;
-    }
-
-    .product-card {
-      padding: 24px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .product-card__accent {
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--emerald), var(--teal));
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .product-card:hover .product-card__accent { opacity: 1; }
-
-    .product-card__status {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 16px;
-    }
-
-    .product-card__icon {
-      width: 38px; height: 38px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      background: rgba(0,255,136,0.08);
-      border: 1px solid rgba(0,255,136,0.15);
-    }
-
-    .product-card__name {
-      font-family: var(--display);
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 6px;
-      line-height: 1.2;
-    }
-
-    .product-card__desc {
-      font-size: 0.78rem;
-      color: var(--text2);
-      line-height: 1.6;
-      margin-bottom: 14px;
-    }
-
-    .product-card__pricing {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      margin-bottom: 14px;
-    }
-
-    .price-pill {
-      padding: 2px 8px;
-      border-radius: 6px;
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      color: var(--emerald);
-      background: rgba(0,255,136,0.08);
-      border: 1px solid rgba(0,255,136,0.15);
-    }
-
-    .product-card__link {
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      color: var(--teal);
-      text-decoration: none;
-      letter-spacing: 0.04em;
-      opacity: 0.7;
-      transition: opacity 0.2s;
-    }
-
-    .product-card__link:hover { opacity: 1; }
-
-    /* ════════════════════════════════════════════════════════════
-       REVENUE PIPELINE
-    ════════════════════════════════════════════════════════════ */
-    #pipeline {
-      padding: 96px 0;
-    }
-
-    .pipeline-bar-wrap {
-      margin: 28px 0 16px;
-    }
-
-    .pipeline-bar {
-      display: flex;
-      height: 48px;
-      border-radius: 10px;
-      overflow: hidden;
-      gap: 2px;
-      background: rgba(255,255,255,0.02);
-    }
-
-    .pipe-seg {
+      width: 3px;
       height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--mono);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+    .rev-item.active::before { background: var(--clr-green); box-shadow: 0 0 8px var(--clr-green); }
+    .rev-item.partial::before { background: var(--clr-amber); }
+    .rev-item-name {
+      font-family: var(--font-mono);
       font-size: 0.65rem;
       font-weight: 600;
-      color: rgba(0,0,0,0.7);
-      overflow: hidden;
-      white-space: nowrap;
-      width: 0%;
-      transition: width 1.6s cubic-bezier(0.4,0,0.2,1) 0.6s;
-      position: relative;
+      color: var(--clr-text);
+      letter-spacing: 0.02em;
     }
-
-    .pipe-seg::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(0deg, rgba(0,0,0,0.08), rgba(255,255,255,0.08));
-    }
-
-    .pipe-seg.nwu     { background: linear-gradient(135deg,#00ff88,#00cc6a); }
-    .pipe-seg.suite   { background: linear-gradient(135deg,#00e5d0,#00cfff); }
-    .pipe-seg.churn   { background: linear-gradient(135deg,#9b59b6,#6c3483); color:rgba(255,255,255,0.8); }
-    .pipe-seg.deal    { background: linear-gradient(135deg,#f5c518,#c49b12); }
-    .pipe-seg.content { background: linear-gradient(135deg,#ff6b35,#e74c3c); color:rgba(255,255,255,0.8); }
-    .pipe-seg.other   { background: linear-gradient(135deg,#3d5a70,#253647); color:rgba(255,255,255,0.5); }
-
-    .pipeline-legend {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-top: 14px;
-    }
-
-    .legend-item {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      font-family: var(--mono);
+    .rev-item-target {
+      font-family: var(--font-mono);
       font-size: 0.7rem;
-      color: var(--text2);
-    }
-
-    .legend-dot {
-      width: 10px; height: 10px;
-      border-radius: 3px;
-      flex-shrink: 0;
-    }
-
-    .mrr-progress-wrap {
-      margin-top: 28px;
-    }
-
-    .mrr-progress-labels {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 8px;
-    }
-
-    .mrr-progress-labels span {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--text3);
-    }
-
-    .progress-track {
-      height: 8px;
-      background: rgba(0,255,136,0.08);
-      border-radius: 999px;
-      overflow: hidden;
-    }
-
-    .progress-fill {
-      height: 100%;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--emerald), var(--teal));
-      width: 0%;
-      transition: width 1.8s cubic-bezier(0.4,0,0.2,1) 0.8s;
-      box-shadow: 0 0 12px rgba(0,255,136,0.4);
-    }
-
-    /* ════════════════════════════════════════════════════════════
-       VERCEL LIVE APPS
-    ════════════════════════════════════════════════════════════ */
-    #apps {
-      padding: 96px 0;
-    }
-
-    .apps-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-top: 32px;
-    }
-
-    .app-card {
-      padding: 22px;
-    }
-
-    .app-card__header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 10px;
-    }
-
-    .app-card__name {
-      font-family: var(--display);
-      font-size: 0.92rem;
       font-weight: 700;
-      color: var(--text);
+      color: var(--clr-green);
+    }
+    .rev-item-status {
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      color: var(--clr-text-faint);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
     }
 
-    .app-card__url {
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      color: var(--text3);
-      word-break: break-all;
-      margin-bottom: 14px;
-    }
-
-    /* ════════════════════════════════════════════════════════════
-       ARCHITECTURE FLOWCHART
-    ════════════════════════════════════════════════════════════ */
-    #architecture {
-      padding: 96px 0;
-    }
-
-    .arch-flow {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0;
-      flex-wrap: wrap;
-      margin-top: 40px;
-      padding: 40px;
-      background: rgba(13,17,23,0.6);
-      border: 1px solid rgba(0,255,136,0.12);
-      border-radius: 18px;
-    }
-
-    .arch-node {
+    /* ============================================================
+       DEFENSE PANEL
+    ============================================================ */
+    .defense-card {
+      padding: var(--sp-5);
       display: flex;
       flex-direction: column;
+      gap: var(--sp-4);
+    }
+    .defense-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--sp-3);
+    }
+    .agent-item {
+      background: var(--clr-surface-3);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-md);
+      padding: var(--sp-3) var(--sp-4);
+      display: flex;
       align-items: center;
-      gap: 8px;
-      padding: 18px 20px;
-      background: rgba(0,255,136,0.05);
-      border: 1px solid rgba(0,255,136,0.15);
-      border-radius: 12px;
-      min-width: 120px;
-      text-align: center;
-      transition: all 0.25s;
-      cursor: default;
+      gap: var(--sp-3);
     }
-
-    .arch-node:hover {
-      background: rgba(0,255,136,0.1);
-      border-color: rgba(0,255,136,0.35);
-      transform: translateY(-3px);
-      box-shadow: 0 0 24px rgba(0,255,136,0.12);
+    .agent-pulse {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      position: relative;
     }
-
-    .arch-node__icon { font-size: 1.6rem; }
-
-    .arch-node__label {
-      font-family: var(--display);
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: var(--text);
+    .agent-pulse::after {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      border: 1px solid currentColor;
+      opacity: 0;
+      animation: ring-expand 2s ease-out infinite;
     }
-
-    .arch-node__sub {
-      font-family: var(--mono);
-      font-size: 0.6rem;
-      color: var(--text3);
+    .agent-pulse--green { background: var(--clr-green); color: var(--clr-green); box-shadow: 0 0 8px var(--clr-green); animation: pulse-green 2s ease-in-out infinite; }
+    .agent-pulse--amber { background: var(--clr-amber); color: var(--clr-amber); box-shadow: 0 0 8px var(--clr-amber); animation: pulse-amber 2.2s ease-in-out infinite; }
+    .agent-info { display: flex; flex-direction: column; gap: 2px; }
+    .agent-type {
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      color: var(--clr-text-faint);
       text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+    .agent-name {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: var(--clr-text);
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .footer {
+      padding: var(--sp-4) var(--sp-6);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--sp-3);
+      border-top: 1px solid var(--clr-border);
+    }
+    .footer-text {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--clr-text-faint);
+      letter-spacing: 0.06em;
+    }
+    .footer-right {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-4);
+    }
+    .footer-updated {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--clr-text-faint);
+      letter-spacing: 0.05em;
+    }
+    .footer-version {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--clr-purple);
       letter-spacing: 0.08em;
     }
 
-    .arch-arrow {
-      display: flex;
-      align-items: center;
-      padding: 0 8px;
-      color: var(--emerald);
-      font-size: 1.3rem;
-      opacity: 0.5;
-      flex-shrink: 0;
+    /* ============================================================
+       KEYFRAMES
+    ============================================================ */
+    @keyframes pulse-green {
+      0%, 100% { opacity: 1; box-shadow: 0 0 6px var(--clr-green); }
+      50%       { opacity: 0.6; box-shadow: 0 0 14px var(--clr-green); }
+    }
+    @keyframes pulse-amber {
+      0%, 100% { opacity: 1; box-shadow: 0 0 6px var(--clr-amber); }
+      50%       { opacity: 0.5; box-shadow: 0 0 14px var(--clr-amber); }
+    }
+    @keyframes pulse-red {
+      0%, 100% { opacity: 1; box-shadow: 0 0 6px var(--clr-red); }
+      50%       { opacity: 0.5; box-shadow: 0 0 16px var(--clr-red); }
+    }
+    @keyframes pulse-purple {
+      0%, 100% { opacity: 1; box-shadow: 0 0 6px #7c3aed; }
+      50%       { opacity: 0.6; box-shadow: 0 0 12px #7c3aed; }
+    }
+    @keyframes ring-expand {
+      0%   { transform: scale(1); opacity: 0.6; }
+      100% { transform: scale(2.5); opacity: 0; }
+    }
+    @keyframes feed-scroll {
+      0%   { transform: translateY(0); }
+      100% { transform: translateY(-50%); }
+    }
+    @keyframes glow-pulse {
+      0%, 100% { text-shadow: 0 0 20px rgba(0,255,136,0.4); }
+      50%       { text-shadow: 0 0 35px rgba(0,255,136,0.7); }
     }
 
-    /* ════════════════════════════════════════════════════════════
-       GITHUB REPOS
-    ════════════════════════════════════════════════════════════ */
-    #repos {
-      padding: 96px 0;
-    }
-
-    .repos-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 32px;
-    }
-
-    .repo-card {
-      padding: 18px 20px;
-      text-decoration: none;
-      display: block;
-    }
-
-    .repo-card:hover {
-      text-decoration: none;
-    }
-
-    .repo-card__name {
-      font-family: var(--mono);
-      font-size: 0.82rem;
-      color: var(--emerald);
-      margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .repo-card__desc {
-      font-size: 0.75rem;
-      color: var(--text2);
-      line-height: 1.5;
-    }
-
-    .repo-card__meta {
-      display: flex;
-      gap: 12px;
-      margin-top: 10px;
-    }
-
-    .repo-meta-item {
-      font-family: var(--mono);
+    /* ============================================================
+       UTILITY
+    ============================================================ */
+    .card-inner { padding: var(--sp-4) var(--sp-5); }
+    .panel-title {
+      font-family: var(--font-mono);
       font-size: 0.65rem;
-      color: var(--text3);
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--clr-text);
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: var(--sp-2);
     }
-
-    /* ════════════════════════════════════════════════════════════
-       CTA SECTION
-    ════════════════════════════════════════════════════════════ */
-    #cta {
-      padding: 96px 0 120px;
-      text-align: center;
+    .panel-title-accent { color: var(--clr-green); }
+    .panel-count {
+      margin-left: auto;
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      color: var(--clr-text-faint);
+      background: var(--clr-surface-3);
+      padding: 2px 8px;
+      border-radius: 9999px;
+      border: 1px solid var(--clr-border);
     }
-
-    .cta-box {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 60px 48px;
-      background: rgba(13,17,23,0.8);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(0,255,136,0.15);
-      border-radius: 20px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cta-box::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--emerald), var(--teal), transparent);
-    }
-
-    .cta-box::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,255,136,0.06), transparent 60%);
-      pointer-events: none;
-    }
-
-    .cta-title {
-      font-family: var(--display);
-      font-size: 2.2rem;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      color: var(--text);
-      margin-bottom: 12px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .cta-sub {
-      font-size: 0.9rem;
-      color: var(--text2);
-      margin-bottom: 28px;
-      line-height: 1.6;
-      position: relative;
-      z-index: 1;
-    }
-
-    .cta-form {
-      display: flex;
-      gap: 10px;
-      position: relative;
-      z-index: 1;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .cta-input {
-      flex: 1;
-      min-width: 200px;
-      padding: 10px 16px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(0,255,136,0.2);
-      border-radius: 10px;
-      font-size: 0.85rem;
-      color: var(--text);
-      font-family: var(--font);
-      outline: none;
-      transition: all 0.2s;
-    }
-
-    .cta-input:focus {
-      border-color: rgba(0,255,136,0.4);
-      background: rgba(255,255,255,0.06);
-      box-shadow: 0 0 0 3px rgba(0,255,136,0.08);
-    }
-
-    .cta-input::placeholder { color: var(--text3); }
-
-    /* ════════════════════════════════════════════════════════════
-       FOOTER
-    ════════════════════════════════════════════════════════════ */
-    footer {
-      border-top: 1px solid rgba(0,255,136,0.08);
-      padding: 32px;
-      text-align: center;
-    }
-
-    footer p {
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      color: var(--text3);
-      letter-spacing: 0.06em;
-    }
-
-    footer a {
-      color: var(--emerald);
-      text-decoration: none;
-    }
-
-    /* ════════════════════════════════════════════════════════════
-       RESPONSIVE
-    ════════════════════════════════════════════════════════════ */
-    @media (max-width: 1024px) {
-      .products-grid { grid-template-columns: repeat(2, 1fr); }
-      .apps-grid     { grid-template-columns: repeat(2, 1fr); }
-      .repos-grid    { grid-template-columns: repeat(2, 1fr); }
-      .arch-flow     { padding: 24px 16px; gap: 4px; }
-      .arch-arrow    { font-size: 1rem; }
-    }
-
-    @media (max-width: 768px) {
-      .status-bar__nav { display: none; }
-      .hamburger { display: flex; }
-      .wrapper { padding: 0 16px; }
-      .products-grid, .apps-grid, .repos-grid { grid-template-columns: 1fr; }
-      .arch-flow { flex-direction: column; }
-      .arch-arrow { transform: rotate(90deg); }
-      #hero { padding: 100px 16px 60px; }
-      .hero-stats { gap: 24px; }
-      .cta-box { padding: 36px 24px; }
-    }
-
-    @media (max-width: 480px) {
-      .status-bar { padding: 0 16px; }
-      .hero-title { letter-spacing: -0.02em; }
-      .hero-cta { flex-direction: column; align-items: stretch; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- ═══════════════════════════════════════════════════════
-       EMPIRE STATUS BAR (Fixed Top)
-  ═══════════════════════════════════════════════════════ -->
-  <div class="status-bar">
-    <div class="status-bar__left">
-      <a href="#hero" class="status-bar__logo">
-        <svg width="22" height="22" viewBox="0 0 52 52" fill="none" aria-label="Garcar Logo">
-          <polygon points="26,3 48,14.5 48,37.5 26,49 4,37.5 4,14.5" stroke="#00ff88" stroke-width="1.5" fill="rgba(0,255,136,0.06)"/>
-          <polygon points="26,10 40,18 40,34 26,42 12,34 12,18" stroke="#00e5d0" stroke-width="0.8" fill="none" opacity="0.7"/>
-          <text x="26" y="32" text-anchor="middle" font-family="'Syne', sans-serif" font-weight="800" font-size="17" fill="#00ff88">G</text>
-        </svg>
-        GARCAR
-      </a>
-      <nav class="status-bar__nav">
-        <a href="#products">Products</a>
-        <a href="#pipeline">Pipeline</a>
-        <a href="#apps">Live Apps</a>
-        <a href="#architecture">Architecture</a>
-        <a href="#repos">GitHub</a>
-        <a href="#cta">Join</a>
-      </nav>
-    </div>
-    <div class="status-bar__right">
-      <div class="status-indicator">
-        <span class="status-dot" id="sys-dot"></span>
-        <span id="sys-text">ALL SYSTEMS OPERATIONAL</span>
+<div class="app">
+
+  <!-- ============================================================
+       HEADER
+  ============================================================ -->
+  <header class="card header">
+    <div class="header-left">
+      <!-- Logo Mark SVG -->
+      <svg class="logo-mark" viewBox="0 0 44 44" fill="none" aria-label="Garcar Enterprise Logo" xmlns="http://www.w3.org/2000/svg">
+        <rect width="44" height="44" rx="8" fill="url(#logo-bg)" />
+        <!-- Outer ring -->
+        <circle cx="22" cy="22" r="18" stroke="#00ff88" stroke-width="1.5" stroke-dasharray="3 2" opacity="0.4" />
+        <!-- Inner hexagon -->
+        <polygon points="22,8 33,15 33,29 22,36 11,29 11,15" stroke="#00ff88" stroke-width="1.5" fill="none" opacity="0.7" />
+        <!-- Center mark -->
+        <circle cx="22" cy="22" r="5" fill="#00ff88" opacity="0.9" />
+        <!-- G letterform -->
+        <text x="22" y="26" text-anchor="middle" font-family="JetBrains Mono,monospace" font-weight="700" font-size="8" fill="#0a0a0f">G</text>
+        <!-- Corner dots -->
+        <circle cx="22" cy="4" r="1.5" fill="#7c3aed" />
+        <circle cx="22" cy="40" r="1.5" fill="#7c3aed" />
+        <circle cx="4" cy="22" r="1.5" fill="#7c3aed" />
+        <circle cx="40" cy="22" r="1.5" fill="#7c3aed" />
+        <defs>
+          <linearGradient id="logo-bg" x1="0" y1="0" x2="44" y2="44">
+            <stop offset="0%" stop-color="#0f0f17" />
+            <stop offset="100%" stop-color="#13131e" />
+          </linearGradient>
+        </defs>
+      </svg>
+
+      <div class="header-titles">
+        <div class="header-main" style="animation: glow-pulse 3s ease-in-out infinite;">
+          GARCAR ENTERPRISE — COMMAND INTELLIGENCE
+        </div>
+        <div class="header-sub">
+          <span class="rhns-badge">RHNS Architectonics v2.0 — Reason · Harmony · Navigation · Standards</span>
+        </div>
       </div>
-      <span>|</span>
-      <span class="status-indicator">
-        9 PRODUCTS
-      </span>
-      <span class="clock" id="main-clock">00:00:00</span>
     </div>
-    <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+
+    <div class="header-right">
+      <div class="live-clock">
+        <div class="live-dot"></div>
+        <span id="clock">--:--:-- UTC</span>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:2px; align-items:flex-end;">
+        <div class="header-tag">RHNS v2.0 · Garrettc123.github.io</div>
+        <div class="header-tag">176 repos · Cleburne, TX</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       SECTION 1: SYSTEM STATUS GRID
+  ============================================================ -->
+  <div class="section-label">System Status Grid — Live</div>
+  <div class="status-grid">
+
+    <div class="card status-card">
+      <div class="status-card-name">autonomous-orchestrator-core</div>
+      <div class="status-badge status-badge--green">
+        <div class="status-indicator ind-green"></div>
+        ONLINE
+      </div>
+      <div class="status-card-deploy">Railway · NWU Protocol</div>
+    </div>
+
+    <div class="card status-card">
+      <div class="status-card-name">defender-os</div>
+      <div class="status-badge status-badge--amber">
+        <div class="status-indicator ind-amber"></div>
+        DEGRADED
+      </div>
+      <div class="status-card-deploy">GitHub Actions · wrkfl failing</div>
+    </div>
+
+    <div class="card status-card">
+      <div class="status-card-name">apex-revenue-system</div>
+      <div class="status-badge status-badge--amber">
+        <div class="status-indicator ind-amber"></div>
+        PARTIAL
+      </div>
+      <div class="status-card-deploy">Railway · GENESIS deploy failed</div>
+    </div>
+
+    <div class="card status-card">
+      <div class="status-card-name">garcar-shopify-app</div>
+      <div class="status-badge status-badge--amber">
+        <div class="status-indicator ind-amber"></div>
+        FIXING
+      </div>
+      <div class="status-card-deploy">Vercel · prisma conflict</div>
+    </div>
+
+    <div class="card status-card">
+      <div class="status-card-name">garcar-enterprise-production</div>
+      <div class="status-badge status-badge--red">
+        <div class="status-indicator ind-red"></div>
+        DEGRADED
+      </div>
+      <div class="status-card-deploy">Vercel · API health all failing</div>
+    </div>
+
+    <div class="card status-card">
+      <div class="status-card-name">believe-revenue-site</div>
+      <div class="status-badge status-badge--green">
+        <div class="status-indicator ind-green"></div>
+        ONLINE
+      </div>
+      <div class="status-card-deploy">Vercel · Landing+Stripe</div>
+    </div>
+
   </div>
 
-  <!-- Mobile Nav -->
-  <nav class="mobile-nav" id="mobile-nav" role="navigation">
-    <a href="#products" onclick="closeMobileNav()">Products</a>
-    <a href="#pipeline" onclick="closeMobileNav()">Pipeline</a>
-    <a href="#apps" onclick="closeMobileNav()">Live Apps</a>
-    <a href="#architecture" onclick="closeMobileNav()">Architecture</a>
-    <a href="#repos" onclick="closeMobileNav()">GitHub</a>
-    <a href="#cta" onclick="closeMobileNav()">Join Empire</a>
-  </nav>
+  <!-- ============================================================
+       SECTION 2: LIVE METRICS ROW
+  ============================================================ -->
+  <div class="section-label">Live Metrics — Garcar Ecosystem</div>
+  <div class="metrics-row">
 
-  <!-- ═══════════════════════════════════════════════════════
-       HERO — Full screen particle canvas
-  ═══════════════════════════════════════════════════════ -->
-  <section id="hero">
-    <canvas id="particle-canvas"></canvas>
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
+    <div class="card metric-card">
+      <div class="metric-label">Total Repos</div>
+      <div class="metric-value metric-value--green">176</div>
+      <div class="metric-sub">GitHub · Garrettc123</div>
+    </div>
 
-    <div class="hero-content">
-      <div class="hero-eyebrow">
-        <span class="status-dot"></span>
-        Empire Online · 9 AI Products Active
+    <div class="card metric-card">
+      <div class="metric-label">Active Systems</div>
+      <div class="metric-value metric-value--purple">332<span style="font-size:0.5em;opacity:0.7">+</span></div>
+      <div class="metric-sub">Services + integrations</div>
+    </div>
+
+    <div class="card metric-card">
+      <div class="metric-label">Pushed Last 24h</div>
+      <div class="metric-value metric-value--blue">13</div>
+      <div class="metric-sub">Repo commits</div>
+    </div>
+
+    <div class="card metric-card">
+      <div class="metric-label">CI Pass Rate</div>
+      <div class="metric-value metric-value--amber">62<span style="font-size:0.5em;opacity:0.7">%</span></div>
+      <div class="metric-sub">~est. from audit</div>
+    </div>
+
+    <div class="card metric-card">
+      <div class="metric-label">Revenue Pipelines</div>
+      <div class="metric-value metric-value--green">4</div>
+      <div class="metric-sub">Active streams</div>
+    </div>
+
+    <div class="card metric-card">
+      <div class="metric-label">Defense Agents</div>
+      <div class="metric-value metric-value--purple">8</div>
+      <div class="metric-sub">Wardens + Sentinels</div>
+    </div>
+
+  </div>
+
+  <!-- ============================================================
+       SECTION 3+4: MAIN CONTENT (REGISTRY + FEED)
+  ============================================================ -->
+  <div class="main-content">
+
+    <!-- CAPABILITY REGISTRY -->
+    <div class="card registry-card">
+      <div class="panel-title">
+        <span style="color:var(--clr-green);">▶</span>
+        Capability Registry
+        <span class="panel-count" id="row-count">22 systems</span>
       </div>
 
-      <h1 class="hero-title">GARCAR<br>ENTERPRISE</h1>
-
-      <div class="hero-sub">AI Revenue Empire</div>
-
-      <div class="typewriter" id="typewriter-text">
-        <span id="typed"></span><span class="typewriter-cursor"></span>
+      <div class="registry-controls">
+        <input class="search-input" id="reg-search" type="search" placeholder="Search systems…" autocomplete="off" />
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="AI Orchestration,AI SaaS,AI OS,AI/ML,MLOps,Quantum AI">AI</button>
+        <button class="filter-btn" data-filter="Revenue,Commerce,Payments">Revenue</button>
+        <button class="filter-btn" data-filter="Zero-Trust Security">Security</button>
+        <button class="filter-btn" data-filter="Blockchain">Blockchain</button>
+        <button class="filter-btn" data-filter="Platform,Coordination,Integration,Wealth,Enterprise">Platform</button>
       </div>
 
-      <div class="hero-cta">
-        <a href="#products" class="btn btn-primary">Explore Products →</a>
-        <a href="https://github.com/Garrettc123" target="_blank" rel="noopener" class="btn btn-ghost">View GitHub →</a>
+      <div class="registry-table-wrap">
+        <table class="reg-table" id="reg-table">
+          <thead>
+            <tr>
+              <th>System</th>
+              <th>Category</th>
+              <th>Status</th>
+              <th>Revenue</th>
+              <th>Deploy</th>
+            </tr>
+          </thead>
+          <tbody id="reg-body">
+            <!-- rows injected by JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- INTELLIGENCE FEED -->
+    <div class="card feed-card">
+      <div class="panel-title">
+        <span style="color:var(--clr-amber);">◉</span>
+        RHNS Intelligence Feed
+        <span style="margin-left:auto; font-size:0.55rem; color:var(--clr-text-faint); font-family:var(--font-mono);">LIVE</span>
       </div>
 
-      <div class="hero-stats">
-        <div class="hero-stat">
-          <span class="hero-stat__num" data-target="155000" data-prefix="$" data-suffix="K">$0</span>
-          <span class="hero-stat__label">Monthly Target</span>
-        </div>
-        <div class="hero-stat">
-          <span class="hero-stat__num" data-target="9">0</span>
-          <span class="hero-stat__label">AI Products</span>
-        </div>
-        <div class="hero-stat">
-          <span class="hero-stat__num" data-target="3">0</span>
-          <span class="hero-stat__label">Live Right Now</span>
-        </div>
-        <div class="hero-stat">
-          <span class="hero-stat__num" data-target="1860000" data-prefix="$" data-suffix="">$0</span>
-          <span class="hero-stat__label">ARR Target</span>
+      <div class="feed-scroll-wrap">
+        <div class="feed-inner" id="feed-inner">
+          <!-- duplicated for infinite scroll effect -->
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- ═══════════════════════════════════════════════════════
-       PRODUCTS GRID — 9 Products 3×3
-  ═══════════════════════════════════════════════════════ -->
-  <section id="products">
-    <div class="wrapper">
-      <div class="section-label">Empire Products</div>
-      <h2 style="font-family:var(--display);font-size:2rem;font-weight:800;letter-spacing:-0.03em;margin-bottom:8px;">
-        9 AI Products. <span style="color:var(--emerald)">1 Empire.</span>
-      </h2>
-      <p style="color:var(--text2);font-size:0.9rem;max-width:560px;line-height:1.7;margin-bottom:4px;">
-        Every product engineered to generate revenue on autopilot. From SaaS subscriptions to one-time purchases, the empire never sleeps.
-      </p>
+  </div>
 
-      <div class="products-grid" id="products-grid">
+  <!-- ============================================================
+       SECTION 5+6: BOTTOM ROW (REVENUE + DEFENSE)
+  ============================================================ -->
+  <div class="bottom-row">
 
-        <!-- 1 NWU Protocol -->
-        <div class="card product-card reveal">
-          <div class="product-card__accent"></div>
-          <div class="product-card__status">
-            <div class="product-card__icon">⚡</div>
-            <span class="badge live dot">LIVE</span>
-          </div>
-          <div class="product-card__name">NWU Protocol</div>
-          <div class="product-card__desc">
-            Subscription-based growth protocol. Three tiers powering systematic revenue growth for serious entrepreneurs.
-          </div>
-          <div class="product-card__pricing">
-            <span class="price-pill">$49/mo</span>
-            <span class="price-pill">$149/mo</span>
-            <span class="price-pill">$499/mo</span>
-          </div>
-          <a href="https://garrettc123.github.io" class="product-card__link" target="_blank">→ garrettc123.github.io</a>
+    <!-- REVENUE INTELLIGENCE PANEL -->
+    <div class="card revenue-card">
+      <div class="panel-title">
+        <span style="color:var(--clr-green);">$</span>
+        Revenue Intelligence
+      </div>
+      <div class="revenue-grid">
+
+        <div class="rev-item active">
+          <div class="rev-item-name">Shopify Commerce Layer</div>
+          <div class="rev-item-status">Active · Shopify + Stripe</div>
         </div>
 
-        <!-- 2 Garcar Sales Suite -->
-        <div class="card product-card reveal">
-          <div class="product-card__accent"></div>
-          <div class="product-card__status">
-            <div class="product-card__icon" style="background:rgba(0,229,208,0.08);border-color:rgba(0,229,208,0.15);">💼</div>
-            <span class="badge live dot">LIVE</span>
-          </div>
-          <div class="product-card__name">Garcar Sales Suite</div>
-          <div class="product-card__desc">
-            Complete AI sales automation stack. From lead scoring to proposal generation — close more deals with less effort.
-          </div>
-          <div class="product-card__pricing">
-            <span class="price-pill">$47</span>
-            <span class="price-pill">$97</span>
-            <span class="price-pill">$497</span>
-            <span class="price-pill">$1,497</span>
-          </div>
+        <div class="rev-item active">
+          <div class="rev-item-name">Stripe Payment Processing</div>
+          <div class="rev-item-status">Connected · Global</div>
         </div>
 
-        <!-- 3 Garcar Shopify App -->
-        <div class="card product-card reveal">
-          <div class="product-card__accent" style="background:linear-gradient(90deg,var(--gold),var(--orange,#ff6b35))"></div>
-          <div class="product-card__status">
-            <div class="product-card__icon" style="background:rgba(245,197,24,0.08);border-color:rgba(245,197,24,0.15);">🛍️</div>
-            <span class="badge building dot">BUILDING</span>
-          </div>
-          <div class="product-card__name">Garcar Shopify App</div>
-          <div class="product-card__desc">
-            Shopify-embedded revenue command center. Stripe MRR tracking, subscription management, and live analytics.
-          </div>
-          <div class="product-card__pricing">
-            <span class="price-pill" style="color:var(--gold);background:rgba(245,197,24,0.08);border-color:rgba(245,197,24,0.2);">MRR Model</span>
-          </div>
-          <a href="https://github.com/Garrettc123/garcar-shopify-app" class="product-card__link" target="_blank">→ GitHub Repo</a>
+        <div class="rev-item active">
+          <div class="rev-item-name">Gumroad Products</div>
+          <div class="rev-item-status">Active · Digital Sales</div>
         </div>
 
-        <!-- 4 Deal Desk AI -->
-        <div class="card product-card reveal">
-          <div class="product-card__accent" style="background:linear-gradient(90deg,var(--teal),var(--cyan))"></div>
-          <div class="product-card__status">
-            <div class="product-card__icon" style="background:rgba(0,207,255,0.08);border-color:rgba(0,207,255,0.15);">📊</div>
-            <span class="badge live dot">LIVE</span>
-          </div>
-          <div class="product-card__name">Deal Desk AI</div>
-          <div class="product-card__desc">
-            AI-powered deal analysis and proposal generation. Per-proposal pricing model with enterprise tier.
-          </div>
-          <div class="product-card__pricing">
-            <span class="price-pill" style="color:var(--cyan);background:rgba(0,207,255,0.08);border-color:rgba(0,207,255,0.2);">Per-proposal</span>
-          </div>
-          <a href="https://deal-desk-frontend-build.vercel.app" class="product-card__link" target="_blank" id="deal-desk-link">→ deal-desk-frontend-build.vercel.app</a>
+        <div class="rev-item active">
+          <div class="rev-item-name">B2B SaaS Suite</div>
+          <div class="rev-item-status">Deployed · Deal Desk, Content Engine, Churn</div>
         </div>
 
-        <!-- 5 Content Engine AI -->
-        <div class="card product-card reveal">
-          <div class="product-card__accent" style="background:linear-gradient(90deg,#ff6b35,#e74c3c)"></div>
-          <div class="product-card__status">
-            <div class="product-card__icon" style="background:rgba(255,107,53,0.08);border-color:rgba(255,107,53,0.15);">✍️</div>
-            <span class="badge live dot">LIVE</span>
-          </div>
-          <div class="product-card__name">Content Engine AI</div>
-          <div class="product-card__desc">
-            Autonomous content generation at scale. Blog posts, social, email campaigns — all on autopilot.
-          </div>
-          <div class="product-card__pricing">
-            <span class="price-pill" style="color:#ff6b35;background:rgba(255,107,53,0.08);border-color:rgba(255,107,53,0.2);">SaaS</span>
-          </div>
-          <a href="https://content-engine-backend.vercel.app" class="product-card__link" target="_blank">→ content-engine-backend.vercel.app</a>
+        <div class="rev-item active">
+          <div class="rev-item-name">Autonomous Wealth System</div>
+          <div class="rev-item-status">Running · Multi-agent</div>
         </div>
 
-        <!-- 6 Churn Predictor AI -->
-        <div class="card product-card reveal">
-          <div class="product-card__accent" style="background:linear-gradient(90deg,#9b59b6,#6c3483)"></div>
-          <div class="product-card__status">
-            <div class="product-card__icon" style="background:rgba(155,89,182,0.08);border-color:rgba(155,89,182,0.15);">🔮</div>
-            <span class="badge live dot">LIVE</span>
-          </div>
-          <div class="product-card__name">Churn Predictor AI</div>
-          <div class="product-card__desc">
-            ML-powered churn detection for B2B SaaS. Predict and prevent cancellations before they happen.
-          </div>
-          <div class="product-card__pricing">
-            <span class="price-pill" style="color:#9b59b6;background:rgba(155,89,182,0.08);border-color:rgba(155,89,182,0.2);">B2B SaaS</span>
-          </div>
-          <a href="https://churn-predictor-backend.vercel.app" class="product-card__link" target="_blank">→ churn-predictor-backend.vercel.app</a>
+        <div class="rev-item active">
+          <div class="rev-item-name">SEO Content Factory</div>
+          <div class="rev-item-target">$22K/mo target</div>
+          <div class="rev-item-status">Active · Content/SEO</div>
         </div>
 
-        <!-- 7 Autonomous Orchestrator -->
-        <div class="card product-card reveal">
-          <div class="product-card__accent" style="background:linear-gradient(90deg,var(--gold),#ff9500)"></div>
-          <div class="product-card__status">
-            <div class="product-card__icon" style="background:rgba(245,197,24,0.08);border-color:rgba(245,197,24,0.15);">🤖</div>
-            <span class="badge building dot">BUILDING</span>
-          </div>
-          <div class="product-card__name">Autonomous Orchestrator</div>
-          <div class="product-card__desc">
-            AI agent orchestration platform. Multi-agent workflows that execute complex business processes autonomously.
-          </div>
-          <div class="product-card__pricing">
-            <span class="price-pill" style="color:var(--gold);background:rgba(245,197,24,0.08);border-color:rgba(245,197,24,0.2);">In Dev</span>
-          </div>
-          <a href="https://github.com/Garrettc123/autonomous-orchestrator-core" class="product-card__link" target="_blank">→ GitHub Repo</a>
+        <div class="rev-item active">
+          <div class="rev-item-name">Customer Churn Predictor</div>
+          <div class="rev-item-target">$25K/mo target</div>
+          <div class="rev-item-status">Deployed · B2B Retention</div>
         </div>
 
-        <!-- 8 Apex Revenue System -->
-        <div class="card product-card reveal">
-          <div class="product-card__accent" style="background:linear-gradient(90deg,var(--gold),var(--emerald))"></div>
-          <div class="product-card__status">
-            <div class="product-card__icon" style="background:rgba(245,197,24,0.08);border-color:rgba(245,197,24,0.15);">👑</div>
-            <span class="badge building dot">BUILDING</span>
-          </div>
-          <div class="product-card__name">Apex Revenue System</div>
-          <div class="product-card__desc">
-            The crown jewel. Full-stack AI revenue automation system targeting $50K/mo+ from a single deployment.
-          </div>
-          <div class="product-card__pricing">
-            <span class="price-pill" style="color:var(--gold);background:rgba(245,197,24,0.08);border-color:rgba(245,197,24,0.2);">Enterprise</span>
-          </div>
-          <a href="https://github.com/Garrettc123/apex-revenue-system" class="product-card__link" target="_blank">→ GitHub Repo</a>
-        </div>
-
-        <!-- 9 Garcar Payments -->
-        <div class="card product-card reveal">
-          <div class="product-card__accent" style="background:linear-gradient(90deg,var(--cyan),var(--teal))"></div>
-          <div class="product-card__status">
-            <div class="product-card__icon" style="background:rgba(0,207,255,0.08);border-color:rgba(0,207,255,0.15);">💳</div>
-            <span class="badge building dot">BUILDING</span>
-          </div>
-          <div class="product-card__name">Garcar Payments</div>
-          <div class="product-card__desc">
-            Unified payments infrastructure across all empire products. One API to rule all revenue flows.
-          </div>
-          <div class="product-card__pricing">
-            <span class="price-pill" style="color:var(--cyan);background:rgba(0,207,255,0.08);border-color:rgba(0,207,255,0.2);">% Revenue</span>
-          </div>
-          <a href="https://github.com/Garrettc123/garcar-payments" class="product-card__link" target="_blank">→ GitHub Repo</a>
+        <div class="rev-item partial">
+          <div class="rev-item-name">APEX Revenue System</div>
+          <div class="rev-item-status">Partial · GENESIS pending</div>
         </div>
 
       </div>
     </div>
-  </section>
 
-  <!-- ═══════════════════════════════════════════════════════
-       REVENUE PIPELINE
-  ═══════════════════════════════════════════════════════ -->
-  <section id="pipeline">
-    <div class="wrapper">
-      <div class="section-label">Revenue Pipeline</div>
-      <h2 style="font-family:var(--display);font-size:2rem;font-weight:800;letter-spacing:-0.03em;margin-bottom:8px;">
-        Path to <span style="color:var(--emerald)">$155K/mo</span>
-      </h2>
-      <p style="color:var(--text2);font-size:0.9rem;max-width:540px;line-height:1.7;">
-        Each empire product contributes to a diversified revenue stack. Multiple income streams. Maximum resilience.
-      </p>
-
-      <div class="pipeline-bar-wrap reveal" id="pipeline-section">
-        <div class="pipeline-bar">
-          <div class="pipe-seg nwu"     data-w="31.6">NWU $49K</div>
-          <div class="pipe-seg suite"   data-w="38.9">Suite $60K</div>
-          <div class="pipe-seg churn"   data-w="16.1">Churn $25K</div>
-          <div class="pipe-seg deal"    data-w="11.6">Deal $18K</div>
-          <div class="pipe-seg content" data-w="14.2">Content $22K</div>
-          <div class="pipe-seg other"   data-w="5.8">Other</div>
-        </div>
-
-        <div class="pipeline-legend" style="margin-top:14px;">
-          <div class="legend-item">
-            <div class="legend-dot" style="background:#00ff88"></div>
-            <span>NWU Protocol — $49K/mo</span>
-          </div>
-          <div class="legend-item">
-            <div class="legend-dot" style="background:#00e5d0"></div>
-            <span>Garcar Suite — $60K/mo</span>
-          </div>
-          <div class="legend-item">
-            <div class="legend-dot" style="background:#9b59b6"></div>
-            <span>Churn AI — $25K/mo</span>
-          </div>
-          <div class="legend-item">
-            <div class="legend-dot" style="background:#f5c518"></div>
-            <span>Deal Desk — $18K/mo</span>
-          </div>
-          <div class="legend-item">
-            <div class="legend-dot" style="background:#ff6b35"></div>
-            <span>Content Engine — $22K/mo</span>
-          </div>
-          <div class="legend-item">
-            <div class="legend-dot" style="background:#3d5a70"></div>
-            <span>Other — $9K/mo</span>
-          </div>
-        </div>
+    <!-- DEFENSE STATUS PANEL -->
+    <div class="card defense-card">
+      <div class="panel-title">
+        <span style="color:var(--clr-red);">⬡</span>
+        Defender OS — Agent Grid
       </div>
+      <div class="defense-grid">
 
-      <div class="mrr-progress-wrap reveal">
-        <div class="mrr-progress-labels">
-          <span>Current MRR (live from Stripe)</span>
-          <span id="mrr-pct-label" style="color:var(--emerald)">Building →</span>
-        </div>
-        <div class="progress-track">
-          <div class="progress-fill" id="mrr-progress" style="width:0%"></div>
-        </div>
-        <div style="display:flex;justify-content:space-between;margin-top:6px;">
-          <span style="font-family:var(--mono);font-size:0.65rem;color:var(--text3)">$0</span>
-          <span style="font-family:var(--mono);font-size:0.65rem;color:var(--text3)">$155,000/mo Target</span>
-        </div>
-      </div>
-
-      <!-- Revenue breakdown cards -->
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:32px;">
-        <div class="card reveal" style="padding:20px;">
-          <div style="font-family:var(--mono);font-size:0.62rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:8px;">ARR Target</div>
-          <div style="font-family:var(--display);font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,var(--emerald),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-0.04em;">$1.86M</div>
-        </div>
-        <div class="card reveal" style="padding:20px;">
-          <div style="font-family:var(--mono);font-size:0.62rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:8px;">Monthly Target</div>
-          <div style="font-family:var(--display);font-size:1.8rem;font-weight:800;color:var(--gold);letter-spacing:-0.04em;">$155K</div>
-        </div>
-        <div class="card reveal" style="padding:20px;">
-          <div style="font-family:var(--mono);font-size:0.62rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:8px;">Products Live</div>
-          <div style="font-family:var(--display);font-size:1.8rem;font-weight:800;color:var(--cyan);letter-spacing:-0.04em;">3 / 9</div>
-        </div>
-        <div class="card reveal" style="padding:20px;">
-          <div style="font-family:var(--mono);font-size:0.62rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:8px;">Revenue Stack</div>
-          <div style="font-family:var(--display);font-size:1.8rem;font-weight:800;color:var(--purple,#9b59b6);letter-spacing:-0.04em;">12 Sys</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════
-       VERCEL LIVE APPS
-  ═══════════════════════════════════════════════════════ -->
-  <section id="apps">
-    <div class="wrapper">
-      <div class="section-label">Live on Vercel</div>
-      <h2 style="font-family:var(--display);font-size:2rem;font-weight:800;letter-spacing:-0.03em;margin-bottom:8px;">
-        Production <span style="color:var(--teal)">Apps Running Now</span>
-      </h2>
-
-      <div class="apps-grid">
-
-        <div class="card app-card reveal">
-          <div class="app-card__header">
-            <div class="app-card__name">Deal Desk AI</div>
-            <span class="badge live dot" id="deal-desk-status">Checking…</span>
+        <div class="agent-item">
+          <div class="agent-pulse agent-pulse--green"></div>
+          <div class="agent-info">
+            <div class="agent-type">Warden</div>
+            <div class="agent-name">Identity</div>
           </div>
-          <div class="app-card__url">deal-desk-frontend-build.vercel.app</div>
-          <p style="font-size:0.78rem;color:var(--text2);line-height:1.6;margin-bottom:14px;">
-            AI-powered deal analysis. Generate winning proposals in seconds with intelligent pricing and positioning.
-          </p>
-          <a href="https://deal-desk-frontend-build.vercel.app" target="_blank" rel="noopener" class="btn btn-ghost" style="font-size:0.72rem;padding:7px 14px;">
-            Open App →
-          </a>
+          <div class="pill pill-green" style="margin-left:auto; font-size:0.52rem;">Active</div>
         </div>
 
-        <div class="card app-card reveal">
-          <div class="app-card__header">
-            <div class="app-card__name">Content Engine AI</div>
-            <span class="badge live dot" id="content-engine-status">Checking…</span>
+        <div class="agent-item">
+          <div class="agent-pulse agent-pulse--green"></div>
+          <div class="agent-info">
+            <div class="agent-type">Warden</div>
+            <div class="agent-name">Infrastructure</div>
           </div>
-          <div class="app-card__url">content-engine-backend.vercel.app</div>
-          <p style="font-size:0.78rem;color:var(--text2);line-height:1.6;margin-bottom:14px;">
-            Autonomous content generation at scale. Blogs, social posts, email sequences — fully automated.
-          </p>
-          <a href="https://content-engine-backend.vercel.app" target="_blank" rel="noopener" class="btn btn-ghost" style="font-size:0.72rem;padding:7px 14px;">
-            Open App →
-          </a>
+          <div class="pill pill-green" style="margin-left:auto; font-size:0.52rem;">Active</div>
         </div>
 
-        <div class="card app-card reveal">
-          <div class="app-card__header">
-            <div class="app-card__name">Churn Predictor AI</div>
-            <span class="badge live dot" id="churn-predictor-status">Checking…</span>
+        <div class="agent-item">
+          <div class="agent-pulse agent-pulse--green"></div>
+          <div class="agent-info">
+            <div class="agent-type">Warden</div>
+            <div class="agent-name">Network</div>
           </div>
-          <div class="app-card__url">churn-predictor-backend.vercel.app</div>
-          <p style="font-size:0.78rem;color:var(--text2);line-height:1.6;margin-bottom:14px;">
-            ML churn prediction for B2B SaaS. Identify at-risk customers before they cancel and automate retention.
-          </p>
-          <a href="https://churn-predictor-backend.vercel.app" target="_blank" rel="noopener" class="btn btn-ghost" style="font-size:0.72rem;padding:7px 14px;">
-            Open App →
-          </a>
+          <div class="pill pill-green" style="margin-left:auto; font-size:0.52rem;">Active</div>
+        </div>
+
+        <div class="agent-item">
+          <div class="agent-pulse agent-pulse--amber"></div>
+          <div class="agent-info">
+            <div class="agent-type">Sentinel</div>
+            <div class="agent-name">API</div>
+          </div>
+          <div class="pill pill-amber" style="margin-left:auto; font-size:0.52rem;">Watch</div>
+        </div>
+
+        <div class="agent-item">
+          <div class="agent-pulse agent-pulse--amber"></div>
+          <div class="agent-info">
+            <div class="agent-type">Sentinel</div>
+            <div class="agent-name">CI</div>
+          </div>
+          <div class="pill pill-amber" style="margin-left:auto; font-size:0.52rem;">Watch</div>
+        </div>
+
+        <div class="agent-item">
+          <div class="agent-pulse agent-pulse--green"></div>
+          <div class="agent-info">
+            <div class="agent-type">Sentinel</div>
+            <div class="agent-name">Data</div>
+          </div>
+          <div class="pill pill-green" style="margin-left:auto; font-size:0.52rem;">Active</div>
+        </div>
+
+        <div class="agent-item">
+          <div class="agent-pulse agent-pulse--green"></div>
+          <div class="agent-info">
+            <div class="agent-type">Sentinel</div>
+            <div class="agent-name">Deploy</div>
+          </div>
+          <div class="pill pill-green" style="margin-left:auto; font-size:0.52rem;">Active</div>
+        </div>
+
+        <div class="agent-item">
+          <div class="agent-pulse agent-pulse--green"></div>
+          <div class="agent-info">
+            <div class="agent-type">Sentinel</div>
+            <div class="agent-name">Dependency</div>
+          </div>
+          <div class="pill pill-green" style="margin-left:auto; font-size:0.52rem;">Active</div>
         </div>
 
       </div>
     </div>
-  </section>
 
-  <!-- ═══════════════════════════════════════════════════════
-       ARCHITECTURE FLOWCHART
-  ═══════════════════════════════════════════════════════ -->
-  <section id="architecture">
-    <div class="wrapper">
-      <div class="section-label">System Architecture</div>
-      <h2 style="font-family:var(--display);font-size:2rem;font-weight:800;letter-spacing:-0.03em;margin-bottom:8px;">
-        How the <span style="color:var(--emerald)">Empire Flows</span>
-      </h2>
-      <p style="color:var(--text2);font-size:0.9rem;max-width:540px;line-height:1.7;margin-bottom:32px;">
-        Every payment, subscription, and revenue event flows through a single intelligent command center.
-      </p>
+  </div>
 
-      <div class="arch-flow reveal">
-        <div class="arch-node">
-          <div class="arch-node__icon">💳</div>
-          <div class="arch-node__label">Stripe</div>
-          <div class="arch-node__sub">Payment Gateway</div>
-        </div>
-        <div class="arch-arrow">→</div>
-        <div class="arch-node">
-          <div class="arch-node__icon">🛍️</div>
-          <div class="arch-node__label">Shopify App</div>
-          <div class="arch-node__sub">Webhook Receiver</div>
-        </div>
-        <div class="arch-arrow">→</div>
-        <div class="arch-node" style="border-color:rgba(0,255,136,0.35);background:rgba(0,255,136,0.08);">
-          <div class="arch-node__icon">⚡</div>
-          <div class="arch-node__label">Command Center</div>
-          <div class="arch-node__sub">Railway + Prisma</div>
-        </div>
-        <div class="arch-arrow">→</div>
-        <div class="arch-node">
-          <div class="arch-node__icon">🔮</div>
-          <div class="arch-node__label">Revenue Engine</div>
-          <div class="arch-node__sub">MRR Calculator</div>
-        </div>
-        <div class="arch-arrow">→</div>
-        <div class="arch-node">
-          <div class="arch-node__icon">📊</div>
-          <div class="arch-node__label">MRR Dashboard</div>
-          <div class="arch-node__sub">Real-time View</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════
-       GITHUB REPOS
-  ═══════════════════════════════════════════════════════ -->
-  <section id="repos">
-    <div class="wrapper">
-      <div class="section-label">Open Source Empire</div>
-      <h2 style="font-family:var(--display);font-size:2rem;font-weight:800;letter-spacing:-0.03em;margin-bottom:8px;">
-        GitHub <span style="color:var(--cyan)">Repositories</span>
-      </h2>
-      <p style="color:var(--text2);font-size:0.9rem;max-width:540px;line-height:1.7;">
-        The empire is built in public. Every repo, every commit, every deployment.
-      </p>
-
-      <div class="repos-grid" style="margin-top:32px;">
-
-        <a href="https://github.com/Garrettc123/garcar-shopify-app" target="_blank" rel="noopener" class="card repo-card reveal">
-          <div class="repo-card__name">
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-            garcar-shopify-app
-          </div>
-          <div class="repo-card__desc">Shopify-embedded revenue command center with Stripe MRR tracking and real-time analytics.</div>
-          <div class="repo-card__meta">
-            <span class="repo-meta-item">⚡ TypeScript</span>
-            <span class="repo-meta-item">🔄 Remix</span>
-          </div>
-        </a>
-
-        <a href="https://github.com/Garrettc123/enterprise-mlops-platform" target="_blank" rel="noopener" class="card repo-card reveal">
-          <div class="repo-card__name">
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-            enterprise-mlops-platform
-          </div>
-          <div class="repo-card__desc">Enterprise MLOps lifecycle management. Experiment tracking, model versioning, A/B testing, GPU optimization.</div>
-          <div class="repo-card__meta">
-            <span class="repo-meta-item">🐍 Python</span>
-            <span class="repo-meta-item">🤖 ML</span>
-          </div>
-        </a>
-
-        <a href="https://github.com/Garrettc123/autonomous-orchestrator-core" target="_blank" rel="noopener" class="card repo-card reveal">
-          <div class="repo-card__name">
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-            autonomous-orchestrator-core
-          </div>
-          <div class="repo-card__desc">Multi-agent AI orchestration. Complex business process automation with autonomous execution.</div>
-          <div class="repo-card__meta">
-            <span class="repo-meta-item">🤖 AI Agents</span>
-            <span class="repo-meta-item">🔮 In Dev</span>
-          </div>
-        </a>
-
-        <a href="https://github.com/Garrettc123/apex-revenue-system" target="_blank" rel="noopener" class="card repo-card reveal">
-          <div class="repo-card__name">
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-            apex-revenue-system
-          </div>
-          <div class="repo-card__desc">The crown jewel of the empire. Full-stack AI revenue automation targeting $50K+/mo per deployment.</div>
-          <div class="repo-card__meta">
-            <span class="repo-meta-item">👑 Flagship</span>
-            <span class="repo-meta-item">🔮 In Dev</span>
-          </div>
-        </a>
-
-        <a href="https://github.com/Garrettc123/garcar-payments" target="_blank" rel="noopener" class="card repo-card reveal">
-          <div class="repo-card__name">
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-            garcar-payments
-          </div>
-          <div class="repo-card__desc">Unified payments infrastructure across all empire products. One API to rule all revenue flows.</div>
-          <div class="repo-card__meta">
-            <span class="repo-meta-item">💳 Stripe</span>
-            <span class="repo-meta-item">🔮 In Dev</span>
-          </div>
-        </a>
-
-        <a href="https://github.com/Garrettc123" target="_blank" rel="noopener" class="card repo-card reveal" style="border-style:dashed;border-color:rgba(0,255,136,0.15);">
-          <div class="repo-card__name" style="color:var(--text3);">
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-            View All Repositories →
-          </div>
-          <div class="repo-card__desc" style="color:var(--text3);">See the full Garcar Enterprise GitHub org with all active and in-development projects.</div>
-          <div class="repo-card__meta">
-            <span class="repo-meta-item">🌐 github.com/Garrettc123</span>
-          </div>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════
-       CTA — JOIN THE EMPIRE
-  ═══════════════════════════════════════════════════════ -->
-  <section id="cta">
-    <div class="wrapper">
-      <div class="cta-box reveal">
-        <div class="cta-title">Join the Empire</div>
-        <div class="cta-sub">
-          Get notified when new AI products launch. Be first in the door.<br>
-          No spam. Just signals from the command center.
-        </div>
-        <form class="cta-form" onsubmit="handleCTASubmit(event)">
-          <input
-            type="email"
-            class="cta-input"
-            placeholder="your@email.com"
-            id="cta-email"
-            required
-          />
-          <button type="submit" class="btn btn-primary">
-            Enter the Empire →
-          </button>
-        </form>
-        <div id="cta-success" style="display:none;margin-top:16px;font-family:var(--mono);font-size:0.8rem;color:var(--emerald);">
-          ✓ You're in. Welcome to the empire.
-        </div>
-        <div style="margin-top:28px;display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;">
-          <a href="https://github.com/Garrettc123" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:0.72rem;color:var(--text3);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--emerald)'" onmouseout="this.style.color='var(--text3)'">
-            GitHub →
-          </a>
-          <span style="color:var(--text3);font-size:0.7rem;">|</span>
-          <a href="https://dashboard.stripe.com" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:0.72rem;color:var(--text3);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--teal)'" onmouseout="this.style.color='var(--text3)'">
-            Stripe Dashboard →
-          </a>
-          <span style="color:var(--text3);font-size:0.7rem;">|</span>
-          <a href="https://railway.app" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:0.72rem;color:var(--text3);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--text3)'">
-            Railway →
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════
+  <!-- ============================================================
        FOOTER
-  ═══════════════════════════════════════════════════════ -->
-  <footer>
-    <p>
-      GARCAR ENTERPRISE · Built by <a href="https://github.com/Garrettc123">Garrett Carroll</a> ·
-      <span id="footer-year">2025</span> ·
-      <a href="https://garrettc123.github.io">garrettc123.github.io</a>
-    </p>
+  ============================================================ -->
+  <footer class="card footer">
+    <div class="footer-text">
+      Garcar Enterprise &nbsp;·&nbsp; Zero-Human Platform &nbsp;·&nbsp; Built by Garrett Carroll &nbsp;·&nbsp; Cleburne, TX
+    </div>
+    <div class="footer-right">
+      <div class="footer-updated">Last updated: April 12, 2026</div>
+      <div class="footer-version">RHNS v2.0</div>
+    </div>
   </footer>
 
-  <!-- ═══════════════════════════════════════════════════════
-       JAVASCRIPT — All embedded
-  ═══════════════════════════════════════════════════════ -->
-  <script>
-    'use strict';
+</div><!-- /app -->
 
-    /* ─── LIVE CLOCK ─────────────────────────────────────────── */
-    function updateClock() {
-      const el = document.getElementById('main-clock');
-      if (el) el.textContent = new Date().toLocaleTimeString('en-US', { hour12: false });
-    }
-    updateClock();
-    setInterval(updateClock, 1000);
-    document.getElementById('footer-year').textContent = new Date().getFullYear();
+<script>
+/* ================================================================
+   LIVE CLOCK
+================================================================ */
+(function clock() {
+  function update() {
+    const now = new Date();
+    const h = String(now.getUTCHours()).padStart(2,'0');
+    const m = String(now.getUTCMinutes()).padStart(2,'0');
+    const s = String(now.getUTCSeconds()).padStart(2,'0');
+    document.getElementById('clock').textContent = `${h}:${m}:${s} UTC`;
+  }
+  update();
+  setInterval(update, 1000);
+})();
 
-    /* ─── HAMBURGER NAV ──────────────────────────────────────── */
-    const hamburgerBtn = document.getElementById('hamburger-btn');
-    const mobileNav = document.getElementById('mobile-nav');
+/* ================================================================
+   CAPABILITY REGISTRY DATA
+================================================================ */
+const SYSTEMS = [
+  { name:'autonomous-orchestrator-core',      cat:'AI Orchestration',  status:'Online',   revenue:'NWU Protocol',   deploy:'Railway'  },
+  { name:'defender-os',                       cat:'Zero-Trust Security',status:'Degraded', revenue:'—',              deploy:'GitHub Actions' },
+  { name:'apex-revenue-system',               cat:'Revenue',           status:'Partial',   revenue:'Stripe',         deploy:'Railway'  },
+  { name:'garcar-shopify-app',                cat:'Commerce',          status:'Fixing',    revenue:'Shopify+Stripe', deploy:'Vercel'   },
+  { name:'deal-desk-ai-backend',              cat:'AI SaaS',           status:'Online',    revenue:'B2B Proposals',  deploy:'Vercel'   },
+  { name:'content-engine-ai-backend',         cat:'AI SaaS',           status:'Online',    revenue:'SEO Content',    deploy:'Vercel'   },
+  { name:'churn-predictor-ai-backend',        cat:'AI SaaS',           status:'Online',    revenue:'B2B Retention',  deploy:'Vercel'   },
+  { name:'APEX-Universal-AI-Operating-System',cat:'AI OS',             status:'Online',    revenue:'Autonomous',     deploy:'GitHub'   },
+  { name:'zero-human-enterprise-grid',        cat:'Platform',          status:'Online',    revenue:'Self-building',  deploy:'Vercel'   },
+  { name:'nwu-protocol',                      cat:'Blockchain',        status:'Active',    revenue:'Decentralized',  deploy:'GitHub'   },
+  { name:'tree-of-life-system',               cat:'Integration',       status:'Online',    revenue:'Multi-platform', deploy:'Vercel'   },
+  { name:'garcar-payments',                   cat:'Payments',          status:'Online',    revenue:'Stripe',         deploy:'Vercel'   },
+  { name:'seo-content-factory',               cat:'Revenue',           status:'Online',    revenue:'Content/SEO',    deploy:'Vercel'   },
+  { name:'enterprise-mlops-platform',         cat:'MLOps',             status:'Online',    revenue:'ML Lifecycle',   deploy:'Vercel'   },
+  { name:'believe-revenue-site',              cat:'Revenue',           status:'Online',    revenue:'Landing+Stripe', deploy:'Vercel'   },
+  { name:'systems-master-hub',                cat:'Coordination',      status:'Online',    revenue:'—',              deploy:'GitHub'   },
+  { name:'garcar-autonomous-wealth-system',   cat:'Wealth',            status:'Online',    revenue:'Multi-agent',    deploy:'Railway'  },
+  { name:'garcar-enterprise-production',      cat:'Enterprise',        status:'Degraded',  revenue:'API Gateway',    deploy:'Vercel'   },
+  { name:'neural-mesh-pipeline',              cat:'AI/ML',             status:'Online',    revenue:'Self-healing',   deploy:'GitHub'   },
+  { name:'stablecoin-protocol',               cat:'Blockchain',        status:'Online',    revenue:'DeFi',           deploy:'GitHub'   },
+  { name:'nwu-truth-protocol',                cat:'Blockchain',        status:'Active',    revenue:'Verified Truth', deploy:'GitHub'   },
+  { name:'AUTOHELIX',                         cat:'Quantum AI',        status:'Ready',     revenue:'Quantum-Hybrid', deploy:'GitHub'   },
+];
 
-    hamburgerBtn.addEventListener('click', () => {
-      const isOpen = mobileNav.classList.toggle('open');
-      hamburgerBtn.setAttribute('aria-expanded', String(isOpen));
-    });
+function statusPill(s) {
+  const map = {
+    'Online':   'pill-green',
+    'Active':   'pill-blue',
+    'Partial':  'pill-amber',
+    'Fixing':   'pill-amber',
+    'Degraded': 'pill-red',
+    'Ready':    'pill-purple',
+  };
+  const cls = map[s] || 'pill-blue';
+  return `<span class="pill ${cls}"><span class="pill-dot"></span>${s}</span>`;
+}
 
-    function closeMobileNav() {
-      mobileNav.classList.remove('open');
-      hamburgerBtn.setAttribute('aria-expanded', 'false');
-    }
+function renderTable(systems) {
+  const tbody = document.getElementById('reg-body');
+  tbody.innerHTML = '';
+  systems.forEach(row => {
+    const tr = document.createElement('tr');
+    tr.dataset.cat = row.cat;
+    tr.innerHTML = `
+      <td class="td-system">${row.name}</td>
+      <td class="td-category">${row.cat}</td>
+      <td>${statusPill(row.status)}</td>
+      <td class="td-revenue">${row.revenue}</td>
+      <td class="td-deploy">${row.deploy}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+  document.getElementById('row-count').textContent = `${systems.length} systems`;
+}
+renderTable(SYSTEMS);
 
-    /* ─── PARTICLE CANVAS ANIMATION ─────────────────────────── */
-    (function initParticles() {
-      const canvas = document.getElementById('particle-canvas');
-      if (!canvas) return;
-      const ctx = canvas.getContext('2d');
+/* Filter / Search */
+let activeFilter = 'all';
+let searchTerm = '';
 
-      let W, H, particles = [], mouse = { x: -999, y: -999 };
-      const MAX_PARTICLES = 80;
-      const MAX_DIST = 120;
-      const PARTICLE_COLOR = '0, 255, 136';
+function applyFilters() {
+  const rows = document.querySelectorAll('#reg-body tr');
+  let visible = 0;
+  rows.forEach(tr => {
+    const cat = tr.dataset.cat;
+    const text = tr.textContent.toLowerCase();
+    const catMatch = activeFilter === 'all' || activeFilter.split(',').includes(cat);
+    const searchMatch = !searchTerm || text.includes(searchTerm);
+    if (catMatch && searchMatch) { tr.classList.remove('hidden'); visible++; }
+    else tr.classList.add('hidden');
+  });
+  document.getElementById('row-count').textContent = `${visible} systems`;
+}
 
-      function resize() {
-        W = canvas.width  = canvas.offsetWidth;
-        H = canvas.height = canvas.offsetHeight;
-      }
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter = btn.dataset.filter;
+    applyFilters();
+  });
+});
 
-      resize();
-      window.addEventListener('resize', resize);
+document.getElementById('reg-search').addEventListener('input', e => {
+  searchTerm = e.target.value.toLowerCase().trim();
+  applyFilters();
+});
 
-      canvas.addEventListener('mousemove', e => {
-        const rect = canvas.getBoundingClientRect();
-        mouse.x = e.clientX - rect.left;
-        mouse.y = e.clientY - rect.top;
-      });
+/* ================================================================
+   INTELLIGENCE FEED
+================================================================ */
+const FEED_ENTRIES = [
+  { time:'04:52', type:'success', system:'autonomous-orchestrator-core CI', status:'SUCCESS', note:'main · build & test passed' },
+  { time:'04:52', type:'fail',    system:'max-all-repos workflow',          status:'FAILED',  note:'investigating auth timeout' },
+  { time:'05:01', type:'fail',    system:'defender-os Billing Unlock',      status:'FAILED',  note:'secrets missing from vault' },
+  { time:'05:04', type:'warn',    system:'garcar-shopify-app prisma',       status:'FIXING',  note:'schema conflict resolving' },
+  { time:'04:38', type:'success', system:'apex-revenue-system DB Backup',   status:'SUCCESS', note:'snapshot complete' },
+  { time:'04:52', type:'success', system:'believe-revenue-site deploy',     status:'SUCCESS', note:'Vercel prod deployment' },
+  { time:'01:31', type:'success', system:'Bootstrap Secrets & Deploy',      status:'SUCCESS', note:'all secrets injected' },
+  { time:'01:31', type:'success', system:'Stripe Connector',                status:'SUCCESS', note:'webhook endpoint live' },
+  { time:'03:14', type:'success', system:'neural-mesh-pipeline',            status:'HEALED',  note:'self-repair cycle complete' },
+  { time:'03:22', type:'fail',    system:'garcar-enterprise-production',    status:'FAILED',  note:'API health monitor · all checks fail' },
+  { time:'03:45', type:'info',    system:'AUTOHELIX quantum layer',         status:'STANDBY', note:'awaiting activation signal' },
+  { time:'04:10', type:'success', system:'nwu-protocol sync',               status:'SUCCESS', note:'block validated' },
+  { time:'04:15', type:'warn',    system:'apex-revenue-system GENESIS',     status:'PENDING', note:'deploy queued' },
+  { time:'04:20', type:'success', system:'deal-desk-ai-backend',            status:'SUCCESS', note:'B2B proposal engine healthy' },
+  { time:'04:29', type:'success', system:'seo-content-factory',             status:'SUCCESS', note:'cron job completed · 47 articles' },
+  { time:'04:33', type:'info',    system:'systems-master-hub',              status:'SYNC',    note:'registry updated 22 systems' },
+  { time:'04:41', type:'success', system:'garcar-payments Stripe webhook',  status:'SUCCESS', note:'event processed' },
+  { time:'04:48', type:'warn',    system:'defender-os Warden: API',         status:'ALERT',   note:'anomaly score 0.73 · monitoring' },
+];
 
-      canvas.addEventListener('mouseleave', () => {
-        mouse.x = -999;
-        mouse.y = -999;
-      });
+function buildFeed() {
+  const container = document.getElementById('feed-inner');
+  // duplicate for infinite scroll
+  const all = [...FEED_ENTRIES, ...FEED_ENTRIES];
+  all.forEach(e => {
+    const div = document.createElement('div');
+    const statusMap = { success:'ok', fail:'fail', warn:'warn', info:'info' };
+    div.className = `feed-entry feed-entry--${e.type}`;
+    div.innerHTML = `
+      <span class="feed-time">[${e.time}]</span>
+      <span class="feed-status feed-status--${statusMap[e.type]}">${e.status}</span>
+      <span class="feed-msg">${e.system} — ${e.note}</span>
+    `;
+    container.appendChild(div);
+  });
+}
+buildFeed();
 
-      class Particle {
-        constructor() { this.reset(); }
-        reset() {
-          this.x  = Math.random() * W;
-          this.y  = Math.random() * H;
-          this.vx = (Math.random() - 0.5) * 0.5;
-          this.vy = (Math.random() - 0.5) * 0.5;
-          this.r  = Math.random() * 1.5 + 0.5;
-          this.alpha = Math.random() * 0.5 + 0.2;
-        }
-        update() {
-          this.x += this.vx;
-          this.y += this.vy;
-          // Mouse repulsion
-          const dx = this.x - mouse.x;
-          const dy = this.y - mouse.y;
-          const dist = Math.sqrt(dx*dx + dy*dy);
-          if (dist < 80) {
-            this.x += (dx / dist) * 1.5;
-            this.y += (dy / dist) * 1.5;
-          }
-          // Wrap
-          if (this.x < 0)  this.x = W;
-          if (this.x > W)  this.x = 0;
-          if (this.y < 0)  this.y = H;
-          if (this.y > H)  this.y = 0;
-        }
-        draw() {
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(${PARTICLE_COLOR}, ${this.alpha})`;
-          ctx.fill();
-        }
-      }
-
-      for (let i = 0; i < MAX_PARTICLES; i++) particles.push(new Particle());
-
-      function drawLines() {
-        for (let i = 0; i < particles.length; i++) {
-          for (let j = i + 1; j < particles.length; j++) {
-            const dx = particles[i].x - particles[j].x;
-            const dy = particles[i].y - particles[j].y;
-            const dist = Math.sqrt(dx*dx + dy*dy);
-            if (dist < MAX_DIST) {
-              const alpha = (1 - dist / MAX_DIST) * 0.18;
-              ctx.beginPath();
-              ctx.moveTo(particles[i].x, particles[i].y);
-              ctx.lineTo(particles[j].x, particles[j].y);
-              ctx.strokeStyle = `rgba(${PARTICLE_COLOR}, ${alpha})`;
-              ctx.lineWidth = 0.8;
-              ctx.stroke();
-            }
-          }
-        }
-      }
-
-      function animate() {
-        ctx.clearRect(0, 0, W, H);
-        particles.forEach(p => { p.update(); p.draw(); });
-        drawLines();
-        requestAnimationFrame(animate);
-      }
-
-      animate();
-    })();
-
-    /* ─── TYPEWRITER EFFECT ──────────────────────────────────── */
-    (function initTypewriter() {
-      const phrases = [
-        'Making Money While You Sleep',
-        '9 AI Products. 1 Empire.',
-        '$155K/mo Target',
-        'Unprecedented.',
-        'Revenue on Autopilot.',
-      ];
-      const el = document.getElementById('typed');
-      if (!el) return;
-
-      let phraseIdx = 0, charIdx = 0, deleting = false;
-      const SPEED_TYPE = 65, SPEED_DEL = 35, PAUSE = 2200;
-
-      function type() {
-        const phrase = phrases[phraseIdx];
-        if (!deleting) {
-          el.textContent = phrase.slice(0, ++charIdx);
-          if (charIdx === phrase.length) {
-            deleting = true;
-            setTimeout(type, PAUSE);
-            return;
-          }
-        } else {
-          el.textContent = phrase.slice(0, --charIdx);
-          if (charIdx === 0) {
-            deleting = false;
-            phraseIdx = (phraseIdx + 1) % phrases.length;
-          }
-        }
-        setTimeout(type, deleting ? SPEED_DEL : SPEED_TYPE);
-      }
-
-      setTimeout(type, 800);
-    })();
-
-    /* ─── SCROLL REVEAL via IntersectionObserver ─────────────── */
-    (function initReveal() {
-      const els = document.querySelectorAll('.reveal');
-      const obs = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            // Trigger pipeline bars when section is visible
-            if (entry.target.id === 'pipeline-section' || entry.target.closest('#pipeline')) {
-              triggerPipelineBars();
-            }
-          }
-        });
-      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-      els.forEach(el => obs.observe(el));
-    })();
-
-    /* ─── ANIMATED COUNTERS on scroll ────────────────────────── */
-    (function initCounters() {
-      const counterEls = document.querySelectorAll('[data-target]');
-      const obs = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          const el = entry.target;
-          const target = parseInt(el.dataset.target, 10);
-          const prefix = el.dataset.prefix || '';
-          const suffix = el.dataset.suffix !== undefined ? el.dataset.suffix : '';
-          const duration = 2200;
-          const start = performance.now();
-
-          function step(now) {
-            const p = Math.min((now - start) / duration, 1);
-            const ease = 1 - Math.pow(1 - p, 4);
-            const val = Math.floor(target * ease);
-            let display;
-            if (target >= 100000) {
-              display = prefix + (val / 1000).toFixed(0) + 'K' + suffix;
-            } else {
-              display = prefix + val.toLocaleString() + suffix;
-            }
-            el.textContent = display;
-            if (p < 1) requestAnimationFrame(step);
-          }
-
-          requestAnimationFrame(step);
-          obs.unobserve(el);
-        });
-      }, { threshold: 0.5 });
-
-      counterEls.forEach(el => obs.observe(el));
-    })();
-
-    /* ─── PIPELINE BARS ANIMATION ────────────────────────────── */
-    let pipeTriggered = false;
-    function triggerPipelineBars() {
-      if (pipeTriggered) return;
-      pipeTriggered = true;
-      document.querySelectorAll('.pipe-seg[data-w]').forEach(seg => {
-        seg.style.width = seg.dataset.w + '%';
-      });
-      const progFill = document.getElementById('mrr-progress');
-      if (progFill) progFill.style.width = '1%';
-    }
-
-    // Also trigger pipeline on pipeline section entering viewport
-    const pipeSection = document.getElementById('pipeline');
-    if (pipeSection) {
-      const pipeObs = new IntersectionObserver(entries => {
-        if (entries[0].isIntersecting) triggerPipelineBars();
-      }, { threshold: 0.1 });
-      pipeObs.observe(pipeSection);
-    }
-
-    /* ─── VERCEL STATUS PING ─────────────────────────────────── */
-    const vercelApps = [
-      { id: 'deal-desk-status',       url: 'https://deal-desk-frontend-build.vercel.app' },
-      { id: 'content-engine-status',  url: 'https://content-engine-backend.vercel.app'   },
-      { id: 'churn-predictor-status', url: 'https://churn-predictor-backend.vercel.app'  },
-    ];
-
-    vercelApps.forEach(app => {
-      const el = document.getElementById(app.id);
-      if (!el) return;
-
-      // Use a timeout to consider "slow" as degraded
-      const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), 8000);
-
-      fetch(app.url, { method: 'HEAD', signal: controller.signal, mode: 'no-cors' })
-        .then(() => {
-          clearTimeout(timeout);
-          el.className = 'badge live dot';
-          el.textContent = '';
-          el.insertAdjacentHTML('afterbegin', '<span class="status-dot"></span>');
-          el.appendChild(document.createTextNode(' LIVE'));
-        })
-        .catch(() => {
-          clearTimeout(timeout);
-          el.className = 'badge building dot';
-          el.textContent = ' CHECKING';
-        });
-    });
-
-    /* ─── CTA FORM ───────────────────────────────────────────── */
-    function handleCTASubmit(e) {
-      e.preventDefault();
-      const email = document.getElementById('cta-email').value;
-      const successEl = document.getElementById('cta-success');
-      if (email && successEl) {
-        successEl.style.display = 'block';
-        document.getElementById('cta-email').value = '';
-        // Could POST to a form endpoint here
-        console.log('Empire join request:', email);
-      }
-    }
-
-    /* ─── COPY TO CLIPBOARD UTILITY ──────────────────────────── */
-    function copyToClipboard(text, btnEl) {
-      navigator.clipboard?.writeText(text).then(() => {
-        const orig = btnEl.textContent;
-        btnEl.textContent = '✓ Copied';
-        setTimeout(() => { btnEl.textContent = orig; }, 2000);
-      });
-    }
-
-    /* ─── SMOOTH SCROLL ─────────────────────────────────────── */
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-
-    /* ─── STAGGER PRODUCT CARDS ON LOAD ─────────────────────── */
-    (function staggerCards() {
-      const cards = document.querySelectorAll('.product-card');
-      cards.forEach((card, i) => {
-        card.style.transitionDelay = `${i * 0.06}s`;
-      });
-    })();
-
-    /* ─── PAGE LOAD ANIMATION TRIGGER ───────────────────────── */
-    window.addEventListener('load', () => {
-      document.body.style.opacity = '0';
-      document.body.style.transition = 'opacity 0.4s ease';
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          document.body.style.opacity = '1';
-        });
-      });
-    });
-
-    /* ─── STATUS BAR SYSTEM CHECK ────────────────────────────── */
-    // After 3s, try to verify status
-    setTimeout(() => {
-      const dot = document.getElementById('sys-dot');
-      const text = document.getElementById('sys-text');
-      // Simple optimistic: assume operational
-      if (dot)  dot.className = 'status-dot';
-      if (text) text.textContent = 'ALL SYSTEMS OPERATIONAL';
-    }, 3000);
-  </script>
-
+</script>
 </body>
 </html>
