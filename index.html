@@ -45,8 +45,19 @@
       color: #00ff88;
       padding: 6px 18px; border-radius: 20px;
       font-size: 0.82em; font-weight: 600;
-      margin-bottom: 24px; letter-spacing: 0.4px;
+      margin-bottom: 14px; letter-spacing: 0.4px;
     }
+    .perplexity-badge {
+      display: inline-flex;
+      align-items: center; gap: 7px;
+      background: rgba(139,92,246,0.08);
+      border: 1px solid rgba(139,92,246,0.28);
+      color: #c4b5fd;
+      padding: 5px 16px; border-radius: 20px;
+      font-size: 0.79em; font-weight: 600;
+      margin-bottom: 24px; letter-spacing: 0.3px;
+    }
+    .perplexity-badge svg { width: 14px; height: 14px; flex-shrink: 0; }
     h1 {
       font-size: clamp(1.9em, 5vw, 3.2em);
       font-weight: 800; line-height: 1.15;
@@ -76,6 +87,7 @@
     .stat { text-align: center; }
     .stat-num { font-size: 1.9em; font-weight: 800; color: #00ff88; }
     .stat-label { font-size: 0.82em; color: #64748b; margin-top: 3px; }
+    .stat-num.purple { color: #a78bfa; }
 
     /* Sections */
     .section { padding: 80px 24px; max-width: 1100px; margin: 0 auto; }
@@ -185,10 +197,15 @@
 
 <section class="hero">
   <div class="hero-badge">AI Automation for DFW Contractors</div>
+  <br>
+  <div class="perplexity-badge">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+    Powered by Perplexity AI &middot; job signals from live permit feeds
+  </div>
   <h1>Stop Losing Jobs to Contractors Who <span>Follow Up Faster</span></h1>
   <p>We build AI automation systems that handle your leads, follow-ups, and estimates automatically — so you close more jobs without hiring more staff.</p>
   <a href="#pricing" class="hero-cta">Start with a $47 audit</a>
-  <p class="hero-sub">No contracts · No tech skills needed · Results in 48 hours</p>
+  <p class="hero-sub">No contracts &middot; No tech skills needed &middot; Results in 48 hours</p>
 </section>
 
 <div class="stats">
@@ -201,12 +218,16 @@
     <div class="stat-label">average response time with our system</div>
   </div>
   <div class="stat">
-    <div class="stat-num">3–5×</div>
+    <div class="stat-num">3&ndash;5&times;</div>
     <div class="stat-label">more closed jobs on average</div>
   </div>
   <div class="stat">
     <div class="stat-num">24/7</div>
     <div class="stat-label">automated follow-up, even weekends</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num purple">Live</div>
+    <div class="stat-label">permit intel via Perplexity Sonar</div>
   </div>
 </div>
 
@@ -398,13 +419,18 @@
         <summary>What's the difference between the audits?</summary>
         <p>The $47 audit is a quick scan — top leaks and a roadmap, delivered async in 48 hours. The $497 Diagnostic Audit goes deeper: full process mapping, ROI projections for each fix, and a 60-minute live debrief call.</p>
       </details>
+      <details>
+        <summary>How does the Perplexity AI integration work?</summary>
+        <p>Our system uses Perplexity Sonar to pull live DFW permit filings in real time. When a new roofing, HVAC, or electrical permit is filed in your target zip codes, you're the first contractor with the homeowner's contact info — before anyone else even knows the job exists.</p>
+      </details>
     </div>
   </section>
 </div>
 
 <footer>
-  <p>Garcar Enterprise &nbsp;·&nbsp; Grandview, TX &nbsp;·&nbsp; <a href="mailto:hello@garcarenterprise.com">hello@garcarenterprise.com</a></p>
+  <p>Garcar Enterprise &nbsp;&middot;&nbsp; Grandview, TX &nbsp;&middot;&nbsp; <a href="mailto:hello@garcarenterprise.com">hello@garcarenterprise.com</a></p>
   <p style="margin-top: 8px; font-size: 0.85em;">© 2026 Garcar Enterprise LLC. All rights reserved.</p>
+  <p style="margin-top: 8px; font-size: 0.8em; color: #334155;">Lead intelligence powered by <a href="https://www.perplexity.ai" target="_blank" rel="noopener">Perplexity AI</a></p>
 </footer>
 
 </body>
