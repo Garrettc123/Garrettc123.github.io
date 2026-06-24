@@ -1,32 +1,342 @@
 <!DOCTYPE html>
-<html>
-<head><meta charset="UTF-8"><title>Garcar Enterprise — AI Automation for Contractors</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body{font-family:sans-serif;max-width:800px;margin:0 auto;padding:20px;background:#0a0a0a;color:#fff}
-h1{font-size:2em;color:#00ff88}
-.cta{background:#00ff88;color:#000;padding:16px 32px;font-size:1.2em;font-weight:bold;border:none;border-radius:8px;cursor:pointer;text-decoration:none;display:inline-block;margin:10px 0}
-.tier{border:1px solid #333;padding:20px;margin:15px 0;border-radius:8px}
-.price{font-size:1.5em;color:#00ff88;font-weight:bold}
-</style></head>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Garcar Enterprise — AI Automation for Contractors</title>
+  <meta name="description" content="AI automation systems that handle your leads, follow-ups, and estimates — so you close more jobs without hiring more staff.">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #070b12;
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+
+    /* Nav */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(7,11,18,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #1a2332;
+      padding: 16px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { font-size: 1.05em; font-weight: 700; color: #00ff88; letter-spacing: 0.5px; }
+    .nav-cta {
+      background: #00ff88; color: #000;
+      padding: 9px 22px; border-radius: 7px;
+      font-weight: 700; font-size: 0.9em;
+      text-decoration: none;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 96px 24px 72px;
+      max-width: 820px; margin: 0 auto;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(0,255,136,0.08);
+      border: 1px solid rgba(0,255,136,0.28);
+      color: #00ff88;
+      padding: 6px 18px; border-radius: 20px;
+      font-size: 0.82em; font-weight: 600;
+      margin-bottom: 24px; letter-spacing: 0.4px;
+    }
+    h1 {
+      font-size: clamp(1.9em, 5vw, 3.2em);
+      font-weight: 800; line-height: 1.15;
+      color: #fff; margin-bottom: 20px; letter-spacing: -0.5px;
+    }
+    h1 span { color: #00ff88; }
+    .hero p { font-size: 1.15em; color: #94a3b8; max-width: 600px; margin: 0 auto 40px; }
+    .hero-cta {
+      display: inline-block;
+      background: #00ff88; color: #000;
+      padding: 18px 44px; border-radius: 10px;
+      font-weight: 700; font-size: 1.1em;
+      text-decoration: none;
+      box-shadow: 0 4px 24px rgba(0,255,136,0.25);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,255,136,0.35); }
+    .hero-sub { margin-top: 16px; font-size: 0.88em; color: #475569; }
+
+    /* Stats */
+    .stats {
+      border-top: 1px solid #1a2332; border-bottom: 1px solid #1a2332;
+      background: #0d1420;
+      padding: 32px 24px;
+      display: flex; justify-content: center; flex-wrap: wrap; gap: 48px;
+    }
+    .stat { text-align: center; }
+    .stat-num { font-size: 1.9em; font-weight: 800; color: #00ff88; }
+    .stat-label { font-size: 0.82em; color: #64748b; margin-top: 3px; }
+
+    /* Sections */
+    .section { padding: 80px 24px; max-width: 1020px; margin: 0 auto; }
+    .section-label {
+      display: inline-block;
+      font-size: 0.78em; font-weight: 700;
+      letter-spacing: 1.5px; color: #00ff88;
+      text-transform: uppercase; margin-bottom: 14px;
+    }
+    h2 { font-size: clamp(1.5em, 3.5vw, 2.3em); font-weight: 800; color: #fff; margin-bottom: 48px; line-height: 1.2; }
+
+    /* Pain grid */
+    .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+    .pain-card {
+      background: #0d1420; border: 1px solid #1a2332;
+      border-radius: 12px; padding: 28px;
+    }
+    .pain-icon { font-size: 1.7em; margin-bottom: 12px; }
+    .pain-card h3 { font-size: 1em; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .pain-card p { font-size: 0.88em; color: #94a3b8; }
+
+    /* Steps */
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; }
+    .step { text-align: center; padding: 20px; }
+    .step-num {
+      width: 48px; height: 48px;
+      background: rgba(0,255,136,0.08); border: 2px solid #00ff88;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-weight: 800; color: #00ff88; font-size: 1.1em;
+      margin: 0 auto 16px;
+    }
+    .step h3 { font-size: 1em; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .step p { font-size: 0.87em; color: #94a3b8; }
+    .alt-bg { background: #0d1420; }
+
+    /* Pricing */
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 48px; }
+    .tier {
+      background: #0d1420; border: 1px solid #1a2332;
+      border-radius: 16px; padding: 36px 28px;
+      position: relative; transition: border-color 0.2s;
+    }
+    .tier:hover { border-color: #00ff8855; }
+    .tier.featured { border-color: #00ff88; background: linear-gradient(160deg,#0d1f18,#0d1420); }
+    .featured-badge {
+      position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+      background: #00ff88; color: #000;
+      padding: 4px 18px; border-radius: 20px;
+      font-size: 0.76em; font-weight: 700; white-space: nowrap;
+    }
+    .tier-name { font-size: 0.8em; font-weight: 700; color: #94a3b8; letter-spacing: 0.8px; margin-bottom: 10px; }
+    .tier-price { font-size: 2.5em; font-weight: 800; color: #00ff88; line-height: 1; margin-bottom: 6px; }
+    .tier-price span { font-size: 0.42em; font-weight: 400; color: #64748b; }
+    .tier-desc { font-size: 0.88em; color: #94a3b8; margin: 16px 0 24px; min-height: 44px; }
+    .tier-features { list-style: none; margin-bottom: 32px; }
+    .tier-features li {
+      padding: 9px 0; font-size: 0.88em; color: #cbd5e1;
+      border-bottom: 1px solid #1a2332;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .tier-features li::before { content: '✓'; color: #00ff88; font-weight: 700; flex-shrink: 0; }
+    .cta {
+      display: block; text-align: center;
+      background: #00ff88; color: #000;
+      padding: 16px; border-radius: 10px;
+      font-weight: 700; font-size: 1em;
+      text-decoration: none;
+      transition: opacity 0.15s, transform 0.15s;
+    }
+    .cta:hover { opacity: 0.9; transform: translateY(-1px); }
+    .cta-outline { background: transparent; border: 2px solid #00ff88; color: #00ff88; }
+
+    /* FAQ */
+    .faq-list { max-width: 700px; }
+    details { border-bottom: 1px solid #1a2332; padding: 20px 0; }
+    summary {
+      font-weight: 600; color: #fff; cursor: pointer;
+      list-style: none; display: flex; justify-content: space-between; align-items: center;
+    }
+    summary::after { content: '+'; color: #00ff88; font-size: 1.4em; }
+    details[open] summary::after { content: '−'; }
+    details p { margin-top: 12px; color: #94a3b8; font-size: 0.93em; }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid #1a2332;
+      padding: 40px 24px; text-align: center;
+      color: #475569; font-size: 0.9em;
+    }
+    footer a { color: #00ff88; text-decoration: none; }
+  </style>
+</head>
 <body>
-<h1>Stop Losing Jobs to Contractors Who Follow Up Faster</h1>
-<p style="font-size:1.2em">Garcar Enterprise builds AI automation systems that handle your leads, follow-ups, and estimates automatically — so you close more jobs without hiring more staff.</p>
-<div class="tier">
-<div class="price">$47 — Starter Audit</div>
-<p>We audit your current lead process and show you exactly where you're losing money. Delivered in 48 hours.</p>
-<a class="cta" href="https://buy.stripe.com/dRm8wPbb72pY2Mz8BR43S1D">Get My Audit — $47</a>
+
+<nav>
+  <div class="nav-logo">Garcar Enterprise</div>
+  <a href="#pricing" class="nav-cta">Get started</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">AI Automation for DFW Contractors</div>
+  <h1>Stop Losing Jobs to Contractors Who <span>Follow Up Faster</span></h1>
+  <p>We build AI automation systems that handle your leads, follow-ups, and estimates automatically — so you close more jobs without hiring more staff.</p>
+  <a href="#pricing" class="hero-cta">Start with a $47 audit</a>
+  <p class="hero-sub">No contracts · No tech skills needed · Results in 48 hours</p>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">73%</div>
+    <div class="stat-label">of jobs go to the first responder</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">&lt;5 min</div>
+    <div class="stat-label">average response time with our system</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">3–5×</div>
+    <div class="stat-label">more closed jobs on average</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">24/7</div>
+    <div class="stat-label">automated follow-up, even weekends</div>
+  </div>
 </div>
-<div class="tier">
-<div class="price">$497/wk — Revenue Recovery Sprint</div>
-<p>We build and deploy one AI automation workflow per week directly into your business.</p>
-<a class="cta" href="https://buy.stripe.com/aFa8wPdjfggO3QDcS743S1F">Start Sprint — $497/wk</a>
+
+<section class="section">
+  <div class="section-label">The problem</div>
+  <h2>Your leads are slipping through the cracks every day</h2>
+  <div class="pain-grid">
+    <div class="pain-card">
+      <div class="pain-icon">📱</div>
+      <h3>Leads go cold while you're on a job</h3>
+      <p>You can't answer every call when you're on a roof. By the time you call back, they've already hired someone else.</p>
+    </div>
+    <div class="pain-card">
+      <div class="pain-icon">🔁</div>
+      <h3>No consistent follow-up system</h3>
+      <p>Most contractors follow up once or twice. Winning the job takes 5–8 touches. You're losing to persistence, not skill.</p>
+    </div>
+    <div class="pain-card">
+      <div class="pain-icon">💸</div>
+      <h3>Spending on ads with no tracking</h3>
+      <p>You're paying for Google and Facebook leads but have no way to know which ads actually turn into closed jobs.</p>
+    </div>
+    <div class="pain-card">
+      <div class="pain-icon">⏰</div>
+      <h3>Wasting hours on admin work</h3>
+      <p>Scheduling, follow-ups, estimates, invoices — you're spending 2–3 hours a day on tasks an AI handles in seconds.</p>
+    </div>
+  </div>
+</section>
+
+<div class="alt-bg" style="padding: 1px 0;">
+  <section class="section">
+    <div class="section-label">How it works</div>
+    <h2>From lead to closed job, automatically</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Lead comes in</h3>
+        <p>Facebook, Google, your website, or referrals — every lead flows into one unified system.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>AI scores and responds</h3>
+        <p>Within 5 minutes, the lead gets a personalized message. Hot leads get a call request immediately.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Automated follow-up</h3>
+        <p>Texts, emails, and reminders are scheduled and sent automatically until you get a yes or a no.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>You close the job</h3>
+        <p>We handle the pipeline. You show up, do the work, and collect the check.</p>
+      </div>
+    </div>
+  </section>
 </div>
-<div class="tier">
-<div class="price">$1,497/mo — AI Growth Engine</div>
-<p>Full autonomous lead gen, follow-up, and close system. Set it and collect.</p>
-<a class="cta" href="https://buy.stripe.com/9B63cv4MJ9Sq1Iv19p43S1E">Get Growth Engine — $1,497/mo</a>
+
+<section class="section" id="pricing">
+  <div class="section-label">Pricing</div>
+  <h2>Start small, scale fast</h2>
+  <div class="pricing-grid">
+    <div class="tier">
+      <div class="tier-name">STARTER AUDIT</div>
+      <div class="tier-price">$47</div>
+      <div class="tier-desc">We audit your lead process and show you exactly where you're losing money.</div>
+      <ul class="tier-features">
+        <li>Full lead-to-close process audit</li>
+        <li>Top 3 revenue leaks identified</li>
+        <li>Custom automation roadmap</li>
+        <li>Delivered in 48 hours</li>
+      </ul>
+      <a class="cta cta-outline" href="https://buy.stripe.com/dRm8wPbb72pY2Mz8BR43S1D">Get my audit — $47</a>
+    </div>
+    <div class="tier featured">
+      <div class="featured-badge">Most popular</div>
+      <div class="tier-name">REVENUE RECOVERY SPRINT</div>
+      <div class="tier-price">$497<span>/wk</span></div>
+      <div class="tier-desc">One AI automation workflow built and deployed into your business every week.</div>
+      <ul class="tier-features">
+        <li>1 automation workflow per week</li>
+        <li>Lead capture and scoring</li>
+        <li>Instant follow-up sequences</li>
+        <li>Weekly check-in calls</li>
+        <li>Cancel anytime</li>
+      </ul>
+      <a class="cta" href="https://buy.stripe.com/aFa8wPdjfggO3QDcS743S1F">Start sprint — $497/wk</a>
+    </div>
+    <div class="tier">
+      <div class="tier-name">AI GROWTH ENGINE</div>
+      <div class="tier-price">$1,497<span>/mo</span></div>
+      <div class="tier-desc">Full autonomous lead gen, follow-up, and close system. Set it and collect.</div>
+      <ul class="tier-features">
+        <li>Complete AI automation stack</li>
+        <li>Lead gen + scoring + follow-up</li>
+        <li>Ad spend tracking and ROAS</li>
+        <li>Live revenue dashboard</li>
+        <li>Dedicated support</li>
+      </ul>
+      <a class="cta cta-outline" href="https://buy.stripe.com/9B63cv4MJ9Sq1Iv19p43S1E">Get growth engine — $1,497/mo</a>
+    </div>
+  </div>
+</section>
+
+<div class="alt-bg" style="padding: 1px 0;">
+  <section class="section">
+    <div class="section-label">FAQ</div>
+    <h2>Common questions</h2>
+    <div class="faq-list">
+      <details>
+        <summary>Do I need any technical skills?</summary>
+        <p>None. We build everything for you. Your job is to close work and run your crew. We handle all the tech.</p>
+      </details>
+      <details>
+        <summary>What types of contractors do you work with?</summary>
+        <p>We specialize in roofing, HVAC, plumbing, electrical, landscaping, and general contracting in the DFW area. Our systems are built specifically for these trades.</p>
+      </details>
+      <details>
+        <summary>How fast will I see results?</summary>
+        <p>Most clients see faster lead response times within 48 hours of setup. Measurable close rate improvements typically show within the first 2–3 weeks.</p>
+      </details>
+      <details>
+        <summary>Can I cancel?</summary>
+        <p>The sprint plan cancels anytime with no penalty. The monthly plan cancels with 7 days notice. The $47 audit is one-time with no recurring charges.</p>
+      </details>
+      <details>
+        <summary>What’s included in the audit?</summary>
+        <p>A full review of how leads enter your business, where they drop off, and which automations would have the highest ROI for your situation. Delivered as a written report with a recorded walkthrough within 48 hours.</p>
+      </details>
+    </div>
+  </section>
 </div>
-<p style="color:#888;font-size:0.9em">Garcar Enterprise — Kopperl, TX | garcar.io</p>
+
+<footer>
+  <p>Garcar Enterprise &nbsp;·&nbsp; Grandview, TX &nbsp;·&nbsp; <a href="mailto:hello@garcarenterprise.com">hello@garcarenterprise.com</a></p>
+  <p style="margin-top: 8px; font-size: 0.85em;">© 2026 Garcar Enterprise LLC. All rights reserved.</p>
+</footer>
+
 </body>
 </html>
