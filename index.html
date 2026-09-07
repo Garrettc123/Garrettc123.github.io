@@ -13,86 +13,159 @@
 <meta property="og:url" content="https://garrettc123.github.io/">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Garcar Enterprise",
-  "url": "https://garrettc123.github.io/",
-  "email": "garrett@garcar.io",
-  "areaServed": "United States",
-  "founder": {"@type": "Person", "name": "Garrett Carrol"},
-  "address": {"@type": "PostalAddress", "addressLocality": "Grandview", "addressRegion": "TX", "addressCountry": "US"},
-  "offers": [{"@type": "Offer", "name": "Revenue Leakage Audit", "price": "2000", "priceCurrency": "USD", "url": "https://buy.stripe.com/7sYaEX1Ax1lU5YL3hx43S2e"}]
-}
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Garcar Enterprise","url":"https://garrettc123.github.io/","email":"garrett@garcar.io","areaServed":"United States","founder":{"@type":"Person","name":"Garrett Carrol"},"address":{"@type":"PostalAddress","addressLocality":"Grandview","addressRegion":"TX","addressCountry":"US"},"offers":[{"@type":"Offer","name":"Revenue Leakage Audit","price":"2000","priceCurrency":"USD","url":"https://buy.stripe.com/7sYaEX1Ax1lU5YL3hx43S2e"}]}
 </script>
 <style>
+:root{
+  --ink:#1c1917;--muted:#5c574f;--line:#ddd6c8;--paper:#f4f1ea;--card:#fffcf7;
+  --forest:#1b4332;--forest-2:#143528;--gold:#8a6a2f;
+}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#050505;color:#e8e8e8;line-height:1.55}
-.wrap{max-width:780px;margin:0 auto;padding:28px 20px 120px}
-h1{font-size:clamp(1.7rem,4.8vw,2.4rem);color:#00ff88;line-height:1.15;margin-bottom:14px;font-weight:800}
-.sub{font-size:1.08rem;color:#b0b0b0;margin-bottom:16px}
-.local{color:#888;font-size:0.92rem;margin-bottom:20px}
-.math{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 20px}
-.math div{background:#0c0c0c;border:1px solid #1c1c1c;border-radius:10px;padding:14px 10px;text-align:center}
-.math strong{display:block;color:#00ff88;font-size:1.2rem}
-.math span{color:#888;font-size:0.78rem}
-.tier{border:1px solid #00ff88;padding:24px;margin:0 0 18px;border-radius:12px;background:#0a1a12}
-.price{font-size:1.4rem;color:#00ff88;font-weight:800;margin-bottom:8px}
-.tier p{color:#c8c8c8;margin-bottom:8px}
-.cta{background:#00ff88;color:#000;padding:16px 24px;font-size:1.05rem;font-weight:800;border-radius:9px;text-decoration:none;display:inline-block;margin-top:12px}
-h2{color:#00ff88;font-size:1.15rem;margin:28px 0 10px}
-ul{color:#bbb;padding-left:18px;margin-bottom:16px}
-li{margin:6px 0}
-.note,.who{color:#9a9a9a;font-size:0.95rem;margin:12px 0 18px}
-footer{margin-top:36px;color:#555;font-size:0.85rem;border-top:1px solid #1a1a1a;padding-top:20px}
-footer a{color:#00ff88;text-decoration:none}
-.small{font-size:0.86rem;color:#7a7a7a;margin-top:10px}
-.sticky{position:fixed;bottom:0;left:0;right:0;background:#06140c;border-top:1px solid #00ff8844;padding:12px 16px;display:flex;justify-content:center;z-index:20}
-.sticky a{background:#00ff88;color:#000;font-weight:800;text-decoration:none;padding:12px 20px;border-radius:8px}
-@media(max-width:560px){.math{grid-template-columns:1fr}}
+html{scroll-behavior:smooth}
+body{font-family:"Source Sans 3",system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;font-size:17px}
+a{color:var(--forest)}
+.nav{border-bottom:1px solid var(--line);background:rgba(244,241,234,.92);backdrop-filter:blur(8px);position:sticky;top:0;z-index:10}
+.nav-inner,.wrap{max-width:920px;margin:0 auto;padding:0 24px}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{font-family:"Source Serif 4",Georgia,serif;font-weight:600;font-size:1.15rem;color:var(--ink);text-decoration:none;letter-spacing:-.02em}
+.nav-links{display:flex;gap:18px;font-size:.9rem}
+.nav-links a{color:var(--muted);text-decoration:none}
+.nav-links a:hover{color:var(--ink)}
+.hero{padding:56px 24px 28px;max-width:920px;margin:0 auto}
+.kicker{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px}
+h1{font-family:"Source Serif 4",Georgia,serif;font-size:clamp(2rem,5vw,3.15rem);line-height:1.15;font-weight:500;letter-spacing:-.03em;max-width:16ch;margin-bottom:18px}
+.lede{font-size:1.12rem;color:var(--muted);max-width:38rem;margin-bottom:22px}
+.meta{font-size:.92rem;color:var(--muted);margin-bottom:28px}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:36px}
+.btn{display:inline-block;background:var(--forest);color:#f4f1ea;text-decoration:none;padding:13px 22px;border-radius:4px;font-weight:600;font-size:.98rem}
+.btn:hover{background:var(--forest-2)}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);background:var(--card)}
+.stats div{padding:22px 18px;border-right:1px solid var(--line)}
+.stats div:last-child{border-right:0}
+.stats strong{display:block;font-family:"Source Serif 4",Georgia,serif;font-size:1.45rem;font-weight:500}
+.stats span{display:block;color:var(--muted);font-size:.86rem;margin-top:4px}
+.section{max-width:920px;margin:0 auto;padding:48px 24px 8px}
+h2{font-family:"Source Serif 4",Georgia,serif;font-size:1.55rem;font-weight:500;margin-bottom:18px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.card{background:var(--card);border:1px solid var(--line);padding:24px}
+.card h3{font-size:1rem;margin-bottom:10px}
+.card ul{padding-left:18px;color:var(--muted)}
+.card li{margin:7px 0}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step{background:var(--card);border:1px solid var(--line);padding:22px}
+.num{font-family:"Source Serif 4",Georgia,serif;color:var(--gold);font-size:1.1rem;display:block;margin-bottom:8px}
+.offer{background:var(--forest);color:#f4f1ea;padding:36px 28px;margin-top:8px}
+.offer h2,.offer p{color:#f4f1ea}
+.offer p{opacity:.88;max-width:36rem;margin-bottom:16px}
+.offer .btn{background:#f4f1ea;color:var(--forest)}
+.offer .fine{opacity:.7;font-size:.86rem;margin-top:14px}
+.faq details{border-bottom:1px solid var(--line);padding:14px 0}
+.faq summary{cursor:pointer;font-weight:600}
+.faq p{color:var(--muted);margin-top:8px}
+footer{margin-top:56px;border-top:1px solid var(--line);padding:28px 24px 100px;max-width:920px;margin-left:auto;margin-right:auto;color:var(--muted);font-size:.9rem}
+footer a{color:var(--forest);text-decoration:none}
+.sticky{display:none}
+@media(max-width:720px){
+  .stats,.grid2,.steps{grid-template-columns:1fr}
+  .stats div{border-right:0;border-bottom:1px solid var(--line)}
+  .nav-links{display:none}
+  .hero{padding-top:36px}
+  .sticky{display:flex;position:fixed;bottom:0;left:0;right:0;background:#fffcf7;border-top:1px solid var(--line);padding:12px 16px;justify-content:center;z-index:20}
+  .sticky a{background:var(--forest);color:#f4f1ea;text-decoration:none;padding:12px 20px;border-radius:4px;font-weight:600;width:100%;text-align:center}
+}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <h1>Find the revenue your operation is already losing — and install the system to recover it.</h1>
-  <p class="sub">For VP / Head of Operations, RevOps, Finance, or Growth at 50–500 person companies. The leak sits between lead response, follow-up, handoffs, stalled opportunities, and retention signals.</p>
-  <p class="local">Garcar Enterprise · Grandview / Dallas, Texas · Paid diagnostic. No earnings guarantee.</p>
-  <div class="math">
-    <div><strong>$2,000</strong><span>paid audit before kickoff</span></div>
-    <div><strong>10 days</strong><span>written map after complete intake</span></div>
-    <div><strong>30-day</strong><span>recovery plan, then scoped install</span></div>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">Garcar Enterprise</a>
+    <nav class="nav-links">
+      <a href="#offer">The audit</a>
+      <a href="#process">Process</a>
+      <a href="mailto:garrett@garcar.io?subject=Revenue%20Leakage%20Review">Request a review</a>
+    </nav>
   </div>
-  <div class="tier">
-    <div class="price">$2,000 — Revenue Leakage Audit</div>
-    <p>A documented leakage baseline, prioritized fixes, CRM/automation implementation plan, and a 30-day recovery map. Payment clears before work starts.</p>
-    <a class="cta" href="https://buy.stripe.com/7sYaEX1Ax1lU5YL3hx43S2e">Pay $2,000 and start intake</a>
-    <p class="small">After payment, email garrett@garcar.io with CRM access notes. Implementation ($3k–$8k) and monthly monitoring are offered only after the map is delivered.</p>
+</header>
+<section class="hero">
+  <p class="kicker">Paid diagnostic · Dallas / Grandview</p>
+  <h1>Find the revenue the operation is already losing.</h1>
+  <p class="lede">A written audit for operations, RevOps, finance, and growth leaders at 50–500 person companies. The leak usually sits between lead response, follow-up, handoffs, stalled opportunities, and retention signals.</p>
+  <p class="meta">Garrett Carrol · Garcar Enterprise · No earnings guarantee.</p>
+  <div class="actions">
+    <a class="btn" href="https://buy.stripe.com/7sYaEX1Ax1lU5YL3hx43S2e">Start the $2,000 audit</a>
+    <a class="btn btn-ghost" href="mailto:garrett@garcar.io?subject=Revenue%20Leakage%20Review">Book a 20-minute review</a>
   </div>
-  <h2>What we inspect</h2>
-  <ul>
-    <li>Lead-response and follow-up gaps</li>
-    <li>Pipeline-stage conversion drop-offs</li>
-    <li>Handoffs between sales, ops, and delivery</li>
-    <li>Churn and retention blind spots</li>
-    <li>The one 30-day repair sequence worth installing first</li>
-  </ul>
-  <h2>What this is not</h2>
-  <ul>
-    <li>Not a promise you will recover a set dollar amount</li>
-    <li>Not a software license</li>
-    <li>Not free custom consulting</li>
-  </ul>
-  <p class="note">Want a 20-minute review first? <a href="mailto:garrett@garcar.io?subject=Revenue%20Leakage%20Review">Email garrett@garcar.io</a>.</p>
-  <footer>
-    Garcar Enterprise · Garrett Carrol · Grandview / Dallas, Texas<br>
-    <a href="mailto:garrett@garcar.io">garrett@garcar.io</a>
-    · <a href="/contractors.html">Texas contractor $47 audit</a>
-    · <a href="/resume.html">Resume</a>
-  </footer>
-</div>
-<div class="sticky">
-  <a href="https://buy.stripe.com/7sYaEX1Ax1lU5YL3hx43S2e">Pay the $2,000 Audit</a>
-</div>
+  <div class="stats">
+    <div><strong>$2,000</strong><span>Paid before kickoff</span></div>
+    <div><strong>10 days</strong><span>Written map after complete intake</span></div>
+    <div><strong>30-day</strong><span>Recovery plan, then scoped install</span></div>
+  </div>
+</section>
+<section class="section">
+  <h2>What you receive</h2>
+  <div class="grid2">
+    <div class="card">
+      <h3>Inspected</h3>
+      <ul>
+        <li>Lead-response and follow-up gaps</li>
+        <li>Pipeline-stage conversion drop-offs</li>
+        <li>Handoffs between sales, operations, and delivery</li>
+        <li>Churn and retention blind spots</li>
+        <li>The first repair sequence worth installing</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Not included</h3>
+      <ul>
+        <li>A promise of a recovered dollar amount</li>
+        <li>A software license</li>
+        <li>Open-ended unpaid consulting</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section class="section" id="process">
+  <h2>How the work runs</h2>
+  <div class="steps">
+    <div class="step"><span class="num">01</span><strong>Pay and intake</strong><p style="color:var(--muted);margin-top:8px">Checkout, then send CRM access notes to garrett@garcar.io.</p></div>
+    <div class="step"><span class="num">02</span><strong>Map the leak</strong><p style="color:var(--muted);margin-top:8px">Path from first response through close and retention, with named gaps.</p></div>
+    <div class="step"><span class="num">03</span><strong>Plan the repair</strong><p style="color:var(--muted);margin-top:8px">30-day sequence plus a fixed-price implementation scope if you want the install.</p></div>
+  </div>
+</section>
+<section class="section" id="offer">
+  <div class="offer">
+    <h2>Revenue Leakage Audit — $2,000</h2>
+    <p>Leakage baseline, prioritized fixes, CRM and automation implementation plan, and a 30-day recovery map. Payment clears before work starts. Implementation ($3,000–$8,000) and monthly monitoring are offered only after the map is delivered.</p>
+    <a class="btn" href="https://buy.stripe.com/7sYaEX1Ax1lU5YL3hx43S2e">Pay $2,000 and begin intake</a>
+    <p class="fine">Questions first: garrett@garcar.io</p>
+  </div>
+</section>
+<section class="section faq">
+  <h2>Questions</h2>
+  <details open>
+    <summary>Do I have to buy software?</summary>
+    <p>No. The audit is a written map. Any later install is scoped against tools you already use.</p>
+  </details>
+  <details>
+    <summary>What if we only want a conversation?</summary>
+    <p>Email for a 20-minute review. The audit itself is paid before kickoff.</p>
+  </details>
+  <details>
+    <summary>Will you project how much we will recover?</summary>
+    <p>Only as an estimate built from your numbers, labeled as such. There is no guaranteed recovery figure.</p>
+  </details>
+</section>
+<footer>
+  Garcar Enterprise · Garrett Carrol · Grandview / Dallas, Texas<br>
+  <a href="mailto:garrett@garcar.io">garrett@garcar.io</a>
+  · <a href="/contractors.html">Texas contractor audit</a>
+  · <a href="/resume.html">Resume</a>
+</footer>
+<div class="sticky"><a href="https://buy.stripe.com/7sYaEX1Ax1lU5YL3hx43S2e">Start the $2,000 audit</a></div>
 </body>
 </html>
