@@ -40,7 +40,7 @@ a{color:var(--forest)}
 .nav-links a{color:var(--muted);text-decoration:none}
 .nav-links a:hover{color:var(--ink)}
 .hero-photo{max-width:980px;margin:20px auto 0;padding:0 24px}
-.hero-photo img{width:100%;height:340px;object-fit:cover;object-position:center 40%;display:block;border:1px solid var(--line)}
+.hero-photo img{width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;object-position:center;background:#e8e2d6;display:block;border:1px solid var(--line)}
 .hero{padding:36px 24px 28px;max-width:980px;margin:0 auto}
 .kicker{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px}
 h1{font-family:"Source Serif 4",Georgia,serif;font-size:clamp(2rem,5vw,3.15rem);line-height:1.15;font-weight:500;letter-spacing:-.03em;max-width:16ch;margin-bottom:18px}
@@ -64,7 +64,7 @@ h2{font-family:"Source Serif 4",Georgia,serif;font-size:1.55rem;font-weight:500;
 .card li{margin:7px 0}
 .gallery{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
 .gallery figure{margin:0}
-.gallery img{width:100%;height:260px;object-fit:cover;border:1px solid var(--line);display:block}
+.gallery img{width:100%;height:auto;aspect-ratio:3/2;object-fit:contain;object-position:center;background:#e8e2d6;border:1px solid var(--line);display:block}
 .gallery figcaption{font-size:.82rem;color:var(--muted);margin-top:8px}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .step{background:var(--card);border:1px solid var(--line);padding:22px}
@@ -86,7 +86,7 @@ footer a{color:var(--forest);text-decoration:none}
   .stats,.grid2,.steps,.gallery{grid-template-columns:1fr}
   .stats div{border-right:0;border-bottom:1px solid var(--line)}
   .nav-links{display:none}
-  .hero-photo img,.gallery img{height:210px}
+  .hero-photo img,.gallery img{height:auto}
   .sticky{display:flex;position:fixed;bottom:0;left:0;right:0;background:#fffcf7;border-top:1px solid var(--line);padding:12px 16px;justify-content:center;z-index:20}
   .sticky a{background:var(--forest);color:#f4f1ea;text-decoration:none;padding:12px 20px;border-radius:4px;font-weight:600;width:100%;text-align:center}
 }
@@ -107,7 +107,7 @@ footer a{color:var(--forest);text-decoration:none}
   </div>
 </header>
 <div class="hero-photo">
-  <img src="/media/dallas.svg" width="1200" height="340" alt="Dallas skyline at dusk">
+  <img src="/media/dallas.svg?v=3" width="1200" height="675" alt="Dallas skyline at dusk">
 </div>
 <section class="hero">
   <p class="kicker">Paid diagnostic · Dallas / Grandview</p>
@@ -128,11 +128,11 @@ footer a{color:var(--forest);text-decoration:none}
   <h2>Where the work sits</h2>
   <div class="gallery">
     <figure>
-      <img src="/media/desk.svg" width="1200" height="260" alt="Audit papers, laptop, and notebook on a wooden desk">
+      <img src="/media/desk.svg?v=3" width="1200" height="800" alt="Audit papers, laptop, and notebook on a wooden desk">
       <figcaption>The deliverable is a written map — leakage, fixes, and a 30-day sequence.</figcaption>
     </figure>
     <figure>
-      <img src="/media/country.svg" width="1200" height="260" alt="Texas hill country at sunset">
+      <img src="/media/country.svg?v=3" width="1200" height="800" alt="Texas hill country at sunset">
       <figcaption>Based in Grandview. Sold into Dallas and the rest of the state.</figcaption>
     </figure>
   </div>
