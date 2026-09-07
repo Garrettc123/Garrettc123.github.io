@@ -11,8 +11,11 @@
 <meta property="og:description" content="$2,000 paid diagnostic: leakage baseline, prioritized fixes, and a 30-day recovery plan. No earnings guarantee.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://garrettc123.github.io/">
+<meta property="og:image" content="https://garrettc123.github.io/media/dallas.svg">
 <meta property="og:locale" content="en_US">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/media/logo.svg">
+<link rel="apple-touch-icon" href="/media/logo.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -28,14 +31,17 @@
 html{scroll-behavior:smooth}
 body{font-family:"Source Sans 3",system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;font-size:17px}
 a{color:var(--forest)}
-.nav{border-bottom:1px solid var(--line);background:rgba(244,241,234,.92);backdrop-filter:blur(8px);position:sticky;top:0;z-index:10}
-.nav-inner,.wrap{max-width:920px;margin:0 auto;padding:0 24px}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
-.brand{font-family:"Source Serif 4",Georgia,serif;font-weight:600;font-size:1.15rem;color:var(--ink);text-decoration:none;letter-spacing:-.02em}
+.nav{border-bottom:1px solid var(--line);background:rgba(244,241,234,.94);backdrop-filter:blur(8px);position:sticky;top:0;z-index:10}
+.nav-inner{max-width:980px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.brand img{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:#f7f3ea;display:block}
+.brand strong{font-family:"Source Serif 4",Georgia,serif;font-weight:600;font-size:1.12rem;letter-spacing:-.02em}
 .nav-links{display:flex;gap:18px;font-size:.9rem}
 .nav-links a{color:var(--muted);text-decoration:none}
 .nav-links a:hover{color:var(--ink)}
-.hero{padding:56px 24px 28px;max-width:920px;margin:0 auto}
+.hero-photo{max-width:980px;margin:20px auto 0;padding:0 24px}
+.hero-photo img{width:100%;height:340px;object-fit:cover;object-position:center 40%;display:block;border:1px solid var(--line)}
+.hero{padding:36px 24px 28px;max-width:980px;margin:0 auto}
 .kicker{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px}
 h1{font-family:"Source Serif 4",Georgia,serif;font-size:clamp(2rem,5vw,3.15rem);line-height:1.15;font-weight:500;letter-spacing:-.03em;max-width:16ch;margin-bottom:18px}
 .lede{font-size:1.12rem;color:var(--muted);max-width:38rem;margin-bottom:22px}
@@ -49,13 +55,17 @@ h1{font-family:"Source Serif 4",Georgia,serif;font-size:clamp(2rem,5vw,3.15rem);
 .stats div:last-child{border-right:0}
 .stats strong{display:block;font-family:"Source Serif 4",Georgia,serif;font-size:1.45rem;font-weight:500}
 .stats span{display:block;color:var(--muted);font-size:.86rem;margin-top:4px}
-.section{max-width:920px;margin:0 auto;padding:48px 24px 8px}
+.section{max-width:980px;margin:0 auto;padding:48px 24px 8px}
 h2{font-family:"Source Serif 4",Georgia,serif;font-size:1.55rem;font-weight:500;margin-bottom:18px}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 .card{background:var(--card);border:1px solid var(--line);padding:24px}
 .card h3{font-size:1rem;margin-bottom:10px}
 .card ul{padding-left:18px;color:var(--muted)}
 .card li{margin:7px 0}
+.gallery{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
+.gallery figure{margin:0}
+.gallery img{width:100%;height:260px;object-fit:cover;border:1px solid var(--line);display:block}
+.gallery figcaption{font-size:.82rem;color:var(--muted);margin-top:8px}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .step{background:var(--card);border:1px solid var(--line);padding:22px}
 .num{font-family:"Source Serif 4",Georgia,serif;color:var(--gold);font-size:1.1rem;display:block;margin-bottom:8px}
@@ -67,14 +77,16 @@ h2{font-family:"Source Serif 4",Georgia,serif;font-size:1.55rem;font-weight:500;
 .faq details{border-bottom:1px solid var(--line);padding:14px 0}
 .faq summary{cursor:pointer;font-weight:600}
 .faq p{color:var(--muted);margin-top:8px}
-footer{margin-top:56px;border-top:1px solid var(--line);padding:28px 24px 100px;max-width:920px;margin-left:auto;margin-right:auto;color:var(--muted);font-size:.9rem}
+footer{margin-top:56px;border-top:1px solid var(--line);padding:28px 24px 100px;max-width:980px;margin-left:auto;margin-right:auto;color:var(--muted);font-size:.9rem}
 footer a{color:var(--forest);text-decoration:none}
+.foot-brand{display:flex;align-items:center;gap:10px;margin-bottom:10px;color:var(--ink)}
+.foot-brand img{width:28px;height:28px;border-radius:50%;border:1px solid var(--line)}
 .sticky{display:none}
 @media(max-width:720px){
-  .stats,.grid2,.steps{grid-template-columns:1fr}
+  .stats,.grid2,.steps,.gallery{grid-template-columns:1fr}
   .stats div{border-right:0;border-bottom:1px solid var(--line)}
   .nav-links{display:none}
-  .hero{padding-top:36px}
+  .hero-photo img,.gallery img{height:210px}
   .sticky{display:flex;position:fixed;bottom:0;left:0;right:0;background:#fffcf7;border-top:1px solid var(--line);padding:12px 16px;justify-content:center;z-index:20}
   .sticky a{background:var(--forest);color:#f4f1ea;text-decoration:none;padding:12px 20px;border-radius:4px;font-weight:600;width:100%;text-align:center}
 }
@@ -83,14 +95,20 @@ footer a{color:var(--forest);text-decoration:none}
 <body>
 <header class="nav">
   <div class="nav-inner">
-    <a class="brand" href="/">Garcar Enterprise</a>
+    <a class="brand" href="/">
+      <img src="/media/logo.svg" width="36" height="36" alt="Garcar Enterprise">
+      <strong>Garcar Enterprise</strong>
+    </a>
     <nav class="nav-links">
       <a href="#offer">The audit</a>
-      <a href="#process">Process</a>
+      <a href="#place">Place</a>
       <a href="mailto:garrett@garcar.io?subject=Revenue%20Leakage%20Review">Request a review</a>
     </nav>
   </div>
 </header>
+<div class="hero-photo">
+  <img src="/media/dallas.svg" width="1200" height="340" alt="Dallas skyline at dusk">
+</div>
 <section class="hero">
   <p class="kicker">Paid diagnostic · Dallas / Grandview</p>
   <h1>Find the revenue the operation is already losing.</h1>
@@ -104,6 +122,19 @@ footer a{color:var(--forest);text-decoration:none}
     <div><strong>$2,000</strong><span>Paid before kickoff</span></div>
     <div><strong>10 days</strong><span>Written map after complete intake</span></div>
     <div><strong>30-day</strong><span>Recovery plan, then scoped install</span></div>
+  </div>
+</section>
+<section class="section" id="place">
+  <h2>Where the work sits</h2>
+  <div class="gallery">
+    <figure>
+      <img src="/media/desk.svg" width="1200" height="260" alt="Audit papers, laptop, and notebook on a wooden desk">
+      <figcaption>The deliverable is a written map — leakage, fixes, and a 30-day sequence.</figcaption>
+    </figure>
+    <figure>
+      <img src="/media/country.svg" width="1200" height="260" alt="Texas hill country at sunset">
+      <figcaption>Based in Grandview. Sold into Dallas and the rest of the state.</figcaption>
+    </figure>
   </div>
 </section>
 <section class="section">
@@ -161,7 +192,11 @@ footer a{color:var(--forest);text-decoration:none}
   </details>
 </section>
 <footer>
-  Garcar Enterprise · Garrett Carrol · Grandview / Dallas, Texas<br>
+  <div class="foot-brand">
+    <img src="/media/logo.svg" width="28" height="28" alt="">
+    <strong>Garcar Enterprise</strong>
+  </div>
+  Garrett Carrol · Grandview / Dallas, Texas<br>
   <a href="mailto:garrett@garcar.io">garrett@garcar.io</a>
   · <a href="/contractors.html">Texas contractor audit</a>
   · <a href="/resume.html">Resume</a>
