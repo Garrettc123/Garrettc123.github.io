@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Revenue Leakage Audit | Garcar Enterprise</title>
-<meta name="description" content="Find preventable revenue loss between lead response, follow-up, handoffs, stalled deals, and retention. $2,000 paid diagnostic. 30-day recovery plan.">
+<title>Revenue System | Garcar Enterprise</title>
+<meta name="description" content="$2,000 installs the revenue system that finds leaks in lead response, follow-up, handoffs, stalled deals, and retention — then runs the repair on tools you already use. $1,000 a month to maintain it.">
 <link rel="canonical" href="https://garrettc123.github.io/">
 <meta name="robots" content="index,follow">
-<meta property="og:title" content="Revenue Leakage Audit — Garcar Enterprise">
-<meta property="og:description" content="$2,000 paid diagnostic: leakage baseline, prioritized fixes, and a 30-day recovery plan.">
+<meta property="og:title" content="The revenue is already dying in the pipeline.">
+<meta property="og:description" content="$2,000 install. $1,000 a month to maintain. A revenue system for first response, follow-up, handoffs, stalled deals, and retention.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://garrettc123.github.io/">
 <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Dallas_Skyline_at_Dusk.jpg/1280px-Dallas_Skyline_at_Dusk.jpg">
@@ -21,138 +21,66 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#161713;
-  --body:#2a2c27;
-  --mute:#5c5f56;
-  --line:rgba(22,23,19,.14);
-  --paper:#efece4;
-  --card:#f7f4ee;
-  --forest:#1b4332;
-  --forest-2:#143528;
-  --gold:#7a6230;
-  --frame:#0b0c0a;
+  --ink:#161713;--body:#2a2c27;--mute:#5c5f56;--line:rgba(22,23,19,.14);
+  --paper:#efece4;--card:#f7f4ee;--forest:#1b4332;--forest-2:#143528;
+  --gold:#7a6230;--frame:#0b0c0a;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{
-  font-family:"IBM Plex Sans",system-ui,sans-serif;
-  background:var(--paper);
-  color:var(--ink);
-  line-height:1.55;
-  font-size:19px;
-  -webkit-font-smoothing:antialiased;
-}
+body{font-family:"IBM Plex Sans",system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.55;font-size:19px;-webkit-font-smoothing:antialiased}
 a{color:var(--forest)}
-.nav{
-  background:var(--frame);
-  color:#eceee8;
-  position:sticky;top:0;z-index:10;
-}
-.nav-inner{
-  max-width:1080px;margin:0 auto;padding:0 28px;
-  display:flex;align-items:center;justify-content:space-between;height:72px;
-}
+.nav{background:var(--frame);color:#eceee8;position:sticky;top:0;z-index:10}
+.nav-inner{max-width:1080px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:72px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#eceee8}
-.brand img{
-  width:36px;height:36px;object-fit:contain;border-radius:8px;
-  border:1px solid rgba(236,238,232,.16);background:#171814;display:block;
-}
+.brand img{width:36px;height:36px;object-fit:contain;border-radius:8px;border:1px solid rgba(236,238,232,.16);background:#171814;display:block}
 .brand strong{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:1.28rem;letter-spacing:-.02em}
 .nav-links{display:flex;gap:22px;font-size:.92rem}
 .nav-links a{color:#b7bcb0;text-decoration:none}
 .nav-links a:hover{color:#eceee8}
 .hero-photo{max-width:1080px;margin:28px auto 0;padding:0 28px}
-.hero-photo img{
-  width:100%;aspect-ratio:16/7;height:auto;object-fit:cover;object-position:center 45%;
-  display:block;border:1px solid var(--line);background:#d8d3c6;
-}
+.hero-photo img{width:100%;aspect-ratio:16/7;height:auto;object-fit:cover;object-position:center 45%;display:block;border:1px solid var(--line);background:#d8d3c6}
 .hero{padding:44px 28px 32px;max-width:1080px;margin:0 auto}
-.kicker{
-  font-family:"IBM Plex Mono",ui-monospace,monospace;
-  font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--gold);font-weight:500;margin-bottom:18px;
-}
-h1{
-  font-family:"Instrument Serif",Georgia,serif;
-  font-size:clamp(2.6rem,7.2vw,4.55rem);
-  line-height:1.04;font-weight:400;letter-spacing:-.035em;
-  max-width:14ch;margin-bottom:22px;
-}
-.lede{font-size:1.22rem;color:var(--body);max-width:40rem;margin-bottom:20px;line-height:1.5}
-.meta{
-  font-family:"IBM Plex Mono",ui-monospace,monospace;
-  font-size:.86rem;color:var(--mute);margin-bottom:32px;letter-spacing:.01em;
-}
+.kicker{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:18px}
+h1{font-family:"Instrument Serif",Georgia,serif;font-size:clamp(2.55rem,7vw,4.45rem);line-height:1.04;font-weight:400;letter-spacing:-.035em;max-width:16ch;margin-bottom:22px}
+.lede{font-size:1.24rem;color:var(--body);max-width:42rem;margin-bottom:20px;line-height:1.5}
+.meta{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.86rem;color:var(--mute);margin-bottom:32px}
 .actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:40px}
-.btn{
-  display:inline-block;background:var(--forest);color:#f4f1ea;text-decoration:none;
-  padding:16px 26px;border-radius:4px;font-weight:600;font-size:1.05rem;
-}
+.btn{display:inline-block;background:var(--forest);color:#f4f1ea;text-decoration:none;padding:16px 26px;border-radius:4px;font-weight:600;font-size:1.05rem}
 .btn:hover{background:var(--forest-2)}
 .btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);background:var(--card)}
 .stats div{padding:26px 22px;border-right:1px solid var(--line)}
 .stats div:last-child{border-right:0}
-.stats strong{
-  display:block;font-family:"Instrument Serif",Georgia,serif;
-  font-size:2rem;font-weight:400;letter-spacing:-.03em;
-}
-.stats span{
-  display:block;color:var(--mute);font-size:.88rem;margin-top:6px;
-  font-family:"IBM Plex Mono",ui-monospace,monospace;
-}
+.stats strong{display:block;font-family:"Instrument Serif",Georgia,serif;font-size:2rem;font-weight:400;letter-spacing:-.03em}
+.stats span{display:block;color:var(--mute);font-size:.88rem;margin-top:6px;font-family:"IBM Plex Mono",ui-monospace,monospace}
 .section{max-width:1080px;margin:0 auto;padding:56px 28px 8px}
-h2{
-  font-family:"Instrument Serif",Georgia,serif;
-  font-size:clamp(1.85rem,3vw,2.25rem);font-weight:400;
-  letter-spacing:-.02em;margin-bottom:22px;
-}
+h2{font-family:"Instrument Serif",Georgia,serif;font-size:clamp(1.85rem,3vw,2.25rem);font-weight:400;letter-spacing:-.02em;margin-bottom:22px}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .card{background:var(--card);border:1px solid var(--line);padding:28px}
-.card h3{
-  font-family:"IBM Plex Mono",ui-monospace,monospace;
-  font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;
-  font-weight:500;margin-bottom:14px;color:var(--mute);
-}
+.card h3{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;margin-bottom:14px;color:var(--mute)}
 .card ul{padding-left:1.15rem;color:var(--body)}
 .card li{margin:9px 0}
 .gallery{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
 .gallery figure{margin:0}
-.gallery img{
-  width:100%;aspect-ratio:3/2;height:auto;object-fit:cover;
-  display:block;border:1px solid var(--line);background:#d8d3c6;
-}
+.gallery img{width:100%;aspect-ratio:3/2;height:auto;object-fit:cover;display:block;border:1px solid var(--line);background:#d8d3c6}
 .gallery figcaption{font-size:.92rem;color:var(--mute);margin-top:10px;line-height:1.45}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .step{background:var(--card);border:1px solid var(--line);padding:26px}
-.num{
-  font-family:"IBM Plex Mono",ui-monospace,monospace;
-  color:var(--gold);font-size:.86rem;display:block;margin-bottom:10px;letter-spacing:.08em;
-}
+.num{font-family:"IBM Plex Mono",ui-monospace,monospace;color:var(--gold);font-size:.86rem;display:block;margin-bottom:10px;letter-spacing:.08em}
 .step strong{display:block;font-size:1.2rem;margin-bottom:8px}
 .step p{color:var(--body);margin-top:4px;font-size:1.02rem}
 .offer{background:var(--frame);color:#eceee8;padding:44px 36px;margin-top:8px}
 .offer h2,.offer p{color:#eceee8}
-.offer p{opacity:.88;max-width:38rem;margin-bottom:22px;font-size:1.12rem}
+.offer p{opacity:.88;max-width:40rem;margin-bottom:22px;font-size:1.12rem}
 .offer .btn{background:#eceee8;color:var(--frame)}
-.offer .fine{
-  opacity:.62;font-size:.9rem;margin-top:16px;
-  font-family:"IBM Plex Mono",ui-monospace,monospace;
-}
+.offer .fine{opacity:.62;font-size:.9rem;margin-top:16px;font-family:"IBM Plex Mono",ui-monospace,monospace}
 .faq details{border-bottom:1px solid var(--line);padding:18px 0}
 .faq summary{cursor:pointer;font-weight:600;font-size:1.12rem}
 .faq p{color:var(--body);margin-top:10px;font-size:1.05rem}
-footer{
-  margin-top:64px;border-top:1px solid var(--line);
-  padding:32px 28px 120px;max-width:1080px;margin-left:auto;margin-right:auto;
-  color:var(--mute);font-size:1rem;
-}
+footer{margin-top:64px;border-top:1px solid var(--line);padding:32px 28px 120px;max-width:1080px;margin-left:auto;margin-right:auto;color:var(--mute);font-size:1rem}
 footer a{color:var(--forest);text-decoration:none}
 .foot-brand{display:flex;align-items:center;gap:10px;margin-bottom:12px;color:var(--ink)}
-.foot-brand img{
-  width:28px;height:28px;object-fit:contain;border-radius:6px;
-  border:1px solid var(--line);background:#f7f3ea;
-}
+.foot-brand img{width:28px;height:28px;object-fit:contain;border-radius:6px;border:1px solid var(--line);background:#f7f3ea}
 .foot-brand strong{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:1.2rem}
 .sticky{display:none}
 @media(max-width:760px){
@@ -165,16 +93,9 @@ footer a{color:var(--forest);text-decoration:none}
   .hero-photo img{aspect-ratio:16/9}
   .gallery img{aspect-ratio:16/10}
   .offer{padding:32px 22px}
-  h1{max-width:12ch}
-  .sticky{
-    display:flex;position:fixed;bottom:0;left:0;right:0;
-    background:#efece4;border-top:1px solid var(--line);
-    padding:12px 16px;justify-content:center;z-index:20;
-  }
-  .sticky a{
-    background:var(--forest);color:#f4f1ea;text-decoration:none;
-    padding:14px 20px;border-radius:4px;font-weight:600;width:100%;text-align:center;font-size:1.05rem;
-  }
+  h1{max-width:13ch}
+  .sticky{display:flex;position:fixed;bottom:0;left:0;right:0;background:#efece4;border-top:1px solid var(--line);padding:12px 16px;justify-content:center;z-index:20}
+  .sticky a{background:var(--forest);color:#f4f1ea;text-decoration:none;padding:14px 20px;border-radius:4px;font-weight:600;width:100%;text-align:center;font-size:1.05rem}
 }
 </style>
 </head>
@@ -186,9 +107,9 @@ footer a{color:var(--forest);text-decoration:none}
       <strong>Garcar Enterprise</strong>
     </a>
     <nav class="nav-links">
-      <a href="#offer">The audit</a>
-      <a href="#place">Place</a>
-      <a href="mailto:garrett@garcar.io?subject=Revenue%20Leakage%20Review">Request a review</a>
+      <a href="#system">The system</a>
+      <a href="#offer">Install</a>
+      <a href="mailto:garrett@garcar.io?subject=Revenue%20system%20review">Request a review</a>
     </nav>
   </div>
 </header>
@@ -196,26 +117,51 @@ footer a{color:var(--forest);text-decoration:none}
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Dallas_Skyline_at_Dusk.jpg/1280px-Dallas_Skyline_at_Dusk.jpg" width="1280" height="560" alt="Dallas skyline at dusk">
 </div>
 <section class="hero">
-  <p class="kicker">Paid diagnostic · Dallas / Grandview</p>
-  <h1>Find the revenue the operation is already losing.</h1>
-  <p class="lede">A written audit for operations, RevOps, finance, and growth leaders at 50–500 person companies. The leak usually sits between lead response, follow-up, handoffs, stalled opportunities, and retention signals.</p>
+  <p class="kicker">Revenue system · Dallas / Grandview</p>
+  <h1>The sale is already dying in the pipeline.</h1>
+  <p class="lede">Not a report. A revenue system that finds the leak between first response, follow-up, handoffs, stalled deals, and retention — then runs the repair on the CRM and tools you already have. $2,000 to install. $1,000 a month for me to keep it alive.</p>
   <p class="meta">Garrett Wayne Carrol · Founder · Grandview / Dallas</p>
   <div class="actions">
-    <a class="btn" href="https://buy.stripe.com/7sYaEX1Ax1lU5YL3hx43S2e">Start the $2,000 audit</a>
-    <a class="btn btn-ghost" href="mailto:garrett@garcar.io?subject=Revenue%20Leakage%20Review">Book a 20-minute review</a>
+    <a class="btn" href="https://buy.stripe.com/7sYaEX1Ax1lU5YL3hx43S2e">Install the $2,000 system</a>
+    <a class="btn btn-ghost" href="mailto:garrett@garcar.io?subject=Revenue%20system%20review">Book a 20-minute review</a>
   </div>
   <div class="stats">
-    <div><strong>$2,000</strong><span>Paid before kickoff</span></div>
-    <div><strong>10 days</strong><span>Written map after intake</span></div>
-    <div><strong>30-day</strong><span>Recovery plan, then scoped install</span></div>
+    <div><strong>$2,000</strong><span>Install the system</span></div>
+    <div><strong>$1,000 / mo</strong><span>I maintain it</span></div>
+    <div><strong>Your stack</strong><span>No software license to buy</span></div>
+  </div>
+</section>
+<section class="section" id="system">
+  <h2>What the system actually does</h2>
+  <div class="grid2">
+    <div class="card">
+      <h3>It watches</h3>
+      <ul>
+        <li>First-response time after a lead hits</li>
+        <li>Follow-up that dies after one touch</li>
+        <li>Handoffs between sales, operations, and delivery</li>
+        <li>Pipeline stages where conversion falls off a cliff</li>
+        <li>Retention signals nobody is assigned to see</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>It runs</h3>
+      <ul>
+        <li>Named leaks, not a slide deck of theory</li>
+        <li>The first repair sequence installed on your tools</li>
+        <li>CRM and automation that already exist — wired, not replaced</li>
+        <li>A 30-day operating rhythm after install</li>
+        <li>Monthly maintain: sequence health, leak watch, course-correct</li>
+      </ul>
+    </div>
   </div>
 </section>
 <section class="section" id="place">
   <h2>Where the work sits</h2>
   <div class="gallery">
     <figure>
-      <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1200&q=70" width="1200" height="800" alt="Audit papers, laptop, and notebook on a wooden desk">
-      <figcaption>The deliverable is a written map — leakage, fixes, and a 30-day sequence.</figcaption>
+      <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1200&q=70" width="1200" height="800" alt="Work table with laptop and notes">
+      <figcaption>Install is the system going live on your stack. Maintain is the system staying live.</figcaption>
     </figure>
     <figure>
       <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=70" width="1200" height="800" alt="Texas hill country at sunset">
@@ -224,53 +170,55 @@ footer a{color:var(--forest);text-decoration:none}
   </div>
 </section>
 <section class="section">
-  <h2>What you receive</h2>
+  <h2>What you are not buying</h2>
   <div class="grid2">
-    <div class="card">
-      <h3>Inspected</h3>
-      <ul>
-        <li>Lead-response and follow-up gaps</li>
-        <li>Pipeline-stage conversion drop-offs</li>
-        <li>Handoffs between sales, operations, and delivery</li>
-        <li>Churn and retention blind spots</li>
-        <li>The first repair sequence worth installing</li>
-      </ul>
-    </div>
     <div class="card">
       <h3>Not included</h3>
       <ul>
-        <li>A promise of a recovered dollar amount</li>
-        <li>A software license</li>
+        <li>A promised recovered dollar amount</li>
+        <li>A new software license</li>
         <li>Open-ended unpaid consulting</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Who this is for</h3>
+      <ul>
+        <li>Ops, RevOps, finance, and growth leaders</li>
+        <li>50–500 person companies</li>
+        <li>Teams that already have a CRM and still lose deals in the gaps</li>
       </ul>
     </div>
   </div>
 </section>
 <section class="section" id="process">
-  <h2>How the work runs</h2>
+  <h2>How it runs</h2>
   <div class="steps">
-    <div class="step"><span class="num">01</span><strong>Pay and intake</strong><p>Checkout, then send CRM access notes to garrett@garcar.io.</p></div>
-    <div class="step"><span class="num">02</span><strong>Map the leak</strong><p>Path from first response through close and retention, with named gaps.</p></div>
-    <div class="step"><span class="num">03</span><strong>Plan the repair</strong><p>30-day sequence plus a fixed-price implementation scope if you want the install.</p></div>
+    <div class="step"><span class="num">01</span><strong>Pay $2,000</strong><p>Checkout, then send CRM access notes to garrett@garcar.io. That starts install.</p></div>
+    <div class="step"><span class="num">02</span><strong>System goes live</strong><p>Leaks named. First repair sequence installed on the tools you already use.</p></div>
+    <div class="step"><span class="num">03</span><strong>$1,000 / month</strong><p>I maintain it: sequence health, leak watch, and the next repair. Starts after install.</p></div>
   </div>
 </section>
 <section class="section" id="offer">
   <div class="offer">
-    <h2>Revenue Leakage Audit — $2,000</h2>
-    <p>Leakage baseline, prioritized fixes, CRM and automation implementation plan, and a 30-day recovery map. Payment clears before work starts. Implementation ($3,000–$8,000) and monthly monitoring are offered only after the map is delivered.</p>
-    <a class="btn" href="https://buy.stripe.com/7sYaEX1Ax1lU5YL3hx43S2e">Pay $2,000 and begin intake</a>
-    <p class="fine">Questions first: garrett@garcar.io</p>
+    <h2>Install $2,000 · Maintain $1,000 / month</h2>
+    <p>The $2,000 is the revenue system — leakage map, prioritized fixes, CRM and automation wired, first repair running. The $1,000 a month is me keeping that system from rotting. Payment for install clears before work starts. Maintain is offered once the system is live.</p>
+    <a class="btn" href="https://buy.stripe.com/7sYaEX1Ax1lU5YL3hx43S2e">Pay $2,000 and install</a>
+    <p class="fine">Maintain: email garrett@garcar.io after install. Checkout link for $1,000/mo is issued then.</p>
   </div>
 </section>
 <section class="section faq">
   <h2>Questions</h2>
   <details open>
-    <summary>Do I have to buy software?</summary>
-    <p>No. The audit is a written map. Any later install is scoped against tools you already use.</p>
+    <summary>Is this software I have to buy?</summary>
+    <p>No. The system runs on the CRM and tools you already use. Install wires them. Maintain keeps the wiring honest.</p>
   </details>
   <details>
-    <summary>What if we only want a conversation?</summary>
-    <p>Email for a 20-minute review. The audit itself is paid before kickoff.</p>
+    <summary>What does the $1,000 a month cover?</summary>
+    <p>I maintain the live system: sequence health, leak watch on response / follow-up / handoffs / retention, and the next repair. It is not unpaid Slack. It is a retain on a system that is already installed.</p>
+  </details>
+  <details>
+    <summary>What if we only want a conversation first?</summary>
+    <p>Email for a 20-minute review. Install itself is paid before kickoff.</p>
   </details>
   <details>
     <summary>Will you project how much we will recover?</summary>
@@ -287,6 +235,6 @@ footer a{color:var(--forest);text-decoration:none}
   · <a href="/contractors.html">Texas contractor audit</a>
   · <a href="/resume.html">Resume</a>
 </footer>
-<div class="sticky"><a href="https://buy.stripe.com/7sYaEX1Ax1lU5YL3hx43S2e">Start the $2,000 audit</a></div>
+<div class="sticky"><a href="https://buy.stripe.com/7sYaEX1Ax1lU5YL3hx43S2e">Install the $2,000 system</a></div>
 </body>
 </html>
