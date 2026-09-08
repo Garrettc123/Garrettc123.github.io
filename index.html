@@ -14,79 +14,167 @@
 <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Dallas_Skyline_at_Dusk.jpg/1280px-Dallas_Skyline_at_Dusk.jpg">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/svg+xml" href="/media/mark.svg?v=10">
+<link rel="icon" type="image/svg+xml" href="/media/mark.svg?v=11">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#1c1917;--muted:#5c574f;--line:#ddd6c8;--paper:#f4f1ea;--card:#fffcf7;
-  --forest:#1b4332;--forest-2:#143528;--gold:#8a6a2f;
+  --ink:#161713;
+  --body:#2a2c27;
+  --mute:#5c5f56;
+  --line:rgba(22,23,19,.14);
+  --paper:#efece4;
+  --card:#f7f4ee;
+  --forest:#1b4332;
+  --forest-2:#143528;
+  --gold:#7a6230;
+  --frame:#0b0c0a;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:"Source Sans 3",system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;font-size:17px}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:"IBM Plex Sans",system-ui,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.55;
+  font-size:19px;
+  -webkit-font-smoothing:antialiased;
+}
 a{color:var(--forest)}
-.nav{border-bottom:1px solid var(--line);background:rgba(244,241,234,.94);backdrop-filter:blur(8px);position:sticky;top:0;z-index:10}
-.nav-inner{max-width:980px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
-.brand img{width:40px;height:40px;object-fit:contain;object-position:center;border-radius:8px;border:1px solid var(--line);background:#f7f3ea;display:block}
-.brand strong{font-family:"Source Serif 4",Georgia,serif;font-weight:600;font-size:1.12rem;letter-spacing:-.02em}
-.nav-links{display:flex;gap:18px;font-size:.9rem}
-.nav-links a{color:var(--muted);text-decoration:none}
-.nav-links a:hover{color:var(--ink)}
-.hero-photo{max-width:980px;margin:20px auto 0;padding:0 24px}
-.hero-photo img{width:100%;aspect-ratio:16/7;height:auto;object-fit:cover;object-position:center 45%;display:block;border:1px solid var(--line);background:#e8e2d6}
-.hero{padding:36px 24px 28px;max-width:980px;margin:0 auto}
-.kicker{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px}
-h1{font-family:"Source Serif 4",Georgia,serif;font-size:clamp(2rem,5vw,3.15rem);line-height:1.15;font-weight:500;letter-spacing:-.03em;max-width:16ch;margin-bottom:18px}
-.lede{font-size:1.12rem;color:var(--muted);max-width:38rem;margin-bottom:22px}
-.meta{font-size:.92rem;color:var(--muted);margin-bottom:28px}
-.actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:36px}
-.btn{display:inline-block;background:var(--forest);color:#f4f1ea;text-decoration:none;padding:13px 22px;border-radius:4px;font-weight:600;font-size:.98rem}
+.nav{
+  background:var(--frame);
+  color:#eceee8;
+  position:sticky;top:0;z-index:10;
+}
+.nav-inner{
+  max-width:1080px;margin:0 auto;padding:0 28px;
+  display:flex;align-items:center;justify-content:space-between;height:72px;
+}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#eceee8}
+.brand img{
+  width:36px;height:36px;object-fit:contain;border-radius:8px;
+  border:1px solid rgba(236,238,232,.16);background:#171814;display:block;
+}
+.brand strong{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:1.28rem;letter-spacing:-.02em}
+.nav-links{display:flex;gap:22px;font-size:.92rem}
+.nav-links a{color:#b7bcb0;text-decoration:none}
+.nav-links a:hover{color:#eceee8}
+.hero-photo{max-width:1080px;margin:28px auto 0;padding:0 28px}
+.hero-photo img{
+  width:100%;aspect-ratio:16/7;height:auto;object-fit:cover;object-position:center 45%;
+  display:block;border:1px solid var(--line);background:#d8d3c6;
+}
+.hero{padding:44px 28px 32px;max-width:1080px;margin:0 auto}
+.kicker{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gold);font-weight:500;margin-bottom:18px;
+}
+h1{
+  font-family:"Instrument Serif",Georgia,serif;
+  font-size:clamp(2.6rem,7.2vw,4.55rem);
+  line-height:1.04;font-weight:400;letter-spacing:-.035em;
+  max-width:14ch;margin-bottom:22px;
+}
+.lede{font-size:1.22rem;color:var(--body);max-width:40rem;margin-bottom:20px;line-height:1.5}
+.meta{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:.86rem;color:var(--mute);margin-bottom:32px;letter-spacing:.01em;
+}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:40px}
+.btn{
+  display:inline-block;background:var(--forest);color:#f4f1ea;text-decoration:none;
+  padding:16px 26px;border-radius:4px;font-weight:600;font-size:1.05rem;
+}
 .btn:hover{background:var(--forest-2)}
 .btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);background:var(--card)}
-.stats div{padding:22px 18px;border-right:1px solid var(--line)}
+.stats div{padding:26px 22px;border-right:1px solid var(--line)}
 .stats div:last-child{border-right:0}
-.stats strong{display:block;font-family:"Source Serif 4",Georgia,serif;font-size:1.45rem;font-weight:500}
-.stats span{display:block;color:var(--muted);font-size:.86rem;margin-top:4px}
-.section{max-width:980px;margin:0 auto;padding:48px 24px 8px}
-h2{font-family:"Source Serif 4",Georgia,serif;font-size:1.55rem;font-weight:500;margin-bottom:18px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.card{background:var(--card);border:1px solid var(--line);padding:24px}
-.card h3{font-size:1rem;margin-bottom:10px}
-.card ul{padding-left:18px;color:var(--muted)}
-.card li{margin:7px 0}
+.stats strong{
+  display:block;font-family:"Instrument Serif",Georgia,serif;
+  font-size:2rem;font-weight:400;letter-spacing:-.03em;
+}
+.stats span{
+  display:block;color:var(--mute);font-size:.88rem;margin-top:6px;
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+}
+.section{max-width:1080px;margin:0 auto;padding:56px 28px 8px}
+h2{
+  font-family:"Instrument Serif",Georgia,serif;
+  font-size:clamp(1.85rem,3vw,2.25rem);font-weight:400;
+  letter-spacing:-.02em;margin-bottom:22px;
+}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.card{background:var(--card);border:1px solid var(--line);padding:28px}
+.card h3{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;
+  font-weight:500;margin-bottom:14px;color:var(--mute);
+}
+.card ul{padding-left:1.15rem;color:var(--body)}
+.card li{margin:9px 0}
 .gallery{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
 .gallery figure{margin:0}
-.gallery img{width:100%;aspect-ratio:3/2;height:auto;object-fit:cover;object-position:center;display:block;border:1px solid var(--line);background:#e8e2d6}
-.gallery figcaption{font-size:.82rem;color:var(--muted);margin-top:8px}
+.gallery img{
+  width:100%;aspect-ratio:3/2;height:auto;object-fit:cover;
+  display:block;border:1px solid var(--line);background:#d8d3c6;
+}
+.gallery figcaption{font-size:.92rem;color:var(--mute);margin-top:10px;line-height:1.45}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.step{background:var(--card);border:1px solid var(--line);padding:22px}
-.num{font-family:"Source Serif 4",Georgia,serif;color:var(--gold);font-size:1.1rem;display:block;margin-bottom:8px}
-.offer{background:var(--forest);color:#f4f1ea;padding:36px 28px;margin-top:8px}
-.offer h2,.offer p{color:#f4f1ea}
-.offer p{opacity:.88;max-width:36rem;margin-bottom:16px}
-.offer .btn{background:#f4f1ea;color:var(--forest)}
-.offer .fine{opacity:.7;font-size:.86rem;margin-top:14px}
-.faq details{border-bottom:1px solid var(--line);padding:14px 0}
-.faq summary{cursor:pointer;font-weight:600}
-.faq p{color:var(--muted);margin-top:8px}
-footer{margin-top:56px;border-top:1px solid var(--line);padding:28px 24px 100px;max-width:980px;margin-left:auto;margin-right:auto;color:var(--muted);font-size:.9rem}
+.step{background:var(--card);border:1px solid var(--line);padding:26px}
+.num{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  color:var(--gold);font-size:.86rem;display:block;margin-bottom:10px;letter-spacing:.08em;
+}
+.step strong{display:block;font-size:1.2rem;margin-bottom:8px}
+.step p{color:var(--body);margin-top:4px;font-size:1.02rem}
+.offer{background:var(--frame);color:#eceee8;padding:44px 36px;margin-top:8px}
+.offer h2,.offer p{color:#eceee8}
+.offer p{opacity:.88;max-width:38rem;margin-bottom:22px;font-size:1.12rem}
+.offer .btn{background:#eceee8;color:var(--frame)}
+.offer .fine{
+  opacity:.62;font-size:.9rem;margin-top:16px;
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+}
+.faq details{border-bottom:1px solid var(--line);padding:18px 0}
+.faq summary{cursor:pointer;font-weight:600;font-size:1.12rem}
+.faq p{color:var(--body);margin-top:10px;font-size:1.05rem}
+footer{
+  margin-top:64px;border-top:1px solid var(--line);
+  padding:32px 28px 120px;max-width:1080px;margin-left:auto;margin-right:auto;
+  color:var(--mute);font-size:1rem;
+}
 footer a{color:var(--forest);text-decoration:none}
-.foot-brand{display:flex;align-items:center;gap:10px;margin-bottom:10px;color:var(--ink)}
-.foot-brand img{width:28px;height:28px;object-fit:contain;border-radius:6px;border:1px solid var(--line);background:#f7f3ea}
+.foot-brand{display:flex;align-items:center;gap:10px;margin-bottom:12px;color:var(--ink)}
+.foot-brand img{
+  width:28px;height:28px;object-fit:contain;border-radius:6px;
+  border:1px solid var(--line);background:#f7f3ea;
+}
+.foot-brand strong{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:1.2rem}
 .sticky{display:none}
-@media(max-width:720px){
+@media(max-width:760px){
+  body{font-size:18px}
+  .hero,.section,footer,.hero-photo{padding-left:20px;padding-right:20px}
+  .nav-inner{padding:0 20px;height:64px}
   .stats,.grid2,.steps,.gallery{grid-template-columns:1fr}
   .stats div{border-right:0;border-bottom:1px solid var(--line)}
   .nav-links{display:none}
   .hero-photo img{aspect-ratio:16/9}
   .gallery img{aspect-ratio:16/10}
-  .sticky{display:flex;position:fixed;bottom:0;left:0;right:0;background:#fffcf7;border-top:1px solid var(--line);padding:12px 16px;justify-content:center;z-index:20}
-  .sticky a{background:var(--forest);color:#f4f1ea;text-decoration:none;padding:12px 20px;border-radius:4px;font-weight:600;width:100%;text-align:center}
+  .offer{padding:32px 22px}
+  h1{max-width:12ch}
+  .sticky{
+    display:flex;position:fixed;bottom:0;left:0;right:0;
+    background:#efece4;border-top:1px solid var(--line);
+    padding:12px 16px;justify-content:center;z-index:20;
+  }
+  .sticky a{
+    background:var(--forest);color:#f4f1ea;text-decoration:none;
+    padding:14px 20px;border-radius:4px;font-weight:600;width:100%;text-align:center;font-size:1.05rem;
+  }
 }
 </style>
 </head>
@@ -94,7 +182,7 @@ footer a{color:var(--forest);text-decoration:none}
 <header class="nav">
   <div class="nav-inner">
     <a class="brand" href="/">
-      <img src="/media/mark.svg?v=10" width="40" height="40" alt="Garcar Enterprise">
+      <img src="/media/mark.svg?v=11" width="36" height="36" alt="Garcar Enterprise">
       <strong>Garcar Enterprise</strong>
     </a>
     <nav class="nav-links">
@@ -111,14 +199,14 @@ footer a{color:var(--forest);text-decoration:none}
   <p class="kicker">Paid diagnostic · Dallas / Grandview</p>
   <h1>Find the revenue the operation is already losing.</h1>
   <p class="lede">A written audit for operations, RevOps, finance, and growth leaders at 50–500 person companies. The leak usually sits between lead response, follow-up, handoffs, stalled opportunities, and retention signals.</p>
-  <p class="meta">Garrett Carrol · Garcar Enterprise</p>
+  <p class="meta">Garrett Wayne Carrol · Founder · Grandview / Dallas</p>
   <div class="actions">
     <a class="btn" href="https://buy.stripe.com/7sYaEX1Ax1lU5YL3hx43S2e">Start the $2,000 audit</a>
     <a class="btn btn-ghost" href="mailto:garrett@garcar.io?subject=Revenue%20Leakage%20Review">Book a 20-minute review</a>
   </div>
   <div class="stats">
     <div><strong>$2,000</strong><span>Paid before kickoff</span></div>
-    <div><strong>10 days</strong><span>Written map after complete intake</span></div>
+    <div><strong>10 days</strong><span>Written map after intake</span></div>
     <div><strong>30-day</strong><span>Recovery plan, then scoped install</span></div>
   </div>
 </section>
@@ -161,9 +249,9 @@ footer a{color:var(--forest);text-decoration:none}
 <section class="section" id="process">
   <h2>How the work runs</h2>
   <div class="steps">
-    <div class="step"><span class="num">01</span><strong>Pay and intake</strong><p style="color:var(--muted);margin-top:8px">Checkout, then send CRM access notes to garrett@garcar.io.</p></div>
-    <div class="step"><span class="num">02</span><strong>Map the leak</strong><p style="color:var(--muted);margin-top:8px">Path from first response through close and retention, with named gaps.</p></div>
-    <div class="step"><span class="num">03</span><strong>Plan the repair</strong><p style="color:var(--muted);margin-top:8px">30-day sequence plus a fixed-price implementation scope if you want the install.</p></div>
+    <div class="step"><span class="num">01</span><strong>Pay and intake</strong><p>Checkout, then send CRM access notes to garrett@garcar.io.</p></div>
+    <div class="step"><span class="num">02</span><strong>Map the leak</strong><p>Path from first response through close and retention, with named gaps.</p></div>
+    <div class="step"><span class="num">03</span><strong>Plan the repair</strong><p>30-day sequence plus a fixed-price implementation scope if you want the install.</p></div>
   </div>
 </section>
 <section class="section" id="offer">
@@ -191,10 +279,10 @@ footer a{color:var(--forest);text-decoration:none}
 </section>
 <footer>
   <div class="foot-brand">
-    <img src="/media/mark.svg?v=10" width="28" height="28" alt="">
+    <img src="/media/mark.svg?v=11" width="28" height="28" alt="">
     <strong>Garcar Enterprise</strong>
   </div>
-  Garrett Carrol · Grandview / Dallas, Texas<br>
+  Garrett Wayne Carrol · Grandview / Dallas, Texas<br>
   <a href="mailto:garrett@garcar.io">garrett@garcar.io</a>
   · <a href="/contractors.html">Texas contractor audit</a>
   · <a href="/resume.html">Resume</a>
