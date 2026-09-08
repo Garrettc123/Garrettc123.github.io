@@ -14,7 +14,8 @@
 <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Dallas_Skyline_at_Dusk.jpg/1280px-Dallas_Skyline_at_Dusk.jpg">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" href="/media/logo.svg?v=5">
+<link rel="icon" type="image/svg+xml" href="/media/logo.svg?v=9">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -30,13 +31,13 @@ a{color:var(--forest)}
 .nav{border-bottom:1px solid var(--line);background:rgba(244,241,234,.94);backdrop-filter:blur(8px);position:sticky;top:0;z-index:10}
 .nav-inner{max-width:980px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
-.brand img{width:36px;height:36px;object-fit:contain;object-position:center;border-radius:50%;border:1px solid var(--line);background:#f7f3ea;display:block;padding:2px}
+.brand img{width:40px;height:40px;object-fit:contain;object-position:center;border-radius:8px;border:1px solid var(--line);background:#f7f3ea;display:block}
 .brand strong{font-family:"Source Serif 4",Georgia,serif;font-weight:600;font-size:1.12rem;letter-spacing:-.02em}
 .nav-links{display:flex;gap:18px;font-size:.9rem}
 .nav-links a{color:var(--muted);text-decoration:none}
 .nav-links a:hover{color:var(--ink)}
 .hero-photo{max-width:980px;margin:20px auto 0;padding:0 24px}
-.hero-photo img{width:100%;height:auto;display:block;border:1px solid var(--line);background:#e8e2d6}
+.hero-photo img{width:100%;aspect-ratio:16/7;height:auto;object-fit:cover;object-position:center 45%;display:block;border:1px solid var(--line);background:#e8e2d6}
 .hero{padding:36px 24px 28px;max-width:980px;margin:0 auto}
 .kicker{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px}
 h1{font-family:"Source Serif 4",Georgia,serif;font-size:clamp(2rem,5vw,3.15rem);line-height:1.15;font-weight:500;letter-spacing:-.03em;max-width:16ch;margin-bottom:18px}
@@ -60,7 +61,7 @@ h2{font-family:"Source Serif 4",Georgia,serif;font-size:1.55rem;font-weight:500;
 .card li{margin:7px 0}
 .gallery{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
 .gallery figure{margin:0}
-.gallery img{width:100%;height:auto;display:block;border:1px solid var(--line);background:#e8e2d6}
+.gallery img{width:100%;aspect-ratio:3/2;height:auto;object-fit:cover;object-position:center;display:block;border:1px solid var(--line);background:#e8e2d6}
 .gallery figcaption{font-size:.82rem;color:var(--muted);margin-top:8px}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .step{background:var(--card);border:1px solid var(--line);padding:22px}
@@ -76,13 +77,14 @@ h2{font-family:"Source Serif 4",Georgia,serif;font-size:1.55rem;font-weight:500;
 footer{margin-top:56px;border-top:1px solid var(--line);padding:28px 24px 100px;max-width:980px;margin-left:auto;margin-right:auto;color:var(--muted);font-size:.9rem}
 footer a{color:var(--forest);text-decoration:none}
 .foot-brand{display:flex;align-items:center;gap:10px;margin-bottom:10px;color:var(--ink)}
-.foot-brand img{width:28px;height:28px;object-fit:contain;border-radius:50%;border:1px solid var(--line);background:#f7f3ea;padding:2px}
+.foot-brand img{width:28px;height:28px;object-fit:contain;border-radius:6px;border:1px solid var(--line);background:#f7f3ea}
 .sticky{display:none}
 @media(max-width:720px){
   .stats,.grid2,.steps,.gallery{grid-template-columns:1fr}
   .stats div{border-right:0;border-bottom:1px solid var(--line)}
   .nav-links{display:none}
-  .hero-photo img,.gallery img{height:auto;max-height:none}
+  .hero-photo img{aspect-ratio:16/9}
+  .gallery img{aspect-ratio:16/10}
   .sticky{display:flex;position:fixed;bottom:0;left:0;right:0;background:#fffcf7;border-top:1px solid var(--line);padding:12px 16px;justify-content:center;z-index:20}
   .sticky a{background:var(--forest);color:#f4f1ea;text-decoration:none;padding:12px 20px;border-radius:4px;font-weight:600;width:100%;text-align:center}
 }
@@ -92,7 +94,7 @@ footer a{color:var(--forest);text-decoration:none}
 <header class="nav">
   <div class="nav-inner">
     <a class="brand" href="/">
-      <img src="/media/logo.svg?v=5" width="36" height="36" alt="Garcar Enterprise">
+      <img src="/media/logo.svg?v=9" width="40" height="40" alt="Garcar Enterprise">
       <strong>Garcar Enterprise</strong>
     </a>
     <nav class="nav-links">
@@ -103,7 +105,7 @@ footer a{color:var(--forest);text-decoration:none}
   </div>
 </header>
 <div class="hero-photo">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Dallas_Skyline_at_Dusk.jpg/1280px-Dallas_Skyline_at_Dusk.jpg" width="1280" height="403" alt="Dallas skyline at dusk">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Dallas_Skyline_at_Dusk.jpg/1280px-Dallas_Skyline_at_Dusk.jpg" width="1280" height="560" alt="Dallas skyline at dusk">
 </div>
 <section class="hero">
   <p class="kicker">Paid diagnostic · Dallas / Grandview</p>
@@ -189,7 +191,7 @@ footer a{color:var(--forest);text-decoration:none}
 </section>
 <footer>
   <div class="foot-brand">
-    <img src="/media/logo.svg?v=5" width="28" height="28" alt="">
+    <img src="/media/logo.svg?v=9" width="28" height="28" alt="">
     <strong>Garcar Enterprise</strong>
   </div>
   Garrett Carrol · Grandview / Dallas, Texas<br>
