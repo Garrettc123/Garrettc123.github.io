@@ -21,6 +21,14 @@
     .price { border: 1px solid var(--line); padding: 1.2rem 1.3rem; margin: 1.4rem 0; }
     .price strong { font-size: 1.4rem; }
     a { color: #0b57d0; }
+    label { display: block; font-size: .92rem; margin: .7rem 0 .25rem; }
+    input, textarea { width: 100%; font: inherit; padding: .55rem .65rem; border: 1px solid var(--line); }
+    textarea { min-height: 5.5rem; }
+    button, .cta {
+      display: inline-block; margin-top: .9rem; background: #111; color: #fff;
+      text-decoration: none; border: 0; padding: .7rem 1rem; font: inherit; cursor: pointer;
+    }
+    button:hover, .cta:hover { background: #333; }
     footer { color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line); }
   </style>
 </head>
@@ -45,10 +53,34 @@
     <p>No new monthly app. No AI pitch. No CRM swap.</p>
     <div class="price">
       <strong>$2,500</strong> one time.
-      <p>Clock starts when we have the CRM details and the rules.</p>
+      <p>Clock starts when we have the CRM details, the rules, and payment.</p>
       <p class="muted">Not sure you need it? $497 to read a recent export and mark the leads that sat. That $497 comes off the $2,500 if you continue.</p>
-      <p><a href="/overview.html">One-pager</a> · <a href="/checklist.html">Checklist</a> · <a href="mailto:garrett@garcar.io?subject=Start%20lead%20backup">Email to start</a></p>
+      <p><a href="/overview.html">One-pager</a> · <a href="/checklist.html">Checklist</a></p>
     </div>
+    <h2>Start</h2>
+    <p>Reply from your work email. I send the payment link after you say start. There is no card button on this page on purpose.</p>
+    <form action="https://formsubmit.co/garrett@garcar.io" method="POST">
+      <input type="hidden" name="_subject" value="Start lead backup">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <label>Team name
+        <input name="team" required placeholder="Team name">
+      </label>
+      <label>Your name
+        <input name="name" required placeholder="Your name">
+      </label>
+      <label>Work email
+        <input type="email" name="email" required placeholder="you@yourteam.com">
+      </label>
+      <label>CRM you already use
+        <input name="crm" placeholder="Follow Up Boss, kvCORE, other">
+      </label>
+      <label>What happens now if the agent who got the lead is in a showing?
+        <textarea name="current" placeholder="The agent is supposed to call them back…"></textarea>
+      </label>
+      <button type="submit">Email start — $2,500</button>
+    </form>
+    <p class="muted" style="margin-top:1rem">Prefer mail yourself: <a href="mailto:garrett@garcar.io?subject=Start%20lead%20backup">garrett@garcar.io</a> with the word start.</p>
   </main>
   <footer>
     Garrett · Grandview / Cleburne / Kopperl · garrett@garcar.io
