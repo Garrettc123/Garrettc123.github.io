@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101c2c">
   <title>Garcar — DFW real-estate leads get called back</title>
   <meta name="description" content="If the agent who got the lead is in a showing, who calls that person back? $497 Lead-Response Diagnostic for DFW brokerage teams. REVIEW_REQUIRED only against the threshold your team confirms. Missing history is labeled cannot verify, not guessed.">
   <link rel="canonical" href="https://garrettc123.github.io/">
@@ -11,14 +12,15 @@
 <body>
   <div class="bar">Garcar Enterprise · Lead-response diagnostic · DFW brokerage teams</div>
   <div class="wrap">
+  <div class="sheet">
   <header class="hero">
     <div class="mark">Johnson County / Dallas–Fort Worth</div>
     <h1>If the agent who got the lead is in a showing, who calls that person back?</h1>
-    <p>A new inquiry can go cold while ownership is unclear. Garcar installs a callback clock and backup coverage around Follow Up Boss or the CRM your DFW brokerage already uses—so every lead has an owner, a deadline, and a visible next action.</p>
+    <p class="lede">A new inquiry can go cold while ownership is unclear. Garcar installs a callback clock and backup coverage around Follow Up Boss or the CRM your DFW brokerage already uses—so every lead has an owner, a deadline, and a visible next action.</p>
     <p class="muted">Built for DFW brokerage teams with active inbound leads, an existing CRM, and one exportable lead-source report. Not for solo agents, teams without exportable lead data, or anyone seeking a guaranteed number of closed deals.</p>
     <p><a class="cta" href="#start">Start the $497 Lead-Response Diagnostic</a></p>
     <p class="muted">You receive a marked CSV of one recent lead window, a one-page review of ownership, status, and any response or next-action gaps your export can verify, plus a written callback-clock rule sheet for your existing CRM. The $497 credits toward the $2,500 installation.</p>
-    <p class="muted"><em>Open records are marked REVIEW_REQUIRED only against the review-age threshold your team confirms on intake; if no threshold exists, we report age and missing history without assigning fault or inventing a deadline. Missing activity data is labeled “cannot verify,” not guessed.</em></p>
+    <p class="note"><em>Open records are marked REVIEW_REQUIRED only against the review-age threshold your team confirms on intake; if no threshold exists, we report age and missing history without assigning fault or inventing a deadline. Missing activity data is labeled “cannot verify,” not guessed.</em></p>
   </header>
 
   <main>
@@ -29,6 +31,7 @@
     <h2>The issue is rarely lead volume. It is lead handling.</h2>
     <p>New inquiries wait while an agent is in a showing. Older records have no documented next action. Managers see the gap after the opportunity is cold. The callback clock makes that failure visible inside the CRM you already run.</p>
 
+    <div class="table-wrap">
     <table>
       <thead>
         <tr>
@@ -51,6 +54,7 @@
         </tr>
       </tbody>
     </table>
+    </div>
 
     <h2>What the $497 diagnostic inspects</h2>
     <p>This is a bounded review of one recent inbound lead flow—not a full CRM archaeology project, and not an accusation that agents failed to call.</p>
@@ -78,7 +82,7 @@
         <p>The trigger, required CRM record, deadline, fallback, and manager view going forward. This file does not require historic call times.</p>
       </div>
     </div>
-    <p class="muted">This label identifies an open record that requires review; it does not mean the assigned agent failed to call, because the supplied export contains no activity timestamps or contact-history data. If no threshold was supplied, the age-and-status flag is for visibility, not a required-action failure.</p>
+    <p class="note">This label identifies an open record that requires review; it does not mean the assigned agent failed to call, because the supplied export contains no activity timestamps or contact-history data. If no threshold was supplied, the age-and-status flag is for visibility, not a required-action failure.</p>
 
     <div class="price">
       <p><strong>$497</strong> Lead-Response Diagnostic</p>
@@ -89,13 +93,13 @@
     </div>
 
     <h2>Questions teams ask</h2>
-    <div class="q"><strong>Do we need a new CRM?</strong><br>No. The clock is installed around Follow Up Boss or the CRM you already use.</div>
-    <div class="q"><strong>Is this lead generation?</strong><br>No. It starts with inquiries your team already paid for.</div>
-    <div class="q"><strong>Will you promise recovered deals?</strong><br>No. Outcomes depend on the lead, the conversation, timing, and the market. What you buy is a process that makes missed follow-up visible when the data can show it.</div>
-    <div class="q"><strong>What if we have no review-age rule?</strong><br>The files still go out. Open records show age and missing history. Nothing is labeled REVIEW_REQUIRED until you name a threshold.</div>
+    <div class="q"><strong>Do we need a new CRM?</strong>No. The clock is installed around Follow Up Boss or the CRM you already use.</div>
+    <div class="q"><strong>Is this lead generation?</strong>No. It starts with inquiries your team already paid for.</div>
+    <div class="q"><strong>Will you promise recovered deals?</strong>No. Outcomes depend on the lead, the conversation, timing, and the market. What you buy is a process that makes missed follow-up visible when the data can show it.</div>
+    <div class="q"><strong>What if we have no review-age rule?</strong>The files still go out. Open records show age and missing history. Nothing is labeled REVIEW_REQUIRED until you name a threshold.</div>
 
     <div class="panel" id="start">
-    <h2 style="margin-top:0">Start the $497 Lead-Response Diagnostic</h2>
+    <h2>Start the $497 Lead-Response Diagnostic</h2>
     <p>This diagnostic checks whether recent new leads waited without a clear callback owner, and whether a next required follow-up is visible in the fields your export actually contains.</p>
     <form action="https://formsubmit.co/garrett@garcar.io" method="POST">
       <input type="hidden" name="_subject" value="$497 Lead-Response Diagnostic — DFW brokerage">
@@ -103,13 +107,13 @@
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="sku" value="497-lead-response-diagnostic">
       <label>Team name
-        <input name="team" required placeholder="Brokerage or team name">
+        <input name="team" required placeholder="Brokerage or team name" autocomplete="organization">
       </label>
       <label>Your name
-        <input name="name" required placeholder="Your name">
+        <input name="name" required placeholder="Your name" autocomplete="name">
       </label>
       <label>Work email
-        <input type="email" name="email" required placeholder="you@yourteam.com">
+        <input type="email" name="email" required placeholder="you@yourteam.com" autocomplete="email">
       </label>
       <label>CRM you already use
         <input name="crm" placeholder="Follow Up Boss, kvCORE, other">
@@ -118,7 +122,7 @@
         <input name="lead_source" placeholder="Zillow, website form, office line">
       </label>
       <label>Approximate monthly inbound leads from that source
-        <input name="monthly_volume" placeholder="e.g. 40">
+        <input name="monthly_volume" inputmode="numeric" placeholder="e.g. 40">
       </label>
       <label>What fields can you export from that source?
         <select name="export_ready" required>
@@ -154,6 +158,7 @@
     <p class="muted">Prefer mail yourself: <a href="mailto:garrett@garcar.io?subject=%24497%20diagnostic">garrett@garcar.io</a> with the words 497 diagnostic.</p>
     </div>
   </main>
+  </div>
   </div>
   <footer class="site">
     Garrett · Grandview / Cleburne / Kopperl · <a href="mailto:garrett@garcar.io">garrett@garcar.io</a>
