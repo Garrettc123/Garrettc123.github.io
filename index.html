@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Garcar — DFW real-estate leads get called back</title>
-  <meta name="description" content="If the agent who got the lead is in a showing, who calls that person back? $497 Lead-Response Diagnostic for DFW brokerage teams. Marked CSV, one-page gap summary, and callback-clock rules for the CRM you already use. Credits toward $2,500 installation.">
+  <meta name="description" content="If the agent who got the lead is in a showing, who calls that person back? $497 Lead-Response Diagnostic for DFW brokerage teams. Marked CSV, verifiable-gap review, and callback-clock rules for the CRM you already use. Missing activity data is labeled cannot verify, not guessed.">
   <link rel="canonical" href="https://garrettc123.github.io/">
   <style>
     :root { --ink:#111; --muted:#555; --line:#e2e2e2; --bg:#f6f4ef; }
@@ -27,6 +27,9 @@
     a { color: #0b57d0; }
     label { display: block; font-size: .92rem; margin: .7rem 0 .25rem; }
     input, textarea, select { width: 100%; font: inherit; padding: .55rem .65rem; border: 1px solid var(--line); background: #fff; }
+    input[type="checkbox"] { width: auto; margin-right: .45rem; }
+    .check { display: flex; align-items: flex-start; gap: .35rem; font-size: .92rem; margin: 1rem 0 .4rem; }
+    .check input { margin-top: .28rem; }
     textarea { min-height: 5rem; }
     button, .cta {
       display: inline-block; margin-top: .9rem; background: #111; color: #fff;
@@ -45,8 +48,8 @@
   </header>
   <main>
     <p><a class="cta" href="#start">Start the $497 Lead-Response Diagnostic</a></p>
-    <p class="muted">You receive a marked CSV of one recent inbound lead window, a one-page count of observable response and follow-up gaps, and the callback-clock rules we would install in your existing CRM. The $497 credits toward the $2,500 installation.</p>
-    <p class="muted"><em>Every finding is limited to what your export can verify; missing activity data is labeled “cannot verify,” not guessed.</em></p>
+    <p class="muted">You receive a marked CSV of one recent lead window, a one-page review of ownership, status, and any response or next-action gaps your export can verify, plus a written callback-clock rule sheet for your existing CRM. The $497 credits toward the $2,500 installation.</p>
+    <p class="muted"><em>To verify first-response timing, the export must include qualifying activity timestamps. If it does not, we identify the records and data fields that require review rather than infer missed calls. Missing activity data is labeled “cannot verify,” not guessed.</em></p>
 
     <div class="ask">
       Website form. Office line. Zillow. If the answer is “the agent is supposed to,” that lead is already talking to another team in Dallas or Fort Worth.
@@ -79,37 +82,38 @@
     </table>
 
     <h2>What the $497 diagnostic inspects</h2>
-    <p>This is a bounded review of one recent inbound lead flow—not a full CRM archaeology project.</p>
+    <p>This is a bounded review of one recent inbound lead flow—not a full CRM archaeology project, and not an accusation that agents failed to call.</p>
     <ul>
       <li>One lead source at a time</li>
       <li>One recent export, typically the last 30 days, up to 500 records</li>
-      <li>Created date, source, assigned owner, status, activity timestamps, and next-action fields when they exist</li>
-      <li>Observable first-response gaps, unclear callback ownership, and records with no visible next action</li>
+      <li>Created date, source, assigned owner, and status on every file</li>
+      <li>First-response timing and next-action gaps only where activity or task fields exist</li>
+      <li>Everything else labeled cannot verify</li>
     </ul>
 
     <h2>What you hold on Monday</h2>
     <ol>
-      <li><strong>Marked Lead Window</strong> — a CSV of the reviewed cohort, labeled only where the export supports it.</li>
-      <li><strong>Lead-Response Gap Summary</strong> — one page of counts: reviewed, first-response gaps, no visible next action, unclear owner, cannot verify.</li>
-      <li><strong>Callback-Clock Rule Sheet</strong> — the trigger, required action, deadline, fallback, and manager view we would install in your CRM.</li>
+      <li><strong>Marked Lead Window</strong> — a CSV of the reviewed cohort. Open, unowned, or unverifiable records are flagged. “Sat” never means “was never called” unless the export contains a qualifying activity timestamp.</li>
+      <li><strong>Ownership &amp; Verifiability Summary</strong> — one page of counts your file can support: owners, open status, records older than the review window, and how much response history is missing.</li>
+      <li><strong>Callback-Clock Rule Sheet</strong> — the trigger, required CRM record, deadline, fallback, and manager view going forward. This file does not require historic call times.</li>
     </ol>
 
     <div class="price">
       <p><strong>$497</strong> Lead-Response Diagnostic</p>
       <p>After you submit the form, the $497 payment link goes to the work email you list. After payment clears, you send one recent export from one inbound source.</p>
       <p><strong>$2,500</strong> one-time installation of the callback clock in the CRM you already use. The diagnostic fee credits toward that work.</p>
-      <p class="muted">No new monthly app. No CRM swap. No guaranteed-deal claims.</p>
+      <p class="muted">No new monthly app. No CRM swap. No guaranteed-deal claims. No inferred missed calls.</p>
       <p><a href="/overview.html">One-pager</a> · <a href="/checklist.html">Installation checklist</a></p>
     </div>
 
     <h2>Questions teams ask</h2>
     <p><strong>Do we need a new CRM?</strong><br>No. The clock is installed around Follow Up Boss or the CRM you already use.</p>
     <p><strong>Is this lead generation?</strong><br>No. It starts with inquiries your team already paid for.</p>
-    <p><strong>Will you promise recovered deals?</strong><br>No. Outcomes depend on the lead, the conversation, timing, and the market. What you buy is a process that makes missed follow-up visible.</p>
-    <p><strong>What if the export cannot support the review?</strong><br>Missing activity data is labeled “cannot verify.” If the file cannot support the published scope, that is confirmed before the review begins.</p>
+    <p><strong>Will you promise recovered deals?</strong><br>No. Outcomes depend on the lead, the conversation, timing, and the market. What you buy is a process that makes missed follow-up visible when the data can show it.</p>
+    <p><strong>What if the export has no call times?</strong><br>You still get a marked CSV, an ownership and data-coverage summary, and the rule sheet. First-response gaps are labeled cannot verify until activity history exists.</p>
 
     <h2 id="start">Start the $497 Lead-Response Diagnostic</h2>
-    <p>This diagnostic checks whether recent new leads waited without a clear callback owner, and whether the next required follow-up was visible in your CRM.</p>
+    <p>This diagnostic checks whether recent new leads waited without a clear callback owner, and whether a next required follow-up is visible in the fields your export actually contains.</p>
     <form action="https://formsubmit.co/garrett@garcar.io" method="POST">
       <input type="hidden" name="_subject" value="$497 Lead-Response Diagnostic — DFW brokerage">
       <input type="hidden" name="_template" value="table">
@@ -133,20 +137,26 @@
       <label>Approximate monthly inbound leads from that source
         <input name="monthly_volume" placeholder="e.g. 40">
       </label>
-      <label>Can you export created date, source, assigned agent, status, activity or response timestamps, and next-action fields?
-        <select name="export_ready">
+      <label>What fields can you export from that source?
+        <select name="export_ready" required>
           <option value="">Select one</option>
-          <option>Yes — those fields are exportable</option>
-          <option>Partial — assignment and dates, limited activity</option>
-          <option>No — we cannot export lead data</option>
+          <option>Created date, owner, and status only</option>
+          <option>Those fields plus activity or response timestamps</option>
+          <option>Those fields plus next-task or next-action dates</option>
+          <option>Full activity history and next-action fields</option>
+          <option>We cannot export lead data</option>
         </select>
       </label>
       <label>What happens now if the agent who got the lead is in a showing?
         <textarea name="current" placeholder="The agent is supposed to call them back…"></textarea>
       </label>
+      <label class="check">
+        <input type="checkbox" name="export_ack" value="yes" required>
+        <span>I can provide a recent export from one inbound lead source. I understand that response-time and next-action findings are limited to fields and activity history available in that export.</span>
+      </label>
       <button type="submit">Start the $497 Lead-Response Diagnostic</button>
     </form>
-    <p class="muted" style="margin-top:1rem">The payment link is sent to the work email on the form. After payment, send one recent export from one inbound source. If the data cannot support the published scope, that is confirmed before the review begins.</p>
+    <p class="muted" style="margin-top:1rem">The payment link is sent to the work email on the form. After payment, send one recent export from one inbound source. If the data cannot support a timing review, the files still go out—with cannot-verify labels where the evidence stops.</p>
     <p class="muted">Prefer mail yourself: <a href="mailto:garrett@garcar.io?subject=%24497%20diagnostic">garrett@garcar.io</a> with the words 497 diagnostic.</p>
   </main>
   <footer>
