@@ -8,6 +8,8 @@
   <meta name="description" content="For DFW real-estate teams. $497 review of recent leads in the system you already use. We show what the list can prove — and we do not guess that nobody called.">
   <link rel="canonical" href="https://garrettc123.github.io/">
   <link rel="stylesheet" href="/theme.css">
+  <!-- Optional: set content to public API origin to mirror formsubmit into /api/leads/capture -->
+  <meta name="garcar-api" content="">
 </head>
 <body>
   <div class="bar">Garcar Enterprise · Dallas–Fort Worth real-estate teams</div>
@@ -102,7 +104,7 @@
     <div class="panel" id="start">
     <h2>Start the $497 review</h2>
     <p>We will look at whether recent new leads waited with no clear backup person, and whether the list shows a next step — using only what your file actually contains.</p>
-    <form action="https://formsubmit.co/garrett@garcar.io" method="POST">
+    <form id="lead-review-form" action="https://formsubmit.co/garrett@garcar.io" method="POST">
       <input type="hidden" name="_subject" value="$497 lead review — DFW team">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
@@ -164,5 +166,41 @@
   <footer class="site">
     Garrett · Grandview / Cleburne / Kopperl · <a href="mailto:garrett@garcar.io">garrett@garcar.io</a>
   </footer>
+  <script>
+  (function () {
+    var form = document.getElementById('lead-review-form');
+    if (!form) return;
+    form.addEventListener('submit', function () {
+      var meta = document.querySelector('meta[name="garcar-api"]');
+      var base = meta && meta.getAttribute('content') ? meta.getAttribute('content').trim() : '';
+      if (!base) return; // formsubmit remains the only path until API origin is set
+      var fd = new FormData(form);
+      var body = {
+        email: fd.get('email') || '',
+        name: fd.get('name') || null,
+        source: 'storefront-497',
+        team_name: fd.get('team') || null,
+        market: 'DFW',
+        crm: fd.get('crm') || null,
+        notes: [
+          'sku=497-lead-response-diagnostic',
+          fd.get('lead_source') ? 'lead_source=' + fd.get('lead_source') : '',
+          fd.get('monthly_volume') ? 'monthly_volume=' + fd.get('monthly_volume') : '',
+          fd.get('export_ready') ? 'export_ready=' + fd.get('export_ready') : '',
+          fd.get('review_age_threshold') ? 'review_age_threshold=' + fd.get('review_age_threshold') : '',
+          fd.get('current') ? 'current=' + fd.get('current') : ''
+        ].filter(Boolean).join(' | ')
+      };
+      try {
+        navigator.sendBeacon(
+          base.replace(/\/$/, '') + '/api/leads/capture',
+          new Blob([JSON.stringify(body)], { type: 'application/json' })
+        );
+      } catch (e) {
+        // Never block formsubmit email path
+      }
+    });
+  })();
+  </script>
 </body>
 </html>
