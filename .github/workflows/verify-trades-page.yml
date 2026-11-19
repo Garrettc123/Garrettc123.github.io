@@ -1,0 +1,38 @@
+name: Verify live contractor page
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - dfw-trades.html
+      - .github/workflows/verify-trades-page.yml
+permissions: {}
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Check public page after deployment propagation
+        shell: bash
+        run: |
+          set -euo pipefail
+          url='https://garrettc123.github.io/dfw-trades.html'
+          for attempt in $(seq 1 12); do
+            if curl --fail --silent --show-error --location --connect-timeout 10 --max-time 20 "$url?verify=$GITHUB_SHA-$attempt" -o /tmp/trades.html; then
+              if grep -Fq 'When your crew is on a job, who owns the next callback?' /tmp/trades.html &&
+                 grep -Fq '$497 one-time review' /tmp/trades.html &&
+                 grep -Fq 'Optional installation: $2,500 total' /tmp/trades.html &&
+                 grep -Fq 'leaving $2,003' /tmp/trades.html &&
+                 grep -Fq 'mailto:gwc2780@gmail.com?subject=DFW%20contractor%20%24497%20callback%20review' /tmp/trades.html &&
+                 ! grep -Fq '<h1>This offer is retired.</h1>' /tmp/trades.html; then
+                echo 'PASS: public HTML contains contractor offer, pricing, credit balance, and email intake target.'
+                echo '## Live contractor page: PASS' >> "$GITHUB_STEP_SUMMARY"
+                echo 'Verified public HTTP response, expected offer text, prices, credit balance, email href, and absence of retired heading. Visual rendering, email delivery, checkout, and bank payouts are NOT tested.' >> "$GITHUB_STEP_SUMMARY"
+                exit 0
+              fi
+            fi
+            echo "Attempt $attempt: public page not yet verified."
+            if [ "$attempt" -lt 12 ]; then sleep 15; fi
+          done
+          echo '## Live contractor page: FAIL' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Public page could not be fetched with the expected content within the retry window. Inspect deployment and HTTP diagnostics; this does not identify the cause.' >> "$GITHUB_STEP_SUMMARY"
+          exit 1
