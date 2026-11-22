@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+:root{color-scheme:dark;--bg:#071017;--panel:#0d1b23;--panel2:#10232c;--card:#11232d;--line:#28404b;--line2:#36545d;--ink:#f2f6f3;--muted:#a4b8b8;--mint:#8aebd0;--gold:#e9bd79;--shadow:0 20px 65px rgba(0,0,0,.24)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:86px}
+body.garcar-store{margin:0;background:radial-gradient(ellipse at 77% -5%,rgba(37,103,102,.19),transparent 45%),radial-gradient(ellipse at -10% 31%,rgba(71,74,107,.10),transparent 39%),var(--bg);color:var(--ink);font:400 16px/1.6 'DM Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.garcar-store a{color:inherit}
+.garcar-store a:hover{color:var(--mint)}
+.garcar-store h1,.garcar-store h2,.garcar-store h3,.garcar-store .display{font-family:'Space Grotesk',system-ui,sans-serif;letter-spacing:-.045em}
+.garcar-store h1,.garcar-store h2,.garcar-store h3,.garcar-store p{margin-top:0}
+.garcar-store p{color:var(--muted);line-height:1.78}
+.garcar-store button,.garcar-store input{font:inherit}
+.garcar-store button{cursor:pointer}
+.garcar-store button:focus-visible,.garcar-store a:focus-visible,.garcar-store input:focus-visible{outline:3px solid var(--mint);outline-offset:3px}
+.garcar-store .skip{position:absolute;top:-80px;left:12px;z-index:30;padding:12px 18px;background:var(--mint);color:var(--bg)}
+.garcar-store .skip:focus{top:12px}
+.garcar-store .container{width:min(1180px,calc(100% - 44px));margin-inline:auto}
+.garcar-store .eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--mint);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700}
+.garcar-store .eyebrow:before{content:'';height:7px;width:7px;background:var(--mint);border-radius:50%;box-shadow:0 0 0 5px rgba(138,235,208,.10)}
+.garcar-store .announcement{background:#0e2029;border-bottom:1px solid var(--line);color:#cedbd6;font-size:.78rem;letter-spacing:.02em}
+.garcar-store .announcement .container{padding:9px 0;display:flex;gap:12px;justify-content:center;align-items:center;text-align:center;flex-wrap:wrap}
+.garcar-store .announcement strong{color:var(--gold)}
+.garcar-store .nav-wrap{position:sticky;top:0;z-index:20;border-bottom:1px solid rgba(89,125,133,.25);background:rgba(7,16,23,.94);backdrop-filter:blur(16px)}
+.garcar-store .navbar{display:flex;align-items:center;gap:26px;justify-content:space-between;min-height:77px}
+.garcar-store .brand{display:inline-flex;align-items:center;gap:12px;flex:none;text-decoration:none;color:var(--ink)}
+.garcar-store .brand:hover{color:var(--ink)}
+.garcar-store .brand-symbol{height:42px;width:42px;border-radius:13px;display:grid;place-items:center;font:700 1rem 'Space Grotesk',sans-serif;background:linear-gradient(145deg,#95e8d2,#c5dbc9);color:#09202a;box-shadow:0 8px 22px rgba(113,219,191,.13)}
+.garcar-store .brand-name{font:700 .91rem/1.1 'Space Grotesk',sans-serif;letter-spacing:-.025em}
+.garcar-store .brand-caption{display:block;color:var(--muted);font-size:.65rem;font-weight:500;letter-spacing:.11em;text-transform:uppercase;margin-top:4px}
+.garcar-store .navlinks{display:flex;gap:23px;align-items:center;justify-content:center;flex-wrap:wrap}
+.garcar-store .navlinks a{font-size:.87rem;color:#b9c9c8;text-decoration:none;font-weight:600}
+.garcar-store .navlinks a:hover{color:var(--ink)}
+.garcar-store .nav-contact{white-space:nowrap;border:1px solid #5b7e81;color:#edf5f0;font-size:.79rem;font-weight:700;padding:10px 15px;text-decoration:none;border-radius:9px}
+.garcar-store .nav-contact:hover{background:var(--mint);border-color:var(--mint);color:var(--bg)}
+.garcar-store .hero{display:grid;grid-template-columns:minmax(0,1.16fr) minmax(310px,.84fr);gap:54px;align-items:center;padding:91px 0 79px}
+.garcar-store h1{font-size:clamp(3.2rem,5.7vw,5.7rem);line-height:1.04;font-weight:600;max-width:11.5ch;margin:21px 0 25px}
+.garcar-store h1 span{color:var(--mint)}
+.garcar-store .hero-lead{font-size:1.13rem;line-height:1.8;max-width:590px;margin-bottom:29px}
+.garcar-store .button-row{display:flex;align-items:center;flex-wrap:wrap;gap:12px}
+.garcar-store .btn{display:inline-flex;justify-content:center;align-items:center;gap:9px;min-height:48px;padding:12px 19px;border:1px solid transparent;border-radius:10px;font-size:.86rem;font-weight:700;text-decoration:none;transition:transform .15s ease,background .15s ease,border-color .15s ease}
+.garcar-store .btn:hover{transform:translateY(-2px)}
+.garcar-store .btn-primary{background:var(--mint);color:#092026}
+.garcar-store .btn-primary:hover{color:#092026;background:#b1f4e0}
+.garcar-store .btn-secondary{border-color:#52707b;background:rgba(17,35,45,.5);color:var(--ink)}
+.garcar-store .btn-secondary:hover{color:var(--ink);background:#17313a}
+.garcar-store .hero-fine{font-size:.81rem;margin-top:21px;color:#a4b8b8}
+.garcar-store .workflow{border:1px solid #37545b;background:linear-gradient(170deg,rgba(26,55,61,.88),rgba(11,25,34,.98));border-radius:22px;padding:25px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.garcar-store .workflow:after{content:'';position:absolute;right:-95px;top:-95px;width:260px;height:260px;border:1px solid rgba(138,235,208,.16);border-radius:50%;box-shadow:0 0 0 65px rgba(138,235,208,.025),0 0 0 130px rgba(138,235,208,.018);pointer-events:none}
+.garcar-store .workflow-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:25px;font-size:.67rem;letter-spacing:.12em;font-weight:700;text-transform:uppercase;color:#b5cac8}
+.garcar-store .workflow-badge{border:1px solid #587775;border-radius:99px;color:var(--mint);padding:4px 10px;font-size:.59rem}
+.garcar-store .flow-step{position:relative;display:flex;gap:14px;align-items:flex-start;border:1px solid #29434b;border-radius:13px;background:rgba(7,18,24,.76);padding:17px;margin-bottom:13px}
+.garcar-store .flow-step:last-child{margin-bottom:0}
+.garcar-store .flow-index{width:31px;height:31px;display:grid;place-items:center;flex:none;background:#19343a;border-radius:9px;color:var(--mint);font-weight:700;font-size:.76rem}
+.garcar-store .flow-step strong{display:block;font-size:.91rem;font-weight:700;letter-spacing:-.02em}
+.garcar-store .flow-step small{color:var(--muted);line-height:1.5;display:block;margin-top:3px}
+.garcar-store .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;border-block:1px solid var(--line);background:var(--line)}
+.garcar-store .metric{padding:23px 18px;background:var(--bg);text-align:center}
+.garcar-store .metric strong{display:block;font:600 1.85rem 'Space Grotesk',sans-serif;letter-spacing:-.05em}
+.garcar-store .metric span{color:var(--muted);font-size:.76rem}
+.garcar-store section.section{padding:91px 0}
+.garcar-store .section-heading{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:31px;flex-wrap:wrap}
+.garcar-store h2{font-size:clamp(2rem,3.6vw,3.2rem);font-weight:600;line-height:1.14;margin:15px 0 0;max-width:660px}
+.garcar-store .section-intro{max-width:490px;font-size:.91rem;line-height:1.8;margin:0}
+.garcar-store .pillar-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-top:27px}
+.garcar-store .pillar{border:1px solid var(--line);background:linear-gradient(140deg,#10242c,#0d1c25);padding:24px;border-radius:16px;min-height:182px}
+.garcar-store .pillar-num{font:700 .72rem 'Space Grotesk',sans-serif;color:var(--gold)}
+.garcar-store .pillar h3{font-size:1.05rem;margin:20px 0 9px}
+.garcar-store .pillar p{font-size:.82rem;line-height:1.64;margin:0}
+.garcar-store .feature-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.garcar-store .feature{border:1px solid var(--line);border-radius:17px;background:linear-gradient(148deg,#142b33,#0e1e27);padding:26px;display:flex;flex-direction:column;min-height:320px}
+.garcar-store .feature.featured{border-color:#6d9289;background:linear-gradient(150deg,#1a3437,#11232c)}
+.garcar-store .feature h3{font-size:1.45rem;line-height:1.23;margin:14px 0 12px}
+.garcar-store .feature p{font-size:.87rem;line-height:1.73}
+.garcar-store .feature .feature-meta{margin-top:auto;border-top:1px solid var(--line);padding-top:19px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.garcar-store .feature-price{font:700 1.45rem 'Space Grotesk',sans-serif;letter-spacing:-.05em}
+.garcar-store .feature-meta a{color:var(--mint);font-size:.82rem;font-weight:700;text-decoration:none}
+.garcar-store .feature-note{font-size:.75rem;color:#9eafad;margin:16px 0 0}
+.garcar-store .flag{display:inline-flex;align-items:center;gap:7px;border:1px solid #415c5e;padding:5px 9px;border-radius:99px;color:#cddad4;font-size:.68rem;font-weight:700;letter-spacing:.015em;width:max-content}
+.garcar-store .flag.live{color:#acf4d7;border-color:#457b72;background:rgba(86,187,151,.09)}
+.garcar-store .flag.preview{color:#f2d6a6;border-color:#7e684e;background:rgba(194,148,88,.08)}
+.garcar-store .catalog-panel{background:linear-gradient(180deg,#0f202a,#0a1922);border-block:1px solid var(--line)}
+.garcar-store .catalog-summary{display:flex;gap:12px;align-items:center;flex-wrap:wrap;color:var(--muted);font-size:.84rem}
+.garcar-store .catalog-controls{border:1px solid var(--line);background:#09161e;padding:17px;border-radius:13px;margin:26px 0 20px}
+.garcar-store .catalog-search{display:flex;align-items:center;gap:11px;background:#112631;border:1px solid #39545d;border-radius:10px;padding:0 15px;min-height:52px}
+.garcar-store .search-icon{font:700 1rem 'Space Grotesk',sans-serif;color:var(--mint)}
+.garcar-store .catalog-search input{width:100%;border:none;background:transparent;color:var(--ink);outline:0;font-size:.92rem}
+.garcar-store .catalog-search:focus-within{outline:2px solid var(--mint);outline-offset:2px}
+.garcar-store .catalog-search input::placeholder{color:#91a8a9}
+.garcar-store .filter-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}
+.garcar-store .filter-pill{padding:8px 12px;border:1px solid #37525b;border-radius:8px;background:transparent;color:#b6ccca;font-size:.78rem;font-weight:600}
+.garcar-store .filter-pill[aria-pressed='true']{background:var(--mint);border-color:var(--mint);color:#09232b}
+.garcar-store .filter-pill:hover:not([aria-pressed='true']){color:var(--ink);border-color:var(--mint)}
+.garcar-store .result-meta{margin:18px 0;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:.79rem}
+.garcar-store .catalog-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.garcar-store .catalog-item{display:flex;flex-direction:column;min-height:251px;padding:21px;border:1px solid var(--line);background:rgba(18,40,49,.67);border-radius:13px}
+.garcar-store .catalog-item[hidden]{display:none!important}
+.garcar-store .item-cat{font-size:.68rem;letter-spacing:.07em;text-transform:uppercase;font-weight:700;color:var(--gold)}
+.garcar-store .catalog-item h3{font-size:1.07rem;line-height:1.35;letter-spacing:-.028em;margin:10px 0}
+.garcar-store .catalog-item p{font-size:.79rem;line-height:1.6;margin-bottom:17px}
+.garcar-store .item-foot{margin-top:auto;border-top:1px solid #2c444a;padding-top:15px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.garcar-store .proposed{font-size:.83rem;color:var(--ink);font-weight:700}
+.garcar-store .proposed small{display:block;color:var(--muted);font-weight:500;font-size:.66rem}
+.garcar-store .item-foot a{font-weight:700;font-size:.77rem;color:var(--mint);white-space:nowrap;text-decoration:none}
+.garcar-store .empty-results{border:1px dashed var(--line2);padding:30px;border-radius:13px;text-align:center;color:var(--muted);margin-top:13px}
+.garcar-store .empty-results[hidden]{display:none}
+.garcar-store .system-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:29px}
+.garcar-store .system-card{border:1px solid var(--line);border-radius:13px;background:#0e1f29;padding:23px;display:flex;flex-direction:column;gap:12px}
+.garcar-store .system-card .category{color:var(--gold);font-size:.7rem;text-transform:uppercase;letter-spacing:.09em}
+.garcar-store .system-card h3{font-size:1.11rem;line-height:1.3;margin:0}
+.garcar-store .system-card p{font-size:.83rem;line-height:1.66;margin:0}
+.garcar-store .system-card a{margin-top:auto;color:var(--mint);font-size:.79rem;font-weight:700;text-decoration:none;padding-top:10px}
+.garcar-store .process-row{display:grid;grid-template-columns:repeat(4,1fr);gap:19px;margin-top:32px}
+.garcar-store .process{border-top:2px solid #678b88;padding-top:18px}
+.garcar-store .process span{color:var(--mint);font-size:.75rem;font-weight:700}
+.garcar-store .process h3{font-size:1.05rem;margin:14px 0 8px}
+.garcar-store .process p{font-size:.82rem;margin:0}
+.garcar-store details{border-bottom:1px solid var(--line);padding:17px 2px}
+.garcar-store details:first-of-type{border-top:1px solid var(--line)}
+.garcar-store details summary{cursor:pointer;font-weight:700;color:var(--ink);list-style-position:outside;padding-right:24px}
+.garcar-store details p{font-size:.86rem;margin:14px 0 0;max-width:850px}
+.garcar-store .contact-box{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center;padding:36px;border:1px solid #4d7374;border-radius:18px;background:linear-gradient(120deg,#1c3a3a,#10232b);box-shadow:var(--shadow)}
+.garcar-store .contact-box h2{max-width:600px}
+.garcar-store .contact-box p{font-size:.9rem;max-width:650px}
+.garcar-store .contact-actions{display:flex;justify-content:flex-end;align-items:flex-start;gap:12px;flex-wrap:wrap}
+.garcar-store footer{border-top:1px solid var(--line);padding:36px 0;color:var(--muted);font-size:.77rem}
+.garcar-store .footer-inner{display:flex;align-items:start;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.garcar-store .footer-links{display:flex;gap:17px;flex-wrap:wrap}
+.garcar-store .footer-links a{color:#c1d3cf}
+.garcar-store .subtle-note{font-size:.8rem;color:var(--muted);margin-top:17px}
+@media(max-width:1040px){.garcar-store .hero{gap:28px}.garcar-store .navlinks{gap:12px}.garcar-store .pillar-grid{grid-template-columns:repeat(2,1fr)}.garcar-store .catalog-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:800px){.garcar-store .nav-contact{display:none}.garcar-store .navbar{flex-wrap:wrap;gap:8px;padding:13px 0}.garcar-store .navlinks{width:100%;justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;gap:19px;padding:6px 0}.garcar-store .navlinks a{white-space:nowrap}.garcar-store .hero{grid-template-columns:1fr;padding:65px 0 57px}.garcar-store h1{max-width:14ch}.garcar-store .workflow{max-width:570px}.garcar-store .feature-grid,.garcar-store .system-grid{grid-template-columns:repeat(2,1fr)}.garcar-store .feature.featured{grid-column:1/-1}.garcar-store .process-row{grid-template-columns:repeat(2,1fr)}.garcar-store .contact-box{grid-template-columns:1fr}.garcar-store .contact-actions{justify-content:flex-start}}
+@media(max-width:580px){.garcar-store .container{width:min(100% - 30px,1180px)}.garcar-store section.section{padding:62px 0}.garcar-store .hero{padding:52px 0 48px}.garcar-store h1{font-size:clamp(2.8rem,12.4vw,4.2rem)}.garcar-store h2{font-size:2rem}.garcar-store .metric{padding:17px 7px}.garcar-store .metric strong{font-size:1.36rem}.garcar-store .metric span{font-size:.66rem}.garcar-store .feature-grid,.garcar-store .system-grid,.garcar-store .catalog-grid,.garcar-store .pillar-grid{grid-template-columns:1fr}.garcar-store .feature.featured{grid-column:auto}.garcar-store .process-row{grid-template-columns:1fr}.garcar-store .contact-box{padding:24px}.garcar-store .button-row .btn{width:100%}.garcar-store .brand-caption{font-size:.58rem}.garcar-store .flow-step{padding:13px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.garcar-store .btn{transition:none}.garcar-store .btn:hover{transform:none}}

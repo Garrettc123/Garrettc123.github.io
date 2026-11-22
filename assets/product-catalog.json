@@ -1,0 +1,370 @@
+{
+  "version": 1,
+  "source": "Garrettc123/garcar-product-factory/marketplace/catalog.json",
+  "last_reviewed": "2026-11-22",
+  "checkout_enabled": false,
+  "price_status": "proposed",
+  "currency": "USD",
+  "products": [
+    {
+      "sku": "hvac-callback-kit",
+      "name": "HVAC Callback & Lead Recovery Kit",
+      "category": "Business tools",
+      "description": "Consent-gated lead tracker and callback ranking tool for hvac teams.",
+      "proposed_price_cents": 2900,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "roofing-callback-kit",
+      "name": "Roofing Callback & Lead Recovery Kit",
+      "category": "Business tools",
+      "description": "Consent-gated lead tracker and callback ranking tool for roofing teams.",
+      "proposed_price_cents": 2900,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "plumbing-callback-kit",
+      "name": "Plumbing Callback & Lead Recovery Kit",
+      "category": "Business tools",
+      "description": "Consent-gated lead tracker and callback ranking tool for plumbing teams.",
+      "proposed_price_cents": 2900,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "real-estate-callback-kit",
+      "name": "Real Estate Callback & Lead Recovery Kit",
+      "category": "Business tools",
+      "description": "Consent-gated lead tracker and callback ranking tool for real estate teams.",
+      "proposed_price_cents": 2900,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "electrical-callback-kit",
+      "name": "Electrical Callback & Lead Recovery Kit",
+      "category": "Business tools",
+      "description": "Consent-gated lead tracker and callback ranking tool for electrical teams.",
+      "proposed_price_cents": 2900,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "landscaping-callback-kit",
+      "name": "Landscaping Callback & Lead Recovery Kit",
+      "category": "Business tools",
+      "description": "Consent-gated lead tracker and callback ranking tool for landscaping teams.",
+      "proposed_price_cents": 2900,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "painting-callback-kit",
+      "name": "Painting Callback & Lead Recovery Kit",
+      "category": "Business tools",
+      "description": "Consent-gated lead tracker and callback ranking tool for painting teams.",
+      "proposed_price_cents": 2900,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "pest-control-callback-kit",
+      "name": "Pest Control Callback & Lead Recovery Kit",
+      "category": "Business tools",
+      "description": "Consent-gated lead tracker and callback ranking tool for pest control teams.",
+      "proposed_price_cents": 2900,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "cleaning-callback-kit",
+      "name": "Cleaning Callback & Lead Recovery Kit",
+      "category": "Business tools",
+      "description": "Consent-gated lead tracker and callback ranking tool for cleaning teams.",
+      "proposed_price_cents": 2900,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "flooring-callback-kit",
+      "name": "Flooring Callback & Lead Recovery Kit",
+      "category": "Business tools",
+      "description": "Consent-gated lead tracker and callback ranking tool for flooring teams.",
+      "proposed_price_cents": 2900,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "pool-service-callback-kit",
+      "name": "Pool Service Callback & Lead Recovery Kit",
+      "category": "Business tools",
+      "description": "Consent-gated lead tracker and callback ranking tool for pool service teams.",
+      "proposed_price_cents": 2900,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "auto-detailing-callback-kit",
+      "name": "Auto Detailing Callback & Lead Recovery Kit",
+      "category": "Business tools",
+      "description": "Consent-gated lead tracker and callback ranking tool for auto detailing teams.",
+      "proposed_price_cents": 2900,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "moving-callback-kit",
+      "name": "Moving Callback & Lead Recovery Kit",
+      "category": "Business tools",
+      "description": "Consent-gated lead tracker and callback ranking tool for moving teams.",
+      "proposed_price_cents": 2900,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "pressure-washing-callback-kit",
+      "name": "Pressure Washing Callback & Lead Recovery Kit",
+      "category": "Business tools",
+      "description": "Consent-gated lead tracker and callback ranking tool for pressure washing teams.",
+      "proposed_price_cents": 2900,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "fencing-callback-kit",
+      "name": "Fencing Callback & Lead Recovery Kit",
+      "category": "Business tools",
+      "description": "Consent-gated lead tracker and callback ranking tool for fencing teams.",
+      "proposed_price_cents": 2900,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "handyman-callback-kit",
+      "name": "Handyman Callback & Lead Recovery Kit",
+      "category": "Business tools",
+      "description": "Consent-gated lead tracker and callback ranking tool for handyman teams.",
+      "proposed_price_cents": 2900,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "solar-callback-kit",
+      "name": "Solar Installation Callback & Lead Recovery Kit",
+      "category": "Business tools",
+      "description": "Consent-gated lead tracker and callback ranking tool for solar installation teams.",
+      "proposed_price_cents": 2900,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "garage-doors-callback-kit",
+      "name": "Garage Door Repair Callback & Lead Recovery Kit",
+      "category": "Business tools",
+      "description": "Consent-gated lead tracker and callback ranking tool for garage door repair teams.",
+      "proposed_price_cents": 2900,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "window-installation-callback-kit",
+      "name": "Window Installation Callback & Lead Recovery Kit",
+      "category": "Business tools",
+      "description": "Consent-gated lead tracker and callback ranking tool for window installation teams.",
+      "proposed_price_cents": 2900,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "tree-service-callback-kit",
+      "name": "Tree Service Callback & Lead Recovery Kit",
+      "category": "Business tools",
+      "description": "Consent-gated lead tracker and callback ranking tool for tree service teams.",
+      "proposed_price_cents": 2900,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "creator-content-ops-30",
+      "name": "30-Day Creator Content Operations Calendar",
+      "category": "Creator templates",
+      "description": "Importable 30-day content planner with briefs and review fields.",
+      "proposed_price_cents": 1900,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "local-business-content-calendar",
+      "name": "Local Business Content Calendar & Research Kit",
+      "category": "Creator templates",
+      "description": "30 original content directions and audience research for local business teams.",
+      "proposed_price_cents": 1900,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "home-services-content-calendar",
+      "name": "Home Services Content Calendar & Research Kit",
+      "category": "Creator templates",
+      "description": "30 original content directions and audience research for home services teams.",
+      "proposed_price_cents": 1900,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "b2b-saas-content-calendar",
+      "name": "B2B SaaS Content Calendar & Research Kit",
+      "category": "Creator templates",
+      "description": "30 original content directions and audience research for b2b saas teams.",
+      "proposed_price_cents": 1900,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "realtor-content-calendar",
+      "name": "Real Estate Agent Content Calendar & Research Kit",
+      "category": "Creator templates",
+      "description": "30 original content directions and audience research for real estate agent teams.",
+      "proposed_price_cents": 1900,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "consultant-content-calendar",
+      "name": "Consulting Content Calendar & Research Kit",
+      "category": "Creator templates",
+      "description": "30 original content directions and audience research for consulting teams.",
+      "proposed_price_cents": 1900,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "fitness-coach-content-calendar",
+      "name": "Fitness Coaching Content Calendar & Research Kit",
+      "category": "Creator templates",
+      "description": "30 original content directions and audience research for fitness coaching teams.",
+      "proposed_price_cents": 1900,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "photographer-content-calendar",
+      "name": "Photography Content Calendar & Research Kit",
+      "category": "Creator templates",
+      "description": "30 original content directions and audience research for photography teams.",
+      "proposed_price_cents": 1900,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "freelance-designer-content-calendar",
+      "name": "Freelance Design Content Calendar & Research Kit",
+      "category": "Creator templates",
+      "description": "30 original content directions and audience research for freelance design teams.",
+      "proposed_price_cents": 1900,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "recruiter-content-calendar",
+      "name": "Recruitment Content Calendar & Research Kit",
+      "category": "Creator templates",
+      "description": "30 original content directions and audience research for recruitment teams.",
+      "proposed_price_cents": 1900,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "educator-content-calendar",
+      "name": "Education Content Calendar & Research Kit",
+      "category": "Creator templates",
+      "description": "30 original content directions and audience research for education teams.",
+      "proposed_price_cents": 1900,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "virtual-assistant-content-calendar",
+      "name": "Virtual Assistance Content Calendar & Research Kit",
+      "category": "Creator templates",
+      "description": "30 original content directions and audience research for virtual assistance teams.",
+      "proposed_price_cents": 1900,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "nonprofit-content-calendar",
+      "name": "Nonprofit Content Calendar & Research Kit",
+      "category": "Creator templates",
+      "description": "30 original content directions and audience research for nonprofit teams.",
+      "proposed_price_cents": 1900,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "executive-weekly-ops",
+      "name": "Executive Weekly Operations Planner",
+      "category": "Productivity templates",
+      "description": "Notion-compatible scorecards, meeting actions and decision logs.",
+      "proposed_price_cents": 1700,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "agency-operations-planner",
+      "name": "Agency Operations Planner",
+      "category": "Productivity templates",
+      "description": "Role-specific scorecards, priorities and decision logging for agency work.",
+      "proposed_price_cents": 1700,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "solo-founder-operations-planner",
+      "name": "Solo Founder Operations Planner",
+      "category": "Productivity templates",
+      "description": "Role-specific scorecards, priorities and decision logging for solo founder work.",
+      "proposed_price_cents": 1700,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "operations-operations-planner",
+      "name": "Operations Operations Planner",
+      "category": "Productivity templates",
+      "description": "Role-specific scorecards, priorities and decision logging for operations work.",
+      "proposed_price_cents": 1700,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "product-manager-operations-planner",
+      "name": "Product Manager Operations Planner",
+      "category": "Productivity templates",
+      "description": "Role-specific scorecards, priorities and decision logging for product manager work.",
+      "proposed_price_cents": 1700,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "sales-manager-operations-planner",
+      "name": "Sales Manager Operations Planner",
+      "category": "Productivity templates",
+      "description": "Role-specific scorecards, priorities and decision logging for sales manager work.",
+      "proposed_price_cents": 1700,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "content-team-operations-planner",
+      "name": "Content Team Operations Planner",
+      "category": "Productivity templates",
+      "description": "Role-specific scorecards, priorities and decision logging for content team work.",
+      "proposed_price_cents": 1700,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "client-success-operations-planner",
+      "name": "Client Success Operations Planner",
+      "category": "Productivity templates",
+      "description": "Role-specific scorecards, priorities and decision logging for client success work.",
+      "proposed_price_cents": 1700,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "contractor-operations-planner",
+      "name": "Contractor Operations Planner",
+      "category": "Productivity templates",
+      "description": "Role-specific scorecards, priorities and decision logging for contractor work.",
+      "proposed_price_cents": 1700,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "freelancer-operations-planner",
+      "name": "Freelancer Operations Planner",
+      "category": "Productivity templates",
+      "description": "Role-specific scorecards, priorities and decision logging for freelancer work.",
+      "proposed_price_cents": 1700,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "event-manager-operations-planner",
+      "name": "Event Manager Operations Planner",
+      "category": "Productivity templates",
+      "description": "Role-specific scorecards, priorities and decision logging for event manager work.",
+      "proposed_price_cents": 1700,
+      "availability": "preview_only"
+    },
+    {
+      "sku": "api-launch-starter",
+      "name": "Python API Launch Starter",
+      "category": "Developer kits",
+      "description": "Original FastAPI scaffold with auth example, Docker and tests.",
+      "proposed_price_cents": 4900,
+      "availability": "preview_only"
+    }
+  ]
+}
