@@ -1,0 +1,37 @@
+name: Contractor Sales Page Contract
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Validate buyer intake and no direct uploads
+        run: python -m unittest discover -s tests -p 'test_dfw_trades_page.py'
+      - name: Syntax-check inline customer email composer
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          from re import search
+          page = Path("dfw-trades.html").read_text()
+          match = search(r"<script>(.*?)</script>", page, flags=16)
+          assert match, "Missing inline email composer"
+          Path("/tmp/dfw-intake.js").write_text(match.group(1))
+          PY
+          node --check /tmp/dfw-intake.js

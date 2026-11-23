@@ -13,6 +13,7 @@
 <div class="wrap"><div class="sheet"><main>
 <h1>When your crew is on a job, who owns the next callback?</h1>
 <p>The Lead-Callback Review examines one recent lead list from one source, usually the last 30 days, up to 500 records.</p>
+<p><a class="cta" href="#request">Request a fixed-scope review</a></p>
 <h2>$497 one-time review</h2>
 <ul>
 <li>An annotated lead spreadsheet showing missing owners and documented next steps where the export includes those fields.</li>
@@ -23,12 +24,57 @@
 <h2>Optional installation: $2,500 total</h2>
 <p>Subject to a compatibility check and written scope, the installation configures a callback deadline, backup owner, and manager visibility in your existing system. If you already purchased the $497 review, it is credited toward the $2,500 total, leaving $2,003. Do not buy a second full-price installation to claim the credit.</p>
 <p>No promised number of jobs, appointments, or recovered dollars. No required new CRM. Any third-party software or usage costs must be agreed separately before installation.</p>
-<h2>Request the review</h2>
-<p>Email your company name, current CRM, lead source, approximate record count, and the fields your export can include. Do not send customer lead records or account credentials with the initial inquiry.</p>
-<p><a class="cta" href="mailto:gwc2780@gmail.com?subject=DFW%20contractor%20%24497%20callback%20review">Request scope and payment link</a></p>
+<h2 id="request">Request the $497 review</h2>
+<p>Tell us about your workflow, not your customers. This short request opens a prefilled email in your email app; <strong>it does not send automatically</strong>. Do not include customer lead records, logins, or passwords.</p>
+<form id="scope-request" aria-label="Lead-Callback Review scope request">
+  <label for="company">Business name</label>
+  <input id="company" name="company" autocomplete="organization" maxlength="120" required placeholder="Your contracting business">
+  <label for="crm">Current CRM or lead tracking tool</label>
+  <input id="crm" name="crm" maxlength="120" placeholder="For example: spreadsheet, job software, or CRM">
+  <label for="source">Lead source</label>
+  <input id="source" name="source" maxlength="120" required placeholder="For example: website requests or calls">
+  <label for="volume">Approximate number of records</label>
+  <select id="volume" name="volume" required>
+    <option value="">Select an estimate</option>
+    <option value="1–50">1–50</option>
+    <option value="51–200">51–200</option>
+    <option value="201–500">201–500</option>
+    <option value="More than 500 (requires separate scope)">More than 500 (requires separate scope)</option>
+  </select>
+  <label for="fields">Available export columns (no actual customer data)</label>
+  <input id="fields" name="fields" maxlength="200" placeholder="For example: created date, status, assigned person">
+  <button type="submit">Compose my scope request</button>
+  <p class="muted" id="email-hint" role="status">Your email app opens for you to review and send. No lead records are uploaded by this page.</p>
+</form>
+<p>If your email app does not open, <a href="mailto:gwc2780@gmail.com?subject=DFW%20contractor%20%24497%20callback%20review">email Garcar Enterprise directly</a>.</p>
 <p>Before payment, we will agree on data suitability, deliverables, delivery date, data-transfer arrangements, and cancellation/refund terms in writing. This inquiry does not charge you. A payment link will be provided after scope confirmation.</p>
 <p>The previous $47 diagnostic remains retired. Do not pay an old $47 invoice for this service.</p>
 <p><a href="/">Real-estate team review</a> · <a href="mailto:gwc2780@gmail.com">gwc2780@gmail.com</a></p>
 </main></div></div>
+<script>
+(function () {
+  const form = document.getElementById("scope-request");
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+    const get = id => document.getElementById(id).value.trim();
+    const lines = [
+      "Hello Garcar Enterprise,",
+      "",
+      "Please confirm the scope and secure payment steps for the $497 Lead-Callback Review.",
+      "Business: " + get("company"),
+      "CRM/tool: " + (get("crm") || "Not specified"),
+      "Lead source: " + get("source"),
+      "Estimated rows: " + get("volume"),
+      "Available columns: " + (get("fields") || "Not specified"),
+      "",
+      "I have not attached any customer records or credentials. Please confirm suitability, secure transfer, written terms, and payment instructions."
+    ];
+    const subject = "DFW contractor $497 Lead-Callback Review scope request";
+    window.location.href = "mailto:gwc2780@gmail.com?subject=" +
+      encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n"));
+  });
+}());
+</script>
 </body>
 </html>
