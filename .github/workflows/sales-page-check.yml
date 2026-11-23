@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: '20'
       - name: Validate buyer intake and no direct uploads
-        run: python -m unittest discover -s tests -p 'test_dfw_trades_page.py'
+        run: python -m unittest discover -s tests -p 'test_*_page.py'
       - name: Syntax-check inline customer email composer
         shell: bash
         run: |
@@ -35,3 +35,19 @@ jobs:
           Path("/tmp/dfw-intake.js").write_text(match.group(1))
           PY
           node --check /tmp/dfw-intake.js
+      - name: Validate local CSV analyzer
+        run: node --test tests/callback-preview.test.mjs
+      - name: Syntax-check browser-only preview
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --check callback-preview-core.mjs
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          html = Path("callback-preview.html").read_text()
+          match = re.search(r'<script type="module">(.*?)</script>', html, re.S)
+          assert match, "Browser analyzer module not found"
+          Path("/tmp/garcar-preview-inline.mjs").write_text(match.group(1))
+          PY
+          node --check /tmp/garcar-preview-inline.mjs
